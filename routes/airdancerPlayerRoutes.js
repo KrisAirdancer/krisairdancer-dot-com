@@ -10,16 +10,6 @@ router.get('/', (req, res) => {
     res.render('airdancerPlayer');
 });
 
-router.get('/track/:id', (req, res) => {
-    // console.log(`AT: /track/:id`);
-
-    // console.log(`:id: ${req.params.id}`);
-
-    let trackName = req.params.id.replaceAll('_', ' ');
-
-    mediaserver.pipe(req, res, `tracks/${trackName}`);
-});
-
 /*******************
  * OTHER FUNCTIONS *
  *******************/
@@ -34,20 +24,13 @@ function generateXML() {
             <trackList>
     `;
 
-    let files = fs.readdirSync('tracks/');
+    let files = fs.readdirSync('public/tracks/');
     files.forEach(fileName => {
-        fileName = fileName.replaceAll(' ', '_');
-
-        let trackName = fileName.substring(0, fileName.indexOf('.'));
-        trackName = trackName.replaceAll('_', ' ');
-
-        // console.log('fileName:', fileName);
-        // console.log('trackName:', trackName);
 
         data += `
                 <track>
                     <title>${trackName}</title>
-                    <location>http://localhost:8080/airdancer-player/track/${fileName}</location>
+                    <location>http://localhost:8080/tracks/${fileName}</location>
                 </track>
         `;
     });
