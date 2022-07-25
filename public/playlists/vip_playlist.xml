@@ -1,0 +1,42 @@
+
+        <playlist xmlns="https://xspf.org/ns/0/" version="1">
+            <trackList>
+    
+                <track>
+                    <title>Daxten - All Of Us</title>
+                    <location>http://localhost:8080/airdancer-player/track/Daxten_-_All_Of_Us.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart 64 - Daysend</title>
+                    <location>http://localhost:8080/airdancer-player/track/Mariokart_64_-_Daysend.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart 64 - Rainbow Road (electroremix)</title>
+                    <location>http://localhost:8080/airdancer-player/track/Mariokart_64_-_Rainbow_Road_(electroremix).mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart 64 - See You Next Time</title>
+                    <location>http://localhost:8080/airdancer-player/track/Mariokart_64_-_See_You_Next_Time.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart 7 - Rainbow Road</title>
+                    <location>http://localhost:8080/airdancer-player/track/Mariokart_7_-_Rainbow_Road.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart Double Dash - Ending</title>
+                    <location>http://localhost:8080/airdancer-player/track/Mariokart_Double_Dash_-_Ending.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart Double Dash - Royal Rainbow Road</title>
+                    <location>http://localhost:8080/airdancer-player/track/Mariokart_Double_Dash_-_Royal_Rainbow_Road.mp3</location>
+                </track>
+        
+            </trackList>
+        </playlist>
+    
