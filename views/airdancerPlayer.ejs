@@ -18,9 +18,9 @@
 
 	var PLAYLISTS = {
 		'VIP': '//localhost:8080/playlists/vip_playlist.xml',
-		// 'VIP': '//localhost:8080/C:/Users/chris/repos/AirdancerPi/public/playlists/vip_playlist.xml',
+		'LIST 1': '//localhost:8080/playlists/list_1_playlist.xml'
 	};
-	// ORIGINAL PLAYLISTS
+	// ORIGINAL PLAYLISTS - note, these must be used exactly to get them to work. Don't copy the XML file and try to run it from this server. Access everything from the original server.
 		// 'VIP': '//vip.aersia.net/roster.xml',
 		// 'Mellow': '//vip.aersia.net/roster-mellow.xml',
 		// 'Source': '//vip.aersia.net/roster-source.xml',
@@ -31,6 +31,8 @@
 	var DEFAULT_PLAYLIST = 'VIP';
 
 	function formatTimecode (seconds) {
+		// console.log(`AT: formatTimecode`);
+
 		seconds = Math.floor (seconds);
 		minutes = Math.floor (seconds / 60);
 		seconds = seconds - (minutes * 60);
@@ -47,6 +49,8 @@
 
 	// Creates an id for a track used in the location hash
 	function createTrackId (track) {
+		// console.log(`AT: createTrackId`);
+
 		var playlist = $('#select-playlist').val ();
 		// var track = track.creator + ' - ' + track.title; // << ORIGINAL FORMATTING (ORIGINAL CODE)
 		var track = track.title;
@@ -56,6 +60,8 @@
 	}
 
 	function parseTrackId (trackId) {
+		// console.log(`AT: parseTrackId`);
+
 		var pieces = trackId.split (':');
 		var playlist = '';
 		var track = '';
@@ -79,6 +85,8 @@
 	}
 
 	function parsePlaylist (playlistXML) {
+		// console.log(`AT: parsePlaylist`);
+
 		result = [];
 
 		$(playlistXML).find ('playlist trackList > track').each (function () {
@@ -95,6 +103,8 @@
 	}
 
 	function playPreviousTrack () {
+		// console.log(`AT: playPreviousTrack`);
+
 		if (g_playlist === null)
 			return;
 
@@ -107,6 +117,8 @@
 	}
 
 	function playNextTrack () {
+		// console.log(`AT: playNextTrack`);
+
 		if (g_playlist === null)
 			return;
 
@@ -128,6 +140,8 @@
 
 
 	function playTrack (trackid) {
+		// console.log(`AT: playTrack`);
+
 		var track = g_playlist[trackid];
 
 		$('#tracks-table .selected').removeClass ('selected');
@@ -144,6 +158,8 @@
 	}
 
 	function loadNewPlaylist (playlist, track) {
+		// console.log(`AT: loadNewPlaylist`);
+
 		var playlistURL = PLAYLISTS[playlist];
 		var selected_track = track;
 
@@ -161,7 +177,7 @@
 			success: function (data) {
 				// Parse track list
 				g_playlist = parsePlaylist (data);
-
+				
 				// Build HTML table for track listing
 				for (var i = 0; i < g_playlist.length; ++i) {
 					var track = g_playlist[i];
