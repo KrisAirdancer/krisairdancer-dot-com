@@ -4,7 +4,7 @@
 
         <track>
             <title>Daxten - All Of Us</title>
-            <location>http://localhost:8080/airdancer-player/track/Daxten_-_All_Of_Us.mp3</location>
+            <location>http://localhost:8080/tracks/Daxten - All Of Us.mp3</location>
         </track>
 
     </trackList>
