@@ -27,6 +27,8 @@ function generateXML() {
     let files = fs.readdirSync('public/tracks/');
     files.forEach(fileName => {
 
+        let trackName = fileName.substring(0, fileName.indexOf('.'));
+
         data += `
                 <track>
                     <title>${trackName}</title>
