@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 app.get('/homepage', (req, res) => {
     // console.log(`AT: /homepage`);
 
-    res.render('homepage');
+    res.render('main_site_views/homepage');
 });
 
 app.use('/airdancer-player', airdancerPlayerRoutes);
@@ -32,7 +32,7 @@ app.use('/airdancer-player', airdancerPlayerRoutes);
 app.use( (req, res) => { 
     // console.log(`AT: 404 route`);
 
-    res.status(404).render('404', { title: '404'} );
+    res.status(404).render('main_site_views/404', { title: '404'} );
 });
 
 app.listen(11001, (error) => {

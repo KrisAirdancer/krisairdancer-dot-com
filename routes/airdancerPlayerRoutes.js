@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     // console.log(`AT: /`);
 
     generateXML();
-    res.render('airdancerPlayer');
+    res.render('airdancer_player_views/airdancerPlayer');
 });
 
 /*******************
@@ -24,7 +24,7 @@ function generateXML() {
             <trackList>
     `;
 
-    let files = fs.readdirSync('public/tracks/');
+    let files = fs.readdirSync('public/airdancer_player_assets/tracks/');
     files.forEach(fileName => {
 
         let trackName = fileName.substring(0, fileName.indexOf('.'));
@@ -32,7 +32,7 @@ function generateXML() {
         data += `
                 <track>
                     <title>${trackName}</title>
-                    <location>http://10.0.0.79:11001/tracks/${fileName}</location>
+                    <location>http://localhost:11001/airdancer_player_assets/tracks/${fileName}</location>
                 </track>
         `;
     });
@@ -44,7 +44,7 @@ function generateXML() {
 
     // console.log(data);
 
-    fs.writeFile('public/playlists/vip_playlist.xml', data, (err) => {
+    fs.writeFile('public/airdancer_player_assets/playlists/vip_playlist.xml', data, (err) => {
         if (err) {
             throw err;
         };
