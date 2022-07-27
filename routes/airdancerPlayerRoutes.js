@@ -32,7 +32,7 @@ function generateXML() {
         data += `
                 <track>
                     <title>${trackName}</title>
-                    <location>http://10.0.0.79:8080/tracks/${fileName}</location>
+                    <location>http://10.0.0.79:11001/tracks/${fileName}</location>
                 </track>
         `;
     });
