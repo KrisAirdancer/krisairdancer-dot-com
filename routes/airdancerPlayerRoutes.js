@@ -32,7 +32,7 @@ function generateXML() {
         data += `
                 <track>
                     <title>${trackName}</title>
-                    <location>http://10.0.0.79:11001/airdancer_player_assets/tracks/${fileName}</location>
+                    <location>http://localhost:11001/airdancer_player_assets/tracks/${fileName}</location>
                 </track>
         `;
     });
