@@ -13,6 +13,25 @@ This server has not yet been opened up to run outside my local network.
     - SSH into The Pi.
     - Pull the changes down onto The Pi.
     - Restart PM2 using `pm2 restart AirdancerServer`.
+- To upload new tracks,
+    - Add tracks to File_Transfer repo.
+    - Push changes to remote.
+    - SSH into The Pi
+    - Pull changes to The Pi.
+    - `sudo cp /var/www/File_Transfer/*.mp3 ./` to copy all .mp3 files to player directory.
+        - Repeat for all file types.
+    - Add files to local copy of player (AirdancerServer on PC)
+    - Run the project to rebuild the XML file
+        - For some reason it isn't re-building the XML file on The Pi.
+    - Push the changes to The Pi via Git.
+    - No need to restart the server via PM2. But if an issue arises, try this first.
+        - `sudo pm2 restart AirdancerServer`
+- To remove old tracks,
+    - Delete the track from the local copy.
+    - Rebuild the XML file per instructions in "To upload new tracks" above.
+    - Push changes to The Pi.
+    - Remove the file on The Pi via SSH and `sudo rm "<file-name>"
+        - Make sure to put the file name in quotes or the terminal will think the special characters are commands.
 
 
 # Potential Upgrades
