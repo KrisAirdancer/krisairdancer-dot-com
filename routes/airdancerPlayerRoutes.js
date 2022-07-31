@@ -59,7 +59,7 @@ function generateXML() {
     //     }
     // });
 
-    fs.writeFile('public/airdancer_player_assets/playlists/vip_playlist.xml', data, (err) => {
+    fs.writeFileSync('public/airdancer_player_assets/playlists/vip_playlist.xml', data, (err) => {
         if (err) {
             console.log(`fs.writeFile() threw an error`);
             throw err;
