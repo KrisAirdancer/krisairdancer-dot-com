@@ -15,12 +15,7 @@ router.get('/', (req, res) => {
  *******************/
 
 function generateXML() {
-    // console.log('AT: generateXML');
-    fs.appendFile('logs.txt', 'AT: generateXML\n', (err) => {
-        if (err) {
-            console.log(err);
-        }
-    });
+    // console.log(`AT: generateXML()`);
 
     let data = '';
 
@@ -33,12 +28,6 @@ function generateXML() {
     files.forEach(fileName => {
         
         let trackName = fileName.substring(0, fileName.indexOf('.'));
-        // console.log(`filename: ${fileName}, trackname: ${trackName}`);
-        fs.appendFile('logs.txt', `filename: ${fileName}, trackname: ${trackName}\n`, (err) => {
-            if (err) {
-                console.log(err);
-            }
-        });
         data += `
                 <track>
                     <title>${trackName}</title>
@@ -51,13 +40,6 @@ function generateXML() {
             </trackList>
         </playlist>
     `;
-
-    // console.log(data);
-    // fs.appendFile('logs.txt', `${data}\n`, (err) => {
-    //     if (err) {
-    //         console.log(err);
-    //     }
-    // });
 
     fs.writeFileSync('public/airdancer_player_assets/playlists/vip_playlist.xml', data, (err) => {
         if (err) {
