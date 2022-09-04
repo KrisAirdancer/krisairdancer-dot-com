@@ -1,9 +1,5 @@
 # Packages
 node_modules
 
-# Audio Files
-*.mp3
-*.m4a
-
 #Logging
 logs.txt
