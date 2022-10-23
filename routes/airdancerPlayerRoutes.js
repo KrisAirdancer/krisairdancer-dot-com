@@ -31,7 +31,7 @@ function generateXML() {
         data += `
                 <track>
                     <title>${trackName}</title>
-                    <location>http://192.168.1.136:11001/airdancer_player_assets/tracks/${fileName}</location>
+                    <location>http://76.27.40.176:11001/airdancer_player_assets/tracks/${fileName}</location>
                 </track>
         `;
     });
