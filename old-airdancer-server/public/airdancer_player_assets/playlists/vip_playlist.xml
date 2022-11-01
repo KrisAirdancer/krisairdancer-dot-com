@@ -1,0 +1,512 @@
+
+        <playlist xmlns="https://xspf.org/ns/0/" version="1">
+            <trackList>
+    
+                <track>
+                    <title>Anohana - Secret Base (Small Orchestra)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Anohana - Secret Base (Small Orchestra).mp3</location>
+                </track>
+        
+                <track>
+                    <title>Anohana - Secret Base</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Anohana - Secret Base.mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Alpha (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Alpha (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Aria Math (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Aria Math (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Ballad of the Cats (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Ballad of the Cats (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Beginning 2 (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Beginning 2 (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Biome Fest (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Biome Fest (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Blind Spots (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Blind Spots (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Blocks (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Blocks (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Chirp (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Chirp (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Concrete Halls (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Concrete Halls (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Dead Voxel (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Dead Voxel (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Depado</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Depado.mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Dreiton (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Dreiton (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Eleven (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Eleven (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Far (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Far (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Flake (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Flake (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Floating Trees (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Floating Trees (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Haunt Muskie (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Haunt Muskie (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Intro (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Intro (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Ki (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Ki (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Kyoto (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Kyoto (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Mall (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Mall (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Mellohi (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Mellohi (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Moog City 2 (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Moog City 2 (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Mutation (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Mutation (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Stal (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Stal (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Strad (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Strad (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Taswell (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Taswell (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - The End (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - The End (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Wait (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Wait (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Ward (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Ward (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>C418 - Warmth (Minecraft Volume Beta)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/C418 - Warmth (Minecraft Volume Beta).mp3</location>
+                </track>
+        
+                <track>
+                    <title>Daxten - All Of Us</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Daxten - All Of Us.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Fate Zero - Memoria (Vocals, Orchestra)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Fate Zero - Memoria (Vocals, Orchestra).mp3</location>
+                </track>
+        
+                <track>
+                    <title>Fate Zero - Memoria</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Fate Zero - Memoria.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - A Prosk Winter</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - A Prosk Winter.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Bypass</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Bypass.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Catalyst</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Catalyst.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Cavorite</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Cavorite.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Constructor</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Constructor.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Graphene</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Graphene.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - H</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - H.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - How to Win a War</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - How to Win a War.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Illal</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Illal.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Made of Metal I</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Made of Metal I.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Made of Metal II</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Made of Metal II.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Man and Machine</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Man and Machine.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Origin</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Origin.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Rust and Ruin</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Rust and Ruin.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Survivalist I</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Survivalist I.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Survivalist II</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Survivalist II.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Survivalist III</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Survivalist III.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - Survivalist IV</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - Survivalist IV.mp3</location>
+                </track>
+        
+                <track>
+                    <title>HAWKEN - The Crion Incident</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/HAWKEN - The Crion Incident.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart 64 - Daysend</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Mariokart 64 - Daysend.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart 64 - Rainbow Road (electroremix)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Mariokart 64 - Rainbow Road (electroremix).mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart 64 - See You Next Time</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Mariokart 64 - See You Next Time.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart 7 - Rainbow Road</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Mariokart 7 - Rainbow Road.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart Double Dash - Ending</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Mariokart Double Dash - Ending.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Mariokart Double Dash - Royal Rainbow Road</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Mariokart Double Dash - Royal Rainbow Road.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 1 - Key</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 1 - Key.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 10 - Equinoxe</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 10 - Equinoxe.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 11 - Mice on Venus</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 11 - Mice on Venus.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 12 - Dry Hands</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 12 - Dry Hands.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 13 - Wet Hands</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 13 - Wet Hands.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 14 - Clark</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 14 - Clark.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 15 - Chris</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 15 - Chris.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 16 - Thirteen</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 16 - Thirteen.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 17 - Excuse</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 17 - Excuse.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 18 - Sweden</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 18 - Sweden.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 19 - Cat</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 19 - Cat.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 2 - Door</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 2 - Door.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 20 - Dog</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 20 - Dog.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 21 - Danny</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 21 - Danny.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 22 - Beginning</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 22 - Beginning.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 23 - Droopy Likes Ricochet (1)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 23 - Droopy Likes Ricochet (1).mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 24 - Droopy Likes your Face</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 24 - Droopy Likes your Face.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 3 - Subwoofer Lullaby</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 3 - Subwoofer Lullaby.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 4 - Death</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 4 - Death.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 5 - Living Mice</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 5 - Living Mice.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 6 - Moog City</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 6 - Moog City.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 7 - Haggstrom</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 7 - Haggstrom.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 8 - Minecraft</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 8 - Minecraft.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Minecraft Volume Alpha - 9 - Oxygene</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Minecraft Volume Alpha - 9 - Oxygene.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Black and White - Farewell</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Black and White - Farewell.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon GSC - Battle with Red</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon GSC - Battle with Red.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon GSC - National Park</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon GSC - National Park.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon MD2 - Primal Dialga Remix</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon MD2 - Primal Dialga Remix.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Oras - Battle Wally</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Oras - Battle Wally.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Ruby - Battle (vs gym leader)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Ruby - Battle (vs gym leader).m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Ruby - Pallet Town Theme</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Ruby - Pallet Town Theme.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Ruby - Rivals</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Ruby - Rivals.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Ruby - Team Rocket Hideout</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Ruby - Team Rocket Hideout.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Spirit Chronicles - Welcome to the World of Pokemon</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Spirit Chronicles - Welcome to the World of Pokemon.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Stadium - Credits (round 1)</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Stadium - Credits (round 1).m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemon Stadium - Prime Cup Battles 13</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemon Stadium - Prime Cup Battles 13.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Pokemonm DRB - Brief Winter Trek</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Pokemonm DRB - Brief Winter Trek.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Portal - Still Alive</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Portal - Still Alive.m4a</location>
+                </track>
+        
+                <track>
+                    <title>Streamline</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Streamline.mp3</location>
+                </track>
+        
+                <track>
+                    <title>Unknown Track - 1</title>
+                    <location>http://localhost:12000/airdancer-player-assets/tracks/Unknown Track - 1.m4a</location>
+                </track>
+        
+            </trackList>
+        </playlist>
+    
