@@ -26,9 +26,9 @@ app.use( (req, res) => {
     res.status(404).render('main_site_views/404', { title: '404'} );
 });
 
-app.listen(11001, (error) => {
+app.listen(11002, (error) => {
     if(error){
         throw error;
     }   
-    console.log("Server listening on port 11001");
+    console.log("Server listening on port 11002");
 });
