@@ -2,7 +2,7 @@
 
 A Node.js server running on my Raspberry Pi.
 
-This was a proof of concept for me to learn how to run a server on the Raspberry Pi. The current (bare bones) version of the site is [here](http://76.27.40.176:11001/homepage) and I'm building a better version of it [here](https://github.com/KrisAirdancer/vidya-clone).
+This was a proof of concept for me to learn how to run a server on the Raspberry Pi. The current (bare bones) version of the site is [here](http://krisairdancer.com/homepage) and I'm building a better version of it [here](https://github.com/KrisAirdancer/vidya-clone).
 
 This server currently builds a simple music player website build from the [Vidya Intarweb Playlist HTML5 Player](https://github.com/fpgaminer/vip-html5-player). Essentially a clone of [Vipvgm.net](https://www.vipvgm.net/).
 

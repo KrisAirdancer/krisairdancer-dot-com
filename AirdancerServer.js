@@ -16,13 +16,6 @@ app.set('view engine', 'ejs');
   
 // TODO: Replace the redirect here to got to the krisairdancer.com directory page (homepage).
 app.get('/', (req, res) => {
-    // console.log('AT: /');
-
-    res.redirect('/homepage');
-});
-
-app.get('/homepage', (req, res) => {
-    // console.log(`AT: /homepage`);
 
     res.render('main_site_views/homepage');
 });
@@ -30,7 +23,6 @@ app.get('/homepage', (req, res) => {
 app.use('/airdancer-player', airdancerPlayerRoutes);
 
 app.use( (req, res) => { 
-    // console.log(`AT: 404 route`);
 
     res.status(404).render('main_site_views/404', { title: '404'} );
 });
