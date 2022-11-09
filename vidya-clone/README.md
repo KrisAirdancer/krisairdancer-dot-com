@@ -4,6 +4,12 @@ Current Version: v0.1.0
 
 A clone of the [Vidya Intarweb Playlist](https://www.vipvgm.net/) by Cats777.
 
+## Versions
+
+| Version    | Release Date  | Notes                                  |
+| ---------- | ------------- | -------------------------------------- |
+| v0.1.0     | N/A           | Not yet released                       |
+
 ## API
 
 TODO: Document the API here (transfer from Google Docs).
