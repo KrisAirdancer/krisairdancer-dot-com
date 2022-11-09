@@ -10,3 +10,4 @@ This version v1.0.0 is a WIP and will ultimately replace v0.1.0.
 
 - [airdancer-controller](https://github.com/KrisAirdancer/airdancer-service/tree/api-redesign-2022/airdancer-frontend): v1.0.0 (pre-release)
 - [vidya-clone](https://github.com/KrisAirdancer/airdancer-service/tree/api-redesign-2022/vidya-clone): v0.1.0 (pre-release)
+- [personal-website](https://github.com/KrisAirdancer/airdancer-service/tree/api-redesign-2022/personal-website): v0.1.0 (pre-release)
