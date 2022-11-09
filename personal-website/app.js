@@ -2,7 +2,7 @@ const express = require('express')
 
 /***** CONFIGURATIONs *****/
 
-const PORT = 11001;
+const PORT = 11002;
 
 /***** APPLICATION SETUP *****/
 
@@ -10,8 +10,9 @@ const app = express();
 
 /***** ROUTING *****/
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!')
+app.get('/string', (req, res) => {
+    // res.write('Hello, from personal website.')
+    res.send({ msg: 'Hello, from personal-web' });
 });
 
 /***** LAUNCH APPLICATION *****/
