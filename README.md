@@ -1,4 +1,4 @@
-# Airdancer Server
+# Airdancer Service
 
 A Node.js web server running on my Raspberry Pi.
 
