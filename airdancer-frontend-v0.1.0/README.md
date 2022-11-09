@@ -1,4 +1,4 @@
-# Airdancer Server
+# airdancer-frontend-v0.1.0
 
 A Node.js web server running on my Raspberry Pi.
 
