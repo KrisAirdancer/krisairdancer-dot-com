@@ -1,11 +1,3 @@
-# airdancer-controller
+# krisairdancer-frontend
 
-Current Version: v1.0.0 (pre-release)
-
-This is v1.0.0 of the Airdancer Server's frontend.
-
-## Versioning
-
-| Version    | Release Date  | Notes                                  |
-| ---------- | ------------- | -------------------------------------- |
-| v1.0.0     | N/A           | Not yet released                       |
+This is the frontend of [krisairdancer.com](https://krisairdancer.com).
