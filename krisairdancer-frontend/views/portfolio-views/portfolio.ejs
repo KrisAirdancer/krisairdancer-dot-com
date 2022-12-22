@@ -1,12 +1,59 @@
-12 lines (11 sloc)  296 Bytes
-
-<link rel="stylesheet" href="styles.css">
+<!-- <link rel="stylesheet" href="styles.css"> -->
 <title>Airdancer Pi</title>
 <link rel="shortcut icon" href="/wind-icon.png" type="image/png">
+<!-- <link rel="stylesheet" href="../../public/krisairdancer.css"> -->
 <body>
-    <h1>Hi, I'm Chris!</h1>
-    <p>Welcome to my portfolio site.</p>
-    <p>It's a bit ugly right now. But I hope to have it looking nice sometime soon.</p>
-    <h2>Projects</h2>
-    <p><a href="https://krisairdancer.github.io/6630-lego-set-visualizer/index.html">Here's</a> my CS 5630 Visualization for Data Science final project.</p>
+
+    <main>
+        <div id="outer-div">
+            <div id="content-div">
+                <h1>Hi, I'm Chris!</h1>
+                <p>Welcome to my portfolio site.</p>
+                <p>It's a bit ugly right now. But I hope to have it looking nice sometime soon.</p>
+                <h2>Projects</h2>
+                <p><a href="https://krisairdancer.github.io/6630-lego-set-visualizer/index.html">Here's</a> my CS 5630 Visualization for Data Science final project.</p>    
+            </div>
+        </div>
+    </main>
+
 </body>
+<style>
+
+    :root {
+        --blue: #122D4A;
+        --orange: #FFA366;
+    }
+
+    body {
+        background-color: var(--blue);
+        margin: 0px;
+    }
+
+    #outer-div {
+        background-color: var(--blue);
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        padding: 10px;
+        box-sizing: border-box; /* This line is the one that keeps the inner div from overflowing */
+    }
+
+    #content-div {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        height: 100%;
+        
+
+        border: 3px solid var(--orange);
+        border-radius: 10px;
+
+        background-color: var(--blue);
+        color: var(--orange);
+    }
+
+</style>
