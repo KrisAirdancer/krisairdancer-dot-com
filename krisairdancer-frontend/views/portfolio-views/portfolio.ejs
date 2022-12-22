@@ -1,14 +1,19 @@
 <title>Airdancer Pi</title>
+<!-- TODO: Fix favicon -->
 <link rel="shortcut icon" href="/wind-icon.png" type="image/png">
 <body>
     <main>
         <div id="outer-div">
             <div id="content-div">
-                <h1>Hi, I'm Chris!</h1>
-                <p>Welcome to my portfolio site.</p>
-                <p>It's a bit ugly right now. But I hope to have it looking nice sometime soon.</p>
+                <p>██╗  ██╗██████╗  █████╗ ██████╗  ██████╗  ╦╔═╦═╗╦╔═╗╔═╗╦╦═╗╔╦╗╔═╗╔╗╔╔═╗╔═╗╦═╗<br>██║ ██╔╝╚════██╗██╔══██╗╚════██╗██╔════╝  ╠╩╗╠╦╝║╚═╗╠═╣║╠╦╝ ║║╠═╣║║║║  ║╣ ╠╦╝<br>█████╔╝  █████╔╝███████║ █████╔╝███████╗  ╩ ╩╩╚═╩╚═╝╩ ╩╩╩╚══╩╝╩ ╩╝╚╝╚═╝╚═╝╩╚═<br>██╔═██╗  ╚═══██╗██╔══██║██╔═══╝ ██╔═══██╗ The Portfolio of Chris Marston<br>██║  ██╗██████╔╝██║  ██║███████╗╚██████╔╝ v0.2.0<br>╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚═════╝</p>
                 <h2>Projects</h2>
-                <p><a href="https://krisairdancer.github.io/6630-lego-set-visualizer/index.html">Here's</a> my CS 5630 Visualization for Data Science final project.</p>    
+                <p><a href="https://krisairdancer.github.io/6630-lego-set-visualizer/index.html">Final Project</a> for CS 5630: Visualization for Data Science</p>
+                <h2>About</h2>
+                <p>TODO</p>
+                <h2>Resume</h2>
+                <p>TODO: Add link to LinkedIn, GitHub, and a copy of my resume (the PDF)</p>
+                <h2>Contact</h2>
+                <p>TODO: LinkedIn link</p>
             </div>
         </div>
     </main>
@@ -22,6 +27,7 @@
     body {
         background-color: var(--blue);
         margin: 0px;
+        font-family:'Courier New', Courier, monospace
     }
 
     #outer-div {
@@ -40,5 +46,26 @@
         border-radius: 10px;
         background-color: var(--blue);
         color: var(--orange);
+        box-sizing: border-box; /* This line is the one that keeps the inner div from overflowing */
+        padding: 10px;
+    }
+
+    p {
+        white-space: pre-wrap;
+        margin: 0;
+    }
+
+    a:link {
+        color: var(--orange);
+        text-decoration: underline dotted;
+    }
+
+    a:visited {
+        color: var(--orange);
+        text-decoration: underline dotted;
+    }
+
+    a:hover {
+        color: white;
     }
 </style>
