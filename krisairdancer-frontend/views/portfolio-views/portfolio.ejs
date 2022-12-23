@@ -135,22 +135,21 @@
 <script>
     document.querySelectorAll('.collapsible-button').forEach(collapsible => {
         collapsible.addEventListener('click', () => {
-            console.log('CLICKED');
-
             let content = collapsible.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
-
-            content.classList.toggle('collapsible-content-active');
-
-            if (content.classList.contains('collapsible-content-active'))
+            
+            if (content.classList.contains('collapsible-content-active')) // Collapse it
+            {
+                content.style.maxHeight = '0px';
+                collapsible.textContent = 'View resume';
+                setTimeout(() => {
+                    content.classList.toggle('collapsible-content-active');
+                }, 900);
+            }
+            else // Expand it
             {
                 content.style.maxHeight = '400px';
                 collapsible.textContent = 'Hide resume';
-            }
-            else
-            {
-                // for (let i = 0; i < 1000; i++) { // Delay }
-                content.style.maxHeight = '0px';
-                collapsible.textContent = 'View resume';
+                content.classList.toggle('collapsible-content-active');
             }
         });
     });
