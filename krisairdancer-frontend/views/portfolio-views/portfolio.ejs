@@ -12,6 +12,10 @@
                 <p>TODO</p>
                 <h2>Resume</h2>
                 <p>TODO: Add link to LinkedIn, GitHub, and a copy of my resume (the PDF)</p>
+                <button type="button" class="collapsible-button">View resume</button>
+                <div class="collapsible-content">
+                    <object data="http://localhost:11001/chris-marston-resume.pdf" id="resume-pdf"></object>
+                </div>
                 <h2>Contact</h2>
                 <p>TODO: LinkedIn link</p>
             </div>
@@ -35,7 +39,8 @@
     body {
         background-color: var(--blue);
         margin: 0px;
-        font-family:'Courier New', Courier, monospace
+        font-family:'Courier New', Courier, monospace;
+        overflow-y: hidden;
     }
 
     #outer-div {
@@ -56,7 +61,57 @@
         color: var(--orange);
         box-sizing: border-box; /* This line is the one that keeps the inner div from overflowing */
         padding: 10px;
+        overflow-y: scroll;
     }
+
+    #content-div::-webkit-scrollbar {
+        display: none;
+    }
+
+    /***** Collapsible Content Styles *****/
+
+    .collapsible-button {
+        color: var(--orange);
+        background-color: var(--blue);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        cursor: pointer;
+        width: 800px;
+        margin: 5px 5px 5px 0px; /* Top Right Bottom Left */
+    }
+
+    .collapsible-button:hover {
+        color: white;
+        border-color: white;
+    }
+
+    /* Hide collapsible content when collapsed */
+    .collapsible-content {
+        display: flex;
+        overflow: hidden;
+        max-height: 0px;
+        max-width: 800px;
+        border-radius: 5px;
+        justify-content: center;
+        box-sizing: border-box;
+        transition: max-height 1s;
+    }
+    
+    .collapsible-content-active {
+        border: 1px solid var(--orange);
+    }
+
+    .resume-content {
+        /* TODO: Do I need this style? */
+    }
+
+    /* TODO: Do I need this style? */
+    #resume-pdf {
+        width: 800;
+        height: 500;
+    }
+
+    /***** Text Styles *****/
 
     p {
         white-space: pre-wrap;
@@ -77,3 +132,26 @@
         color: white;
     }
 </style>
+<script>
+    document.querySelectorAll('.collapsible-button').forEach(collapsible => {
+        collapsible.addEventListener('click', () => {
+            console.log('CLICKED');
+
+            let content = collapsible.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
+
+            content.classList.toggle('collapsible-content-active');
+
+            if (content.classList.contains('collapsible-content-active'))
+            {
+                content.style.maxHeight = '400px';
+                collapsible.textContent = 'Hide resume';
+            }
+            else
+            {
+                // for (let i = 0; i < 1000; i++) { // Delay }
+                content.style.maxHeight = '0px';
+                collapsible.textContent = 'View resume';
+            }
+        });
+    });
+</script>
