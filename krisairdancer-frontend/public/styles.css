@@ -6,6 +6,7 @@
 body {
     background-color: var(--blue);
     font-family:'Courier New', Courier, monospace;
+    font-size: 16px;
 }
 
 h1, h2 {
