@@ -1,0 +1,27 @@
+:root {
+    --blue: #122D4A;
+    --orange: #FFA366;
+}
+
+body {
+    background-color: var(--blue);
+    font-family:'Courier New', Courier, monospace;
+}
+
+h1, h2 {
+    color: var(--orange);
+}
+
+a:link {
+    color: var(--orange);
+    text-decoration: underline dotted;
+}
+
+a:visited {
+    color: var(--orange);
+    text-decoration: underline dotted;
+}
+
+a:hover {
+    color: white;
+}
