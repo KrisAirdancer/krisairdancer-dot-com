@@ -11,9 +11,27 @@
 <body>
     <div id="outer-div">
         <div id="content-div">
-            <p id="site-banner"> ██████╗███╗   ███╗ ╦╔═╦═╗╦╔═╗╔═╗╦╦═╗╔╦╗╔═╗╔╗╔╔═╗╔═╗╦═╗<br>██╔════╝████╗ ████║ ╠╩╗╠╦╝║╚═╗╠═╣║╠╦╝ ║║╠═╣║║║║  ║╣ ╠╦╝<br>██║     ██╔████╔██║ ╩ ╩╩╚═╩╚═╝╩ ╩╩╩╚══╩╝╩ ╩╝╚╝╚═╝╚═╝╩╚═<br>██║     ██║╚██╔╝██║ The Portfolio of Chris Marston<br>╚██████╗██║ ╚═╝ ██║ v0.2.0<br> ╚═════╝╚═╝     ╚═╝</p>
-            <p id="site-banner-mobile"> ██████╗███╗   ███╗ The<br>██╔════╝████╗ ████║ Portfolio of<br>██║     ██╔████╔██║ Chris Marston<br>██║     ██║╚██╔╝██║ v0.2.0<br>╚██████╗██║ ╚═╝ ██║<br> ╚═════╝╚═╝     ╚═╝</p>
-            <p id="site-banner-tiny">The<br>Portfolio of<br>Chris Marston</p>
+            <!-- <p id="site-banner"> ██████╗███╗   ███╗ ╦╔═╦═╗╦╔═╗╔═╗╦╦═╗╔╦╗╔═╗╔╗╔╔═╗╔═╗╦═╗<br>██╔════╝████╗ ████║ ╠╩╗╠╦╝║╚═╗╠═╣║╠╦╝ ║║╠═╣║║║║  ║╣ ╠╦╝<br>██║     ██╔████╔██║ ╩ ╩╩╚═╩╚═╝╩ ╩╩╩╚══╩╝╩ ╩╝╚╝╚═╝╚═╝╩╚═<br>██║     ██║╚██╔╝██║ The Portfolio of Chris Marston<br>╚██████╗██║ ╚═╝ ██║ v0.2.0<br> ╚═════╝╚═╝     ╚═╝</p> -->
+            <pre id="site-banner">
+ ██████╗███╗   ███╗ ╦╔═╦═╗╦╔═╗╔═╗╦╦═╗╔╦╗╔═╗╔╗╔╔═╗╔═╗╦═╗
+██╔════╝████╗ ████║ ╠╩╗╠╦╝║╚═╗╠═╣║╠╦╝ ║║╠═╣║║║║  ║╣ ╠╦╝
+██║     ██╔████╔██║ ╩ ╩╩╚═╩╚═╝╩ ╩╩╩╚══╩╝╩ ╩╝╚╝╚═╝╚═╝╩╚═
+██║     ██║╚██╔╝██║ The Portfolio of Chris Marston
+╚██████╗██║ ╚═╝ ██║ v0.2.0
+ ╚═════╝╚═╝     ╚═╝</pre>
+            <!-- <p id="site-banner-mobile"> ██████╗███╗   ███╗ The<br>██╔════╝████╗ ████║ Portfolio of<br>██║     ██╔████╔██║ Chris Marston<br>██║     ██║╚██╔╝██║ v0.2.0<br>╚██████╗██║ ╚═╝ ██║<br> ╚═════╝╚═╝     ╚═╝</p> -->
+            <pre id="site-banner-mobile">
+ ██████╗███╗   ███╗ The
+██╔════╝████╗ ████║ Portfolio of
+██║     ██╔████╔██║ Chris Marston
+██║     ██║╚██╔╝██║ v0.2.0
+╚██████╗██║ ╚═╝ ██║
+ ╚═════╝╚═╝     ╚═╝</pre>
+            <!-- <p id="site-banner-tiny">The<br>Portfolio of<br>Chris Marston</p> -->
+            <pre id="site-banner-tiny">
+The
+Portfolio of
+Chris Marston</pre>
 
             <h2>About</h2>
             <p>I'm Chris Marston and welcome to my website. I'm a computer science student in the United States. When I'm not studying for exams, you'll likely find me at my keyboard working on a project, climbing, or hiking.</p>
@@ -89,17 +107,17 @@
         max-width: 530px;
         font-size: 1.0rem;
         min-width: 600px;
-        white-space: pre;
+        margin: 0;
     }
     
     #site-banner-mobile {
         display: none;
-        white-space: pre;
+        margin: 0;
     }
 
     #site-banner-tiny {
         display: none;
-        white-space: pre;
+        margin: 0;
     }
 
     /***** Media Querries *****/
