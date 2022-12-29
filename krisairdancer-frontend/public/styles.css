@@ -6,6 +6,9 @@
 html {
     height: -webkit-fill-available; /* This accounts for the space that the navigaiton bar takes up on mobile devices */
     font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
 }
 
 body {
