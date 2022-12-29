@@ -44,9 +44,16 @@ Chris Marston</pre>
             <p>- A <a href="https://github.com/KrisAirdancer/Golden_Ramen_Bowl">clone</a> of my wife and I's Wordpress blog, <a href="https://goldenramenbowl.com">goldenramenbowl.com</a></p>
             
             <h2>Resume</h2>
-            <p><a href="https://krisairdancer.com/chris-marston-resume.pdf">Resume</a></p>
             <p><a href="https://www.linkedin.com/in/chris-s-marston/">LinkedIn</a></p>
             <p><a href="https://github.com/KrisAirdancer">GitHub</a></p>
+            <p id="resume-download"><a href="https://krisairdancer.com/chris-marston-resume.pdf">Resume</a></p>
+            <p id="resume-download-alt"><a href="https://krisairdancer.com/chris-marston-resume.pdf">Resume</a> (alt view)</p>
+            <div id="resume-group">
+                <button type="button" class="collapsible-button">View resume</button>
+                <div class="collapsible-content">
+                    <object data="https://krisairdancer.com/chris-marston-resume.pdf" id="resume-pdf"></object>
+                </div>
+            </div>
             
             <h2>Contact</h2>
             <p>You can reach me on <a href="https://www.linkedin.com/in/chris-s-marston/">LinkedIn</a> or via krisairdancer-at-gmail-dot-com</p>
@@ -120,6 +127,53 @@ Chris Marston</pre>
         margin: 0;
     }
 
+    #resume-download {
+        display: none;
+    }
+
+    #resume-download-alt {
+        display: block;
+    }
+
+    /***** Collapsible Content Styles *****/
+
+    .collapsible-button {
+        color: var(--orange);
+        background-color: var(--blue);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 700px;
+        margin: 10px 5px 5px 0px; /* Top Right Bottom Left */
+    }
+    .collapsible-button:hover {
+        color: white;
+        border-color: white;
+    }
+
+    /* Hide collapsible content when collapsed */
+
+    .collapsible-content {
+        display: flex;
+        overflow: hidden;
+        max-height: 0px;
+        max-width: 700px;
+        border-radius: 5px;
+        justify-content: center;
+        box-sizing: border-box;
+        transition: max-height 1s;
+    }
+    
+    .collapsible-content-active {
+        border: 1px solid var(--orange);
+    }
+
+    #resume-pdf {
+        width: 700px;
+        height: 500px;
+    }
+
     /***** Media Querries *****/
 
     @media screen and (width <= 580px) {
@@ -141,6 +195,18 @@ Chris Marston</pre>
         }
 
         #site-banner-tiny {
+            display: none;
+        }
+
+        #resume-group {
+            display: none;
+        }
+
+        #resume-download {
+            display: block;
+        }
+
+        #resume-download-alt {
             display: none;
         }
     }
@@ -165,6 +231,18 @@ Chris Marston</pre>
             min-width: 140px;
             font-size: 0.75rem;
             font-weight: bold;
+        }
+
+        #resume-group {
+            display: none;
+        }
+
+        #resume-download {
+            display: block;
+        }
+
+        #resume-download-alt {
+            display: none;
         }
     }
 </style>
