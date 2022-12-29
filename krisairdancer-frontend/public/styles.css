@@ -11,7 +11,7 @@ html {
 body {
     height: -webkit-fill-available; /* This accounts for the space that the navigaiton bar takes up on mobile devices */
     background-color: var(--blue);
-    font-family:'Courier New', Courier, monospace;
+    font-family:'Courier New', monospace;
 }
 
 h1, h2 {
