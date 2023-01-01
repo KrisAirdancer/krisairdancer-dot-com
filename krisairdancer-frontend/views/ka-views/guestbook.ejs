@@ -17,10 +17,31 @@
                 <a href="http://localhost:11001/ka">Home</a>
             &gt;&gt;&gt;</nav>
 
-
+            <form action="http://localhost:11001/ka/sign-guestbook">
+                <p>Handle:</p>
+                <div>
+                    <!-- <label for="handle">Handle:</label> -->
+                    <input name="handle" type="text">
+                </div>
+                <p>Message</p>
+                <div>
+                    <!-- <label for="message">Message:</label> -->
+                    <!-- <input name="message" type="text"> -->
+                    <textarea name="message" id="guestbook-message" cols="40" rows="3"></textarea>
+                </div>
+                <button type="submit">Sign</button>
+            </form>
         </div>
     </div>
 </body>
 <style></style>
 <script></script>
 </html>
+
+<!--
+    TODO:
+    
+    [ ] Page should populate all entries from guestbook.json when loaded
+    [ ] Add form to page to allow users to enter a message
+    [ ] Messages should be saved to guestbook.json
+-->
