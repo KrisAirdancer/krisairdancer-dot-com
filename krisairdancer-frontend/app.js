@@ -2,10 +2,10 @@
 // ██║ ██╔╝╚════██╗██╔══██╗╚════██╗██╔════╝ 
 // █████╔╝  █████╔╝███████║ █████╔╝███████╗ 
 // ██╔═██╗  ╚═══██╗██╔══██║██╔═══╝ ██╔═══██╗
-// ██║  ██╗██████╔╝██║  ██║███████╗╚██████╔╝ 
+// ██║  ██╗██████╔╝██║  ██║███████╗╚██████╔╝
 // ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚═════╝  ╦╔═╦═╗╦╔═╗╔═╗╦╦═╗╔╦╗╔═╗╔╗╔╔═╗╔═╗╦═╗
-// The Portfolio of Chris Marston            ╠╩╗╠╦╝║╚═╗╠═╣║╠╦╝ ║║╠═╣║║║║  ║╣ ╠╦╝
-//                                v0.2.0     ╩ ╩╩╚═╩╚═╝╩ ╩╩╩╚══╩╝╩ ╩╝╚╝╚═╝╚═╝╩╚═ 
+// v0.2.0                                    ╠╩╗╠╦╝║╚═╗╠═╣║╠╦╝ ║║╠═╣║║║║  ║╣ ╠╦╝
+//                                           ╩ ╩╩╚═╩╚═╝╩ ╩╩╩╚══╩╝╩ ╩╝╚╝╚═╝╚═╝╩╚═ 
 
 const express = require('express');
 const path = require('path');
@@ -14,6 +14,7 @@ const fs = require('fs');
 /***** ROUTING IMPORTS *****/
 
 const portfolioRoutes = require('./routes/portfolio-routes');
+const kaRoutes = require('./routes/ka-routes');
 
 /***** CONFIGURATIONS *****/
 
@@ -37,6 +38,7 @@ app.set('view engine', 'ejs');
 /***** ROUTING *****/
 
 app.use('/', portfolioRoutes);
+app.use('/ka', kaRoutes);
 
 app.use((req, res) => { 
 
