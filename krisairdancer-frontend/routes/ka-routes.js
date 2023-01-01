@@ -11,5 +11,9 @@ router.get('/webrings', (req, res) => {
     res.render('ka-views/webrings');
 });
 
+router.get('/guestbook', (req, res) => {
+    res.render('ka-views/guestbook');
+});
+
 // TODO: Read up on why we need to export the router object from the "routes" files.
 module.exports = router;
