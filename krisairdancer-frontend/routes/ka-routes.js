@@ -19,8 +19,6 @@ router.get('/guestbook', (req, res) => {
 });
 
 router.get('/sign-guestbook', (req, res) => {
-    console.log('Signed!');
-    console.log(req.query);
 
     let guestbook = undefined;
 
