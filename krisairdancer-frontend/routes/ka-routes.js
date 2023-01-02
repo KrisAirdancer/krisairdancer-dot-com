@@ -24,7 +24,8 @@ router.get('/sign-guestbook', (req, res) => {
 
     try
     {
-        guestbook = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'public', 'guestbook.json'), 'utf-8'));
+        let guestbookData = fs.readFileSync(path.join(__dirname, '..', 'public', 'guestbook.json'), 'utf-8');
+        guestbook = JSON.parse(guestbookData);
     }
     catch (error)
     {

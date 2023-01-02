@@ -1,10 +1,1 @@
-[
-  {
-    "handle": "LordOfTheFiles",
-    "message": "I will trap you on an island of files! (I'm not very creative...)"
-  },
-  {
-    "handle": "TickLord",
-    "message": "Master of ticks!"
-  }
-]
+[{"handle":"LordOfTheFiles","message":"I will trap you on an island of files! (I'm not very creative...)"},{"handle":"TickLord","message":"Master of ticks!"},{"handle":"","message":""}]

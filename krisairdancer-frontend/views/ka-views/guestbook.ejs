@@ -7,6 +7,7 @@
     <title>Krisaridancer - Guestbook</title>
     <link rel="stylesheet" href="../../styles.css">
     <link rel="shortcut icon" href="../../wind-icon.png" type="image/png">
+    <!-- <script src="./guestbook.js"></script> -->
 </head>
 <body>
     <div id="outer-div">
@@ -20,22 +21,46 @@
             <form action="http://localhost:11001/ka/sign-guestbook">
                 <p>Handle:</p>
                 <div>
-                    <!-- <label for="handle">Handle:</label> -->
                     <input name="handle" type="text">
                 </div>
                 <p>Message</p>
                 <div>
-                    <!-- <label for="message">Message:</label> -->
-                    <!-- <input name="message" type="text"> -->
                     <textarea name="message" id="guestbook-message" cols="40" rows="3"></textarea>
                 </div>
                 <button type="submit">Sign</button>
             </form>
+
+            <div id="guestbook-entries"></div>
         </div>
     </div>
 </body>
 <style></style>
-<script></script>
+<script>
+
+    console.log('It works!');
+
+    fetch('../guestbook.json')
+        .then(response => response.json())
+        .then(data => {
+            let guestbook = data;
+            console.log(guestbook);
+
+            // TODO: Build HTML string to display guestbook entries
+
+
+            // Apply HTML to DOM
+
+            let guestbookEntries = document.querySelector('#guestbook-entries');
+
+            guestbookEntries.textContent = 'bricks!';
+            guestbookEntries.innerHTML = '<div><p>Hello, World!</p></div>'
+        });
+
+    
+
+
+
+</script>
 </html>
 
 <!--
