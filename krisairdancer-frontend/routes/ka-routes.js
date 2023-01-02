@@ -22,16 +22,25 @@ router.get('/sign-guestbook', (req, res) => {
     console.log('Signed!');
     console.log(req.query);
 
+    let guestbook = undefined;
+
     try
     {
-        let guestbook = fs.readFileSync(path.join(__dirname, '..', 'public', 'guestbook.json'), 'utf-8');
+        guestbook = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'public', 'guestbook.json'), 'utf-8'));
     }
     catch (error)
     {
         res.redirect('/404');
     }
 
-    console.log(guestbook);
+    let guestbookEntry = {
+        handle: `${req.query.handle}`,
+        message: `${req.query.message}`
+    };
+
+    guestbook.push(guestbookEntry);
+
+    fs.writeFileSync(path.join(__dirname, '..', 'public', 'guestbook.json'), JSON.stringify(guestbook));
 
     res.redirect('/ka/guestbook');
 });

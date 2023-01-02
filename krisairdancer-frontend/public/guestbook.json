@@ -1,13 +1,10 @@
-
 [
-    { 
-      "name": "John", 
-      "age": 21,
-      "language": ["JavaScript", "PHP", "Python"] 
-    },
-    {
-       "name": "Smith",
-       "age": 25,
-       "language": ["PHP", "Go", "JavaScript"] 
-    }
-  ]
+  {
+    "handle": "LordOfTheFiles",
+    "message": "I will trap you on an island of files! (I'm not very creative...)"
+  },
+  {
+    "handle": "TickLord",
+    "message": "Master of ticks!"
+  }
+]
