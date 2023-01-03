@@ -14,7 +14,6 @@ router.get('/webrings', (req, res) => {
 });
 
 router.get('/guestbook', (req, res) => {
-    console.log('AT: /guestbook');
     res.render('ka-views/guestbook');
 });
 
@@ -44,8 +43,28 @@ router.get('/sign-guestbook', (req, res) => {
         return ((this.getUTCHours() < 10)?"0":"") + this.getUTCHours() +":"+ ((this.getUTCMinutes() < 10)?"0":"") + this.getUTCMinutes() +":"+ ((this.getUTCSeconds() < 10)?"0":"") + this.getUTCSeconds();
     }
 
-    
     let entryDate = new Date();
+
+    // Trim Whitespace
+
+    req.query.handle = req.query.handle.trim();
+    req.query.yourWebsite = req.query.yourWebsite.trim();
+    req.query.favWebsite = req.query.favWebsite.trim();
+    req.query.message = req.query.message.trim();
+
+    // Validate submitted URLs
+
+    if (!req.query.yourWebsite.includes('https://') && !req.query.yourWebsite.includes('http://'))
+    {
+        req.query.yourWebsite = `https://${req.query.yourWebsite}`;
+    }
+
+    if (!req.query.favWebsite.includes('https://') && !req.query.favWebsite.includes('http://'))
+    {
+        req.query.favWebsite = `https://${req.query.favWebsite}`;
+    }
+
+    // Generate Guestbook Entry JSON object
 
     let guestbookEntry = {
         handle: `${req.query.handle}`,

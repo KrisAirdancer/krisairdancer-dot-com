@@ -143,12 +143,12 @@
 
                     if (entry.yourWebsite !== '' && entry.yourWebsite !== undefined && entry.yourWebsite !== null)
                     {
-                        entryHTML.push(`<p><strong>Website:</strong> ${entry.yourWebsite}</p>`);
+                        entryHTML.push(`<p><strong>Website:</strong> <a href="${entry.yourWebsite}">${entry.yourWebsite}</a></p>`);
                     }
 
                     if (entry.favWebsite !== '' && entry.favWebsite !== undefined && entry.favWebsite !== null)
                     {
-                        entryHTML.push(`<p><strong>Favorite Website:</strong> ${entry.favWebsite}</p>`);
+                        entryHTML.push(`<p><strong>Favorite Website:</strong> <a href="${entry.yourWebsite}">${entry.yourWebsite}</a></p>`);
                     }
 
                     entryHTML.push(`<p>~ ${entry.timestamp} ~</p>`);
