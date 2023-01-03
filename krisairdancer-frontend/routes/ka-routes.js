@@ -54,12 +54,12 @@ router.get('/sign-guestbook', (req, res) => {
 
     // Validate submitted URLs
 
-    if (!req.query.yourWebsite.includes('https://') && !req.query.yourWebsite.includes('http://'))
+    if (!req.query.yourWebsite.includes('https://') && !req.query.yourWebsite.includes('http://') && req.query.yourWebsite !== '' && req.query.yourWebsite !== undefined && req.query.yourWebsite !== null)
     {
         req.query.yourWebsite = `https://${req.query.yourWebsite}`;
     }
 
-    if (!req.query.favWebsite.includes('https://') && !req.query.favWebsite.includes('http://'))
+    if (!req.query.favWebsite.includes('https://') && !req.query.favWebsite.includes('http://') && req.query.favWebsite !== '' && req.query.favWebsite !== undefined && req.query.favWebsite !== null)
     {
         req.query.favWebsite = `https://${req.query.favWebsite}`;
     }
