@@ -1,8 +1,1 @@
-[
-    {
-        "handle": "KrisAirdancer",
-        "favWebsite": "omfgdogs.com",
-        "message": "Welcome to my guestbook page!",
-        "timestamp": "01/02/2023 20:53:13"
-    }
-]
+[{"handle":"KrisAirdancer","favWebsite":"omfgdogs.com","message":"Welcome to my guestbook page!","timestamp":"01/02/2023 20:53:13"},{"handle":"Test 1","favWebsite":"testing.com","message":"message","timestamp":"01/03/2023 00:48:42"}]
