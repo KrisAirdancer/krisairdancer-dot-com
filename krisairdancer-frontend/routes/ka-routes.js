@@ -49,6 +49,7 @@ router.get('/sign-guestbook', (req, res) => {
 
     let guestbookEntry = {
         handle: `${req.query.handle}`,
+        yourWebsite: `${req.query.yourWebsite}`,
         favWebsite: `${req.query.favWebsite}`,
         message: `${req.query.message}`,
         timestamp: `${entryDate.today()} ${entryDate.timeNow()}`

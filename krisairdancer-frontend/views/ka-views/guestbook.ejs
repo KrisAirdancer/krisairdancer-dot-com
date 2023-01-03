@@ -15,19 +15,23 @@
             <h1>Guestbook</h1>
 
             <nav id="navbar">&lt;&lt;&lt;
-                <a href="https://krisairdancer.com/ka">Home</a>
+                <a href="http://localhost:11001/ka">Home</a>
             &gt;&gt;&gt;</nav>
 
-            <form action="https://krisairdancer.com/ka/sign-guestbook" id="guestbookForm">
-                <p><strong>Handle:</strong></p>
+            <form action="http://localhost:11001/ka/sign-guestbook" id="guestbookForm">
+                <p><strong>Handle*:</strong></p>
                 <div>
                     <input name="handle" type="text" maxlength="20" id="handleInput" required>
                 </div>
-                <p><strong>Favorite Website:</strong></p>
+                <p><strong>Your Website:</strong></p>
+                <div>
+                    <input type="text" name="yourWebsite" maxlength="300" id="yourwebInput">
+                </div>
+                <p><strong>Your Favorite Website:</strong></p>
                 <div>
                     <input type="text" name="favWebsite" maxlength="300" id="favwebInput">
                 </div>
-                <p><strong>Message:</strong></p>
+                <p><strong>Message*:</strong></p>
                 <div>
                     <textarea name="message" cols="40" rows="3" maxlength="250" id="messageTextArea" required></textarea>
                 </div>
@@ -106,7 +110,7 @@
 
     .guestbookEntry {
         border: 2px solid var(--orange);
-        border-radius: 5px;
+        border-radius: 10px;
         margin-bottom: 10px;
         padding: 5px 10px 5px 10px;
     }
@@ -131,19 +135,30 @@
                 let guestbookHTML = [];
 
 	            guestbook.forEach(entry => {
-	
-                    guestbookHTML.push(
-                        '<div class="guestbookEntry">' +
-                            `<p class="guestbookHandleMessage"><strong>${entry.handle}:</strong> ${entry.message}</p>` +
-                            `<p><strong>Favorite Website:</strong> ${entry.favWebsite}</p>` +
-                            // `<p><strong>Favorite Website:</strong> <a href=\"https://${entry.favWebsite}\">${entry.favWebsite}</a></p>` + // This is a start at hyperlinking the links
-                            `<p>~ ${entry.timestamp} ~</p>` +
-                        '</div>'
-                    );
+
+                    let entryHTML = [];
+
+                    entryHTML.push('<div class="guestbookEntry">');
+                    entryHTML.push(`<p class="guestbookHandleMessage"><strong>${entry.handle}:</strong> ${entry.message}</p>`);
+
+                    if (entry.yourWebsite !== '' && entry.yourWebsite !== undefined && entry.yourWebsite !== null)
+                    {
+                        entryHTML.push(`<p><strong>Website:</strong> ${entry.yourWebsite}</p>`);
+                    }
+
+                    if (entry.favWebsite !== '' && entry.favWebsite !== undefined && entry.favWebsite !== null)
+                    {
+                        entryHTML.push(`<p><strong>Favorite Website:</strong> ${entry.favWebsite}</p>`);
+                    }
+
+                    entryHTML.push(`<p>~ ${entry.timestamp} ~</p>`);
+                    entryHTML.push('</div>');
+
+                    guestbookHTML.push(entryHTML.join(''));
 	            });
 
                 guestbookHTML.reverse();
-	
+
 	            // Apply HTML to DOM
                 
                 let guestbookEntries = document.querySelector('#guestbookEntries');
