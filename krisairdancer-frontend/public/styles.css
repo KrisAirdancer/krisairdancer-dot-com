@@ -1,6 +1,9 @@
 :root {
-    --blue: #122D4A;
-    --orange: #FFA366;
+    /* --blue: #122D4A;
+    --orange: #FFA366; */
+    --blue: #2f2f2f;
+    --orange: #d2b48c;
+    /* --orange: #21e6ff; */
 }
 
 html {
