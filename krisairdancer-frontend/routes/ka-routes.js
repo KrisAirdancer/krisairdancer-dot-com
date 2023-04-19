@@ -13,6 +13,10 @@ router.get('/webrings', (req, res) => {
     res.render('ka-views/webrings');
 });
 
+router.get('/blog', (req, res) => {
+    res.render('ka-views/blog');
+});
+
 router.get('/programming-reference', (req, res) => {
     res.render('ka-views/programming-reference');
 });
