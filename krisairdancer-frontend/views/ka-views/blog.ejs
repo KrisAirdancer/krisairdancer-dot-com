@@ -38,93 +38,66 @@
                 document.querySelector('#posts-list').appendChild(yearHeader)
 
                 year.posts.forEach(post => {
-                    // Create a post card.
-                    const newPostButton = document.createElement("button")
-                    newPostButton.classList.add('collapsible-button')
-                    newPostButton.classList.add('post-card-font')
+                    const accordion = document.createElement("div")
+                    accordion.classList.add("accordion")
+                    document.querySelector('#posts-list').appendChild(accordion)
 
-                    // Add the post title to the card.
-                    const postTitle = document.createElement("strong")
-                    postTitle.innerText = post.title
-                    newPostButton.appendChild(postTitle)
+                    const postContent = document.createElement("div")
+                    postContent.classList.add("postContent")
+                    postContent.textContent = post.body
+                    accordion.appendChild(postContent)
 
-                    const postMetaData = document.createElement("p")
-                    postMetaData.innerText = post.author + '  -  ' + post.date
-                    newPostButton.appendChild(postMetaData)
-
-                    // Create the post content card.
-                    const newPostContent = document.createElement("div")
-                    newPostContent.classList.add('collapsible-content')
-                    newPostContent.innerText = post.body
-                    
-                    newPostButton.addEventListener('click', () => {
-                        let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
-                        
-                        if (content.classList.contains('collapsible-content-active')) // Collapse it
-                        {
-                            content.style.maxHeight = '0px';
-                            setTimeout(() => {
-                                content.classList.toggle('collapsible-content-active');
-                            }, 1800);
-                        }
-                        else // Expand it
-                        {
-                            content.style.maxHeight = '1000px';
-                            content.classList.toggle('collapsible-content-active');
-                        }
-                    })
-
-                    document.querySelector('#posts-list').appendChild(newPostButton)
-                    document.querySelector('#posts-list').appendChild(newPostContent)
                 })
 
                 const lineBreak = document.createElement("br")
                 document.querySelector('#posts-list').appendChild(lineBreak)
             })
+        })
+        .then(function() {
+            console.log("RUNNING")
 
+            let cards = document.querySelectorAll('.accordion')
+
+            cards.forEach(card => {
+                console.log(card)
+
+                card.addEventListener('click', function() {
+                    console.log('TEST')
+                    this.firstChild.classList.toggle('active')
+                })
+            })
         })
 </script>
 <style>
     /***** Collapsible Content Styles *****/
 
-    .collapsible-button {
-        color: var(--orange);
-        background-color: var(--blue);
-        border: 1px solid var(--orange);
-        border-radius: 5px;
-        cursor: pointer;
+    .accordion {
         width: 100%;
-        max-width: 700px;
-        margin: 10px 5px 5px 0px; /* Top Right Bottom Left */
-        
-        text-align: left;
+        height: 100px;
+        background-color: green;
+        border: 2px solid pink;
     }
+
+    .accordion .postContent {
+        position: relative;
+        background-color: red;
+        height: 0;
+        overflow: hidden;
+        transition: 0.5s;
+        overflow-y: auto;
+    }
+
+    .accordion .postContent.active {
+        height: 100%;
+    }
+
+
+
+
+
     .collapsible-button:hover {
         color: white;
         border-color: white;
-    }
-
-    /* Hide collapsible content when collapsed */
-
-    .collapsible-content {
-        /* display: flex; */
-        display: block;
-        overflow: hidden;
-        /* height: 0px; */
-        max-height: 0px;
-        max-width: 700px;
-        border-radius: 5px;
-        /* justify-content: center; */
-        box-sizing: border-box;
-
-        transition: max-height 2s;
-    }
-    
-    .collapsible-content-active {
-        border: 1px solid var(--orange);
-        padding: 10px 10px 10px 10px;
-        /* max-height: 100px;
-        height: 100% !important; */
     }
 
     /***** Other *****/
