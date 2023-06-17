@@ -19,23 +19,123 @@
             &gt;&gt;&gt;</nav>
 
             <h2>Posts</h2>
-            <br>
 
-            <p><strong>2023</strong></p>
-            <br>
-            <p>&gt; April 19 - <a href="https://krisairdancer.com/ka/post/<post-id>">Post Name</a></p>
-            <p>&gt; March 2 - <a href="https://krisairdancer.com/ka/post/<post-id>">Post Name More Posts</a></p>
-            <p>&gt; January 11 - <a href="https://krisairdancer.com/ka/post/<post-id>">Post Name Still More Posts</a></p>
-            <br>
-            <p><strong>2022</strong></p>
-            <br>
-            <p>&gt; June 5 - <a href="https://krisairdancer.com/ka/post/<post-id>">Post Name Stuff</a></p>
-            <p>&gt; May 1 - <a href="https://krisairdancer.com/ka/post/<post-id>">Post Name Another</a></p>
+            <p id="posts-list"></p>
+            
         </div>
     </div>
 </body>
-<style>
+<script>
+    fetch("http://localhost:11001/blog-content/posts.json") // Load post data.
+        .then(response => response.json()) // Convert post data into JSON.
+        .then(data => { // Inject post data into collapsible content boxes.
+            // TODO: Need to generate post content for each item in the JSON, properly format it, and apply it to the HTML.
+            console.log(data)
 
+            data.forEach(year => {
+                const yearHeader = document.createElement("strong")
+                yearHeader.innerText = year.year
+                document.querySelector('#posts-list').appendChild(yearHeader)
+
+                year.posts.forEach(post => {
+                    const newPostButton = document.createElement("button")
+                    newPostButton.classList.add('collapsible-button')
+                    newPostButton.innerText = post.title
+
+                    const newPostContent = document.createElement("div")
+                    newPostContent.classList.add('collapsible-content')
+                    newPostContent.innerText = post.body
+
+                    newPostButton.addEventListener('click', () => {
+                        let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
+                        
+                        if (content.classList.contains('collapsible-content-active')) // Collapse it
+                        {
+                            content.style.maxHeight = '0px';
+                            setTimeout(() => {
+                                content.classList.toggle('collapsible-content-active');
+                            }, 900);
+                        }
+                        else // Expand it
+                        {
+                            content.style.maxHeight = '400px';
+                            content.classList.toggle('collapsible-content-active');
+                        }
+                    })
+
+                    document.querySelector('#posts-list').appendChild(newPostButton)
+                    document.querySelector('#posts-list').appendChild(newPostContent)
+                })
+
+                const lineBreak = document.createElement("br")
+                document.querySelector('#posts-list').appendChild(lineBreak)
+            })
+
+        })
+        .then( // Apply event listeners to collapsible content boxes.
+            document.querySelectorAll('.collapsible-button').forEach(collapsible => {
+                collapsible.addEventListener('click', () => {
+                    let content = collapsible.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
+                    
+                    if (content.classList.contains('collapsible-content-active')) // Collapse it
+                    {
+                        content.style.maxHeight = '0px';
+                        setTimeout(() => {
+                            content.classList.toggle('collapsible-content-active');
+                        }, 900);
+                    }
+                    else // Expand it
+                    {
+                        content.style.maxHeight = '400px';
+                        content.classList.toggle('collapsible-content-active');
+                    }
+                })
+            })
+        )
+</script>
+<style>
+    /***** Collapsible Content Styles *****/
+
+    .collapsible-button {
+        color: var(--orange);
+        background-color: var(--blue);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 700px;
+        margin: 10px 5px 5px 0px; /* Top Right Bottom Left */
+        
+        text-align: left;
+    }
+    .collapsible-button:hover {
+        color: white;
+        border-color: white;
+    }
+
+    /* Hide collapsible content when collapsed */
+
+    .collapsible-content {
+        display: flex;
+        overflow: hidden;
+        max-height: 0px;
+        max-width: 700px;
+        border-radius: 5px;
+        justify-content: center;
+        box-sizing: border-box;
+        transition: max-height 1s;
+
+        padding: 0px 0px 0px 0px;
+    }
+    
+    .collapsible-content-active {
+        border: 1px solid var(--orange);
+        padding: 10px 10px 10px 10px;
+    }
+
+    #resume-pdf {
+        width: 700px;
+        height: 500px;
+    }
 </style>
-<script></script>
 </html>
