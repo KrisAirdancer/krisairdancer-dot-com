@@ -38,14 +38,25 @@
                 document.querySelector('#posts-list').appendChild(yearHeader)
 
                 year.posts.forEach(post => {
+                    // Create a post card.
                     const newPostButton = document.createElement("button")
                     newPostButton.classList.add('collapsible-button')
-                    newPostButton.innerText = post.title
+                    newPostButton.classList.add('post-card-font')
 
+                    // Add the post title to the card.
+                    const postTitle = document.createElement("strong")
+                    postTitle.innerText = post.title
+                    newPostButton.appendChild(postTitle)
+
+                    const postMetaData = document.createElement("p")
+                    postMetaData.innerText = post.author + '  -  ' + post.date
+                    newPostButton.appendChild(postMetaData)
+
+                    // Create the post content card.
                     const newPostContent = document.createElement("div")
                     newPostContent.classList.add('collapsible-content')
                     newPostContent.innerText = post.body
-
+                    
                     newPostButton.addEventListener('click', () => {
                         let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
                         
@@ -54,11 +65,11 @@
                             content.style.maxHeight = '0px';
                             setTimeout(() => {
                                 content.classList.toggle('collapsible-content-active');
-                            }, 900);
+                            }, 1800);
                         }
                         else // Expand it
                         {
-                            content.style.maxHeight = '400px';
+                            content.style.maxHeight = '1000px';
                             content.classList.toggle('collapsible-content-active');
                         }
                     })
@@ -72,26 +83,6 @@
             })
 
         })
-        .then( // Apply event listeners to collapsible content boxes.
-            document.querySelectorAll('.collapsible-button').forEach(collapsible => {
-                collapsible.addEventListener('click', () => {
-                    let content = collapsible.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
-                    
-                    if (content.classList.contains('collapsible-content-active')) // Collapse it
-                    {
-                        content.style.maxHeight = '0px';
-                        setTimeout(() => {
-                            content.classList.toggle('collapsible-content-active');
-                        }, 900);
-                    }
-                    else // Expand it
-                    {
-                        content.style.maxHeight = '400px';
-                        content.classList.toggle('collapsible-content-active');
-                    }
-                })
-            })
-        )
 </script>
 <style>
     /***** Collapsible Content Styles *****/
@@ -116,26 +107,36 @@
     /* Hide collapsible content when collapsed */
 
     .collapsible-content {
-        display: flex;
+        /* display: flex; */
+        display: block;
         overflow: hidden;
+        /* height: 0px; */
         max-height: 0px;
         max-width: 700px;
         border-radius: 5px;
-        justify-content: center;
+        /* justify-content: center; */
         box-sizing: border-box;
-        transition: max-height 1s;
 
-        padding: 0px 0px 0px 0px;
+        transition: max-height 2s;
     }
     
     .collapsible-content-active {
         border: 1px solid var(--orange);
         padding: 10px 10px 10px 10px;
+        /* max-height: 100px;
+        height: 100% !important; */
     }
 
-    #resume-pdf {
-        width: 700px;
-        height: 500px;
+    /***** Other *****/
+
+    .post-card-font {
+        font-family:'Courier New', monospace;
+        font-size: 16px;
+    }
+
+    .post-card-font p {
+        font-family:'Courier New', monospace;
+        font-size: 14px;
     }
 </style>
 </html>
