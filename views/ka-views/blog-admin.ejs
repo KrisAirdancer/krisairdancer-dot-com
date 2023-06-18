@@ -17,37 +17,38 @@
                 <a href="https://krisairdancer.com/">Home</a>
                 <a href="https://krisairdancer.com/ka">SCHub</a>
                 <a href="https://krisairdancer.com/ka/blog">Blog</a>
+                <a href="https://krisairdancer.com/ka/guestbook">Guestbook</a>
                 <a href="https://krisairdancer.com/ka/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
 
             <form action="https://krisairdancer.com/ka/create-post" method="POST">
                 <div>
-                    <label>Title</label>
+                    <label>Title*</label>
                     <br>
-                    <input type="text" name="title">
+                    <input type="text" name="title" class="entryField" required>
                 </div>
                 <div>
-                    <label>Post Content</label>
+                    <label>Post Content*</label>
                     <br>
-                    <textarea name="content" cols="30" rows="10"></textarea>
+                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentBox" required></textarea>
                 </div>
                 <div>
-                    <label>Password</label>
+                    <label>Password*</label>
                     <br>
-                    <input type="password" name="password">
+                    <input type="password" name="password" class="entryField" required>
                 </div>
                 <div>
-                    <label>Author</label>
+                    <label>Author*</label>
                     <br>
-                    <input type="text" name="author">
+                    <input type="text" name="author" class="entryField" required>
                 </div>
                 <div>
-                    <label>Date</label>
+                    <label id="dateLabel">Date*</label>
                     <br>
-                    <input type="text" name="date">
+                    <input type="text" name="date" class="entryField" required>
                 </div>
                 <br>
-                <button>Post It!</button>
+                <button id="postButton">Post It!</button>
             </form>
 
             
@@ -63,6 +64,42 @@
     }
 </script>
 <style>
-    
+    label {
+        font-weight: bold;
+    }
+
+    .pageElement {
+        max-width: 700px !important;
+    }
+
+    .entryField {
+        width: 99%;
+        max-width: 700px;
+        background-color: var(--blue);
+        color: var(--orange);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        resize: vertical;
+    }
+
+    #postButton {
+        background-color: var(--blue);
+        color: var(--orange);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+    }
+
+    #postButton:active {
+        color: #ffffff;
+        border-color: white;
+    }
+
+    #postButton:hover {
+        cursor:pointer;
+    }
+
+    #postContentBox {
+        height: 300px;
+    }
 </style>
 </html>
