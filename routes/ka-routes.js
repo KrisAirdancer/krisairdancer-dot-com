@@ -26,6 +26,7 @@ router.get('/blog-admin', (req, res) => {
 });
 
 router.post('/create-post', (req, res) => {
+    console.log("HERE");
 
     if (req.body.password != "PostIt") {
         res.redirect('/404');
@@ -70,11 +71,12 @@ router.post('/create-post', (req, res) => {
         body: `${req.body.content}`
     };
 
-    currentYearsContent.push(newPost);
+    currentYearsContent.unshift(newPost);
 
     fs.writeFileSync(path.join(__dirname, '..', 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
 
-    res.render('ka-views/blog');
+    res.redirect('blog');
+    // res.status(200)
 });
 
 router.get('/programming-reference', (req, res) => {
