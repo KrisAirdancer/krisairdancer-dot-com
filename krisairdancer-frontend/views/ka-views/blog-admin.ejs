@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krisaridancer - Blog</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="shortcut icon" href="../../wind-icon.png" type="image/png">
+</head>
+<body>
+    <div id="outer-div">
+        <div id="content-div">
+            <h1>Blog Admin</h1>
+
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/">Home</a>
+                <a href="http://localhost:11001/ka">SCHub</a>
+                <a href="http://localhost:11001/ka/blog">Blog</a>
+            &gt;&gt;&gt;</nav>
+
+            <form action="http://localhost:11001/ka/create-post" method="POST">
+                <div>
+                    <label>Title</label>
+                    <br>
+                    <input type="text" name="title">
+                </div>
+                <div>
+                    <label>Post Content</label>
+                    <br>
+                    <textarea name="content" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <br>
+                    <input type="password" name="password">
+                </div>
+                <div>
+                    <label>Author</label>
+                    <br>
+                    <input type="text" name="author">
+                </div>
+                <div>
+                    <label>Date</label>
+                    <br>
+                    <input type="text" name="date">
+                </div>
+                <br>
+                <button>Post It!</button>
+            </form>
+
+            
+        </div>
+    </div>
+</body>
+<script>
+    let username = prompt('Username: ')
+    let password = prompt('Password: ')
+
+    if (username != "KrisAirdancer" || password != "NotSecure") {
+        window.location.replace("http://localhost:11001")
+    }
+</script>
+<style>
+    
+</style>
+</html>

@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
-// TODO: Build out routes for portfolio/personal webpage.
+const blogPosts = require('../public/blog-content/posts.json');
 
 router.get('/', (req, res) => {
     res.render('ka-views/ka-home');
@@ -14,6 +14,65 @@ router.get('/webrings', (req, res) => {
 });
 
 router.get('/blog', (req, res) => {
+    res.render('ka-views/blog');
+});
+
+router.get('/blog-admin', (req, res) => {
+    res.render('ka-views/blog-admin');
+});
+
+router.post('/create-post', (req, res) => {
+
+    if (req.body.password != "PostIt") {
+        res.redirect('/404');
+        return
+    }
+    
+    if (!req.body.title || !req.body.content || !req.body.author || !req.body.date) {
+        res.redirect('/404');
+        return
+    }
+
+    let blogContent = undefined;
+
+    try
+    {
+        let blogContentRAW = fs.readFileSync(path.join(__dirname, '..', 'public', 'blog-content', 'posts.json'), 'utf-8');
+        blogContent = JSON.parse(blogContentRAW);
+    }
+    catch (error)
+    {
+        console.log("ERROR");
+        res.redirect('/404');
+    }
+
+    let currentYear = new Date().getFullYear();
+    Date.prototype.today = function () { 
+        // return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+        return (((this.getUTCMonth()+1) < 10)?"0":"") + (this.getUTCMonth()+1) + "/" +((this.getUTCDate() < 10)?"0":"") + this.getUTCDate() + "/" + this.getUTCFullYear();
+    }
+
+    // Get the content list for the current year from the JSON file.
+    let currentYearsContent = undefined
+    for (let i = 0; i < blogContent.length; i++) {
+        if (blogContent[i].year == currentYear) {
+            currentYearsContent = blogContent[i].posts;
+            break
+        }
+    }
+    console.log(currentYearsContent)
+
+    let newPost = {
+        date: `${req.body.date}`,
+        title: `${req.body.title}`,
+        author: `${req.body.author}`,
+        body: `${req.body.content}`
+    };
+
+    currentYearsContent.push(newPost);
+
+    fs.writeFileSync(path.join(__dirname, '..', 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
+
     res.render('ka-views/blog');
 });
 

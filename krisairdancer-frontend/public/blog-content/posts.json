@@ -3,25 +3,11 @@
         "year": "2023",
         "posts": [
             {
-                "postID": "0002",
-                "date": "March 12, 2023",
-                "title": "Lorem Ipsum Redux: Dolor Reflux?",
+                "date": "June 17, 2023",
+                "title": "Welcome to my blog!",
                 "author": "Kris Airdancer",
-                "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu elit bibendum, venenatis mauris a, hendrerit lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam euismod sapien elit, sed bibendum neque elementum vel. Integer a erat vitae nulla imperdiet egestas. Vestibulum sodales massa vel nulla feugiat placerat vel quis est. Donec dictum nunc lectus, ut porttitor libero congue vel. Curabitur leo lacus, sodales id tempus vitae, efficitur finibus libero. Donec et tortor ac quam convallis dapibus. In accumsan sagittis dui, accumsan rhoncus ex aliquam nec. Quisque a bibendum lectus, nec rhoncus leo. Sed dapibus dapibus ex in commodo. Ut vel ipsum eleifend lorem sollicitudin tincidunt sit amet vitae diam.\n\nPraesent tempor accumsan enim, et commodo mi facilisis quis. Phasellus vel sapien dui. Vivamus velit neque, accumsan sit amet arcu vel, malesuada consequat nisl. Praesent neque leo, vulputate in mi ac, vestibulum lobortis turpis. Etiam ut tellus malesuada, auctor arcu ac, ullamcorper neque. Pellentesque in mattis tellus. Sed nec ante eget est efficitur porttitor. Nulla sed fringilla urna. Vivamus id libero eu quam commodo semper. Sed tristique urna vitae sapien hendrerit consequat. Sed ut tristique tortor, tempus mattis metus."
-            },
-            {
-                "postID": "0001",
-                "date": "January 1, 2023",
-                "title": "A Meta Evaluation of Lorem Ipsum",
-                "author": "Kris Airdancer",
-                "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu elit bibendum, venenatis mauris a, hendrerit lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam euismod sapien elit, sed bibendum neque elementum vel. Integer a erat vitae nulla imperdiet egestas. Vestibulum sodales massa vel nulla feugiat placerat vel quis est. Donec dictum nunc lectus, ut porttitor libero congue vel. Curabitur leo lacus, sodales id tempus vitae, efficitur finibus libero. Donec et tortor ac quam convallis dapibus. In accumsan sagittis dui, accumsan rhoncus ex aliquam nec. Quisque a bibendum lectus, nec rhoncus leo. Sed dapibus dapibus ex in commodo. Ut vel ipsum eleifend lorem sollicitudin tincidunt sit amet vitae diam.\n\nPraesent tempor accumsan enim, et commodo mi facilisis quis. Phasellus vel sapien dui. Vivamus velit neque, accumsan sit amet arcu vel, malesuada consequat nisl. Praesent neque leo, vulputate in mi ac, vestibulum lobortis turpis. Etiam ut tellus malesuada, auctor arcu ac, ullamcorper neque. Pellentesque in mattis tellus. Sed nec ante eget est efficitur porttitor. Nulla sed fringilla urna. Vivamus id libero eu quam commodo semper. Sed tristique urna vitae sapien hendrerit consequat. Sed ut tristique tortor, tempus mattis metus.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu elit bibendum, venenatis mauris a, hendrerit lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam euismod sapien elit, sed bibendum neque elementum vel. Integer a erat vitae nulla imperdiet egestas. Vestibulum sodales massa vel nulla feugiat placerat vel quis est. Donec dictum nunc lectus, ut porttitor libero congue vel. Curabitur leo lacus, sodales id tempus vitae, efficitur finibus libero. Donec et tortor ac quam convallis dapibus. In accumsan sagittis dui, accumsan rhoncus ex aliquam nec. Quisque a bibendum lectus, nec rhoncus leo. Sed dapibus dapibus ex in commodo. Ut vel ipsum eleifend lorem sollicitudin tincidunt sit amet vitae diam."
+                "body": "Welcome to my buggy blog! It really does have a lot of bugs, but I'll iron those out eventually (or never).\n\nMy intent for this thing is to be able to blog from Europe while Vista and I hike Der Traumpfad. But I'm still a bit skeptical that this will work. Guess we'll just have to see how it goes.\n\nOh! I should also mention, don't expect any images. I wasn't interested in taking the time to put that part of this blog together. Sorry, not sorry."
             }
-        ]
-    },
-    {
-        "year": "2022",
-        "posts": [
-
         ]
     }
 ]
