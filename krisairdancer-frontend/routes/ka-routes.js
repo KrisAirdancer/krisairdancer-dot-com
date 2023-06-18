@@ -47,7 +47,6 @@ router.post('/create-post', (req, res) => {
 
     let currentYear = new Date().getFullYear();
     Date.prototype.today = function () { 
-        // return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
         return (((this.getUTCMonth()+1) < 10)?"0":"") + (this.getUTCMonth()+1) + "/" +((this.getUTCDate() < 10)?"0":"") + this.getUTCDate() + "/" + this.getUTCFullYear();
     }
 
