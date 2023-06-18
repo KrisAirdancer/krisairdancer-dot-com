@@ -82,6 +82,7 @@ fetch(tracksMasterListURI) // Load and sort master tracks list
     })
     .then(() => { // Set and play current track
       setCurrentTrack(getRandomTrackID());
+      previousStack = [] // The previousStack was somehow acquiring an "undefined" track by the time this point of execution is reached. This clears that and prevents bugs in the "play previous track" logic.
     });
 
 /************************
@@ -597,6 +598,11 @@ function setCurrentTrack(trackID)
     removeCurrentTrackHighlighting();
   }
 
+  previousStack.push({
+    trackID: currentTrack.trackID,
+    trackURL: currentTrack.trackURL
+  });
+
   nextStack = [];
 
   let trackURL = undefined
@@ -653,13 +659,10 @@ function playNextTrack()
   removeCurrentTrackHighlighting();
 
   currentTrack.trackAudio.pause();
-  if (!exiledTracks.has(currentTrack.trackID))
-  {
-    previousStack.push({
-      trackID: currentTrack.trackID,
-      trackURL: currentTrack.trackURL
-    });
-  }
+  previousStack.push({
+    trackID: currentTrack.trackID,
+    trackURL: currentTrack.trackURL
+  });
   
   if(nextStack.length !== 0) // There are tracks in the nextTracks history
   {
@@ -713,10 +716,10 @@ function playPreviousTrack()
 {
   // console.log('AT: playPreviousTrack()');
 
-  removeCurrentTrackHighlighting();
-
   if (previousStack.length !== 0) // If previousStack is not empty
   {
+    removeCurrentTrackHighlighting();
+
     currentTrack.trackAudio.pause();
 
     nextStack.push({ // Push currentTrack onto stack
@@ -739,18 +742,19 @@ function playPreviousTrack()
       playPauseButton.classList.add('playPauseButton-playing');
       playPauseButton.classList.remove('playPauseButton-paused');
     }
+
+    applyCurrentTimeChangeEventListener();
+    applyEndedEventListener();
+    
+    updateTrackInfoInHeader(currentTrack.trackID);
+    
+    scrollCurrentTrackToTop();
+    highlightCurrentTrack();
+    
+    setCurrentTrackVolume();
+    
+    updateNavButtons();
   }
-  applyCurrentTimeChangeEventListener();
-  applyEndedEventListener();
-
-  updateTrackInfoInHeader(currentTrack.trackID);
-  
-  scrollCurrentTrackToTop();
-  highlightCurrentTrack();
-
-  setCurrentTrackVolume();
-
-  updateNavButtons();
 
   // console.log(currentTrack.trackID);
   // console.log(currentTrack);
