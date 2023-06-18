@@ -1,0 +1,891 @@
+:root {
+    --site-blue: #122D4A;
+    --site-orange: #ffa366;
+    --site-light-blue: #94BAFF;
+    --site-brown-orange: #7F6157;
+    --nav-button-border: #636363;
+    --top-level-border: #919191;;
+    --fade-light: #1F4B7F;
+    --fade-light-2: #94BAFF;
+    --fade-dark: #0A1929;
+    --scrubber-height: 1.5rem;
+    --control-box-height: 4.9rem;
+    --control-box-width: 8.9rem;
+    --site-font-family: Helvetica, Arial, sans-serif;
+    --timestamp-width: 50px;
+    --chosen-track-border: #243B0E;
+    --chosen-track-background: #2D4A12;
+    --chosen-track-text-color: #BFE490;
+    --exiled-track-border: #3B0E24;
+    --exiled-track-background: #4A122D;
+    --exiled-track-text-color: #E79DC0;
+    --volumeBar-slider-width: 6.5rem;
+    --navbar-button-width: 2rem;
+    --navbar-button-height: 1.3rem;
+    --siteMenu-button-width: 1.75rem;
+    --siteMenu-button-height: 1.3rem;
+    --navTransitionTime: 0.7s;
+}
+
+html {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Internet Explorer */
+    user-select: none; /* All others */
+}
+
+/* Setting the reference size for "rem" values */
+root-html-tag {
+    font-size: 12px;
+}
+
+/**** General Site Styling *****/
+
+body {
+    margin: 0;
+    background: var(--site-blue);
+    /* Hides the scrollbar that runs up next to the navbar */
+    overflow-y: hidden;
+    /* Hides the scrollbar that runs along the bottom - generally triggered when the controls box is slid all the way to the sides of the screen */
+    overflow-x: hidden;
+}
+
+a:link {
+    color: var(--orange);
+    text-decoration: underline dotted;
+}
+
+a:visited {
+    color: var(--orange);
+    text-decoration: underline dotted;
+}
+
+hr {
+    border: 0;
+    background-color: #546a8769;
+    height: 0.15rem;
+}
+
+/**** Navbar *****/
+
+#navbar-group {
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    transition: top var(--navTransitionTime);
+}
+
+nav {
+    height: 4rem;
+    background-image: linear-gradient(var(--fade-light), var(--fade-dark));
+    color: var(--site-orange);
+    padding: 0.15rem 0.1rem 0.15rem 0.1rem; /* top right bottom left */
+    font-family: var(--site-font-family);
+
+    border-image: linear-gradient(#BCC8D4, #0D1015) 10%;
+    border-width: 1px;
+    border-style: solid;
+}
+
+/* This styles the navbar to be hidden. */
+.navHidden {
+    position: absolute !important;
+    width: 100% !important;
+    
+    top: -4.5rem !important;
+}
+
+nav ul {
+    margin: 0;
+    list-style: none;
+}
+
+.nav-button {
+    height: var(--navbar-button-height);
+    width: var(--navbar-button-width);
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--site-orange);
+    
+    border: 1px solid var(--nav-button-border);
+    border-width: 1px;
+    border-style: solid;
+
+    background-image: linear-gradient(var(--fade-light), var(--fade-dark));
+    cursor: pointer;
+
+    z-index: 1;
+}
+
+#nav-playlist-selector {
+    background-image: linear-gradient(var(--fade-light), var(--fade-dark));
+    color: 1px solid var(--site-orange);
+    font-family: var(--site-font-family);
+    align-self: flex-end;
+    margin-top: 2.9rem; /* To shift the selector dropdown to the bottom of the navbar */
+    margin-right: 4.4rem; /* To shift the selector dropdown to the left of the navbar */
+
+    min-width: 4rem;
+}
+
+#navbar-righthand-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding: 0px 0px 0px 0px; /*top right bottom left*/
+    flex-basis: calc(var(--volumeBar-slider-width) + var(--navbar-button-width)); /* Volume slider width + button width */
+}
+
+#navbar-select-div {
+    display: flex;
+    flex-direction: column;
+    width: calc(var(--volumeBar-slider-width) + var(--navbar-button-width)); /* To set the container for the select dropdown to the same width as the righthand buttons container */
+}
+
+#track-info {
+    padding: 5px 0px 0px 0px;
+}
+
+/* Chosen button */
+
+.chosenButton-whole {
+    background: url("./assets/icons-orange/heart-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 45%;
+    background-position: center center;
+}
+
+.chosenButton-whole-blue {
+    background: url("./assets/icons-blue/heart-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 45%;
+    background-position: center center;
+}
+
+.chosenButton-broken {
+    background: url("./assets/icons-orange/heart-broken-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 45%;
+    background-position: center center;
+}
+
+.chosenButton-broken-blue {
+    background: url("./assets/icons-blue/heart-broken-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 45%;
+    background-position: center center;
+}
+
+/* Exiled button */
+
+.exiledButton-ban {
+    background: url("./assets/icons-orange/ban-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 45%;
+    background-position: center center;
+}
+
+.exiledButton-ban-blue {
+    background: url("./assets/icons-blue/ban-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 45%;
+    background-position: center center;
+}
+
+.exiledButton-check {
+    background: url("./assets/icons-orange/check-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 45%;
+    background-position: center center;
+}
+
+.exiledButton-check-blue {
+    background: url("./assets/icons-blue/check-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 45%;
+    background-position: center center;
+}
+
+/* Volume button */
+
+.volumeButton-up {
+    background: url("./assets/icons-orange/volume-up-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 50%;
+    background-position: center center;
+}
+
+.volumeButton-up-blue {
+    background: url("./assets/icons-blue/volume-up-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 50%;
+    background-position: center center;
+}
+
+.volumeButton-down {
+    background: url("./assets/icons-orange/volume-down-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 50%;
+    background-position: center center;
+}
+
+.volumeButton-down-blue {
+    background: url("./assets/icons-blue/volume-down-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 50%;
+    background-position: center center;
+}
+
+.volumeButton-off {
+    background: url("./assets/icons-orange/volume-off-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 50%;
+    background-position: center center;
+}
+
+.volumeButton-off-blue {
+    background: url("./assets/icons-blue/volume-off-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 50%;
+    background-position: center center;
+}
+
+/***** Volume Slider *****/
+
+#volumeBar-li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+#volumeBar-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+
+    height: 0.95rem;
+    width: 0;
+    background-color: #000000cc;
+    border: 1px solid var(--nav-button-border);
+    cursor: pointer;
+
+    margin: 0px 0px 0px 0px; /*top right bottom left*/
+    padding: 0px;
+
+    position: absolute;
+    right: 2rem;
+
+    transition-property: width;
+    transition-duration: 0.2s;
+}
+
+.volumeBar-visible {
+    width: var(--volumeBar-slider-width) !important; /* !important overrides other instances of the same property */
+    right: 2.2rem !important;
+}
+
+#volumeBar-slider {
+    height: 0.5rem;
+    width: 50%;
+    background-color: var(--site-orange);
+    margin: 0px;
+    padding: 0px;
+}
+
+/**** Tracks List *****/
+
+.track-info {
+    list-style: none;
+    padding: 5px 2px 5px 10px; /* top right bottom left */
+    color: var(--site-orange);
+    border: 1px solid #0a192b;
+    font-family: var(--site-font-family);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.track-info:hover {
+    background-color: var(--fade-light-2);
+    color: var(--site-blue);
+}
+
+#tracks-list {
+    position: fixed;
+    top: 6.0rem; /* This is here to keep the tracks list from running over top of the navbar and scrubber. */
+    bottom: 0; /* Sets the bottom bound of the container to the bottom of the screen. Otherwise, some of the screen is hidden off the bottom of the screen and cannot be scrolled to. */
+    width: 100%;
+    max-height: 100%;
+    overflow-y: scroll; /* Displays a scrollbar on the tracks-list ul element */
+
+    margin: 0;
+    padding: 0;
+
+    transition: top var(--navTransitionTime);
+}
+
+.tracksListHidden {
+    top: var(--scrubber-height) !important;
+}
+
+/**** Site Scrollbar *****/
+
+#tracks-list::-webkit-scrollbar {
+    width: auto;
+}
+
+#tracks-list::-webkit-scrollbar-track {
+    border: 0.2rem solid var(--site-blue);
+    background-color: var(--site-brown-orange);
+}
+
+#tracks-list::-webkit-scrollbar-thumb {
+    cursor: none;
+    height: 1rem;
+    border-radius: 3px;
+    background-color: var(--site-orange);
+}
+
+#tracks-list::-webkit-scrollbar-thumb:hover {
+    background: var(--site-light-blue);
+}
+
+/**** Track Scrubber *****/
+
+#scrubber-group {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    height: var(--scrubber-height);
+    cursor: pointer;
+}
+
+#scrubber-group:hover #scrubber-thumb {
+    background-color: var(--site-light-blue)
+}
+
+#scrubber-body {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: var(--scrubber-height);
+    background-image: linear-gradient(var(--fade-light), var(--fade-dark));
+
+    border-image: linear-gradient(#BCC8D4, #0D1015) 10%;
+    border-width: 1px;
+    border-style: solid;
+
+    margin: 0;
+    padding: 0px 10px 0px 10px;
+}
+
+#scrubber-bar-background {
+    background-color: var(--site-brown-orange);
+    height: 25%;
+    width: 100%;
+}
+
+#scrubber-bar-progress {
+    position: relative;
+    background-color: var(--site-orange);
+    height: 100%;
+    width: 0%;
+}
+
+#scrubber-thumb {
+    background-color: var(--site-orange);
+    height: 0.9rem;
+    width: 0.4rem;
+    border-radius: 5px;
+    border: 1px solid var(--nav-button-border);
+    position: absolute;
+    top: -0.3rem;
+    right: -4px;
+}
+
+.scrubber-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-image: linear-gradient(var(--fade-light), var(--fade-dark));
+    margin: 0;
+    padding: 0.3rem;
+    color: var(--site-orange);
+
+    border-image: linear-gradient(#BCC8D4, #0D1015) 10%;
+    border-width: 1px;
+    border-style: solid;
+
+
+    font-family: var(--site-font-family);
+    font-size: 0.8rem;
+    height: var(--scrubber-height);
+    min-height: var(--scrubber-height);
+    max-height: var(--scrubber-height);
+    min-width: var(--timestamp-width);
+    max-width: var(--timestamp-width);
+}
+
+/**** TrackList *****/
+
+#tracks-list {
+    margin: 0;
+    padding: 0;
+}
+
+.track-info {
+    list-style: none;
+    padding: 5px 2px 5px 10px; /* top right bottom left */
+    color: var(--site-orange);
+    border: 1px solid #102742;
+    font-family: var(--site-font-family);
+    font-size: 0.8rem;
+}
+
+.currentTrack {
+    background-color: var(--site-orange);
+    color: var(--site-blue);
+}
+
+.currentTrack-green {
+    background-color: #BFE490;
+    color: var(--site-blue);
+}
+
+.currentTrack-red {
+    background-color: #E79DC0;
+    color: var(--site-blue);
+}
+
+.chosenTrack {
+    border-color: var(--chosen-track-border);
+    background-color: var(--chosen-track-background);
+    color: var(--chosen-track-text-color);
+}
+
+.exiledTrack {
+    border-color: var(--exiled-track-border);
+    background-color: var(--exiled-track-background);
+    color: var(--exiled-track-text-color);
+}
+
+/***** Site Menu *****/
+
+#siteMenu-showHideButton {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    right: 1.2rem;
+
+    height: var(--siteMenu-button-height);
+    width: var(--siteMenu-button-width);
+
+    background-color: rgba(0,0,0,0.4);
+    color: var(--site-orange);
+    border: 1px solid #546A87;
+
+    font-family: var(--site-font-family);
+    font-size: 0.85rem;
+    font-size: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    padding: 0;
+    margin: 0;
+
+    z-index: 1;
+}
+
+#siteMenu {
+    position: fixed;
+    bottom: 0;
+    right: 1.2rem;
+    
+    height: 0;
+    width: 18rem; /* 30% of height */
+    background-color: rgba(0,0,0,0.8);
+    color: var(--site-orange);
+    border: 1px solid #546a8700;
+
+    padding: 0;
+    margin: 0;
+
+    font-family: var(--site-font-family);
+    font-size: 0.85rem;
+
+    background-clip: padding-box;
+
+    transition: height 0.3s;
+}
+
+#siteMenu p {
+    margin: 0.15rem;
+}
+
+#siteMenu a:hover {
+    color: white;
+}
+
+#siteMenu input {
+    width: 3.0rem;
+
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--site-orange);
+    border: 1px solid #546A87;
+}
+
+#siteMenu-navButtons-group {
+    list-style: none;
+
+    display: flex;
+    position: fixed;
+    bottom: 0;
+
+    height: 0;
+
+    padding: 0;
+    margin: 0;
+
+    transition: height 0.3s;
+}
+
+.siteMenu-navButton {
+    display: flex;
+
+    height: var(--siteMenu-button-height);
+    width: var(--siteMenu-button-width);
+
+    font-size: 0.75rem;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--site-orange);
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid #546A87;
+
+    padding: 0;
+    margin: 0 0 0 0.5rem;
+
+    cursor: pointer;
+
+    transition: width 0.1s;
+}
+
+#siteMenu-infoButton {
+    width: 4rem;
+}
+
+.siteMenu-page {
+    display: none;
+}
+
+.siteMenu-menuVisible {
+    height: 20rem !important;
+}
+
+.siteMenu-buttonsVisible {
+    height: var(--siteMenu-button-height) !important;
+}
+
+.pageVisible {
+    display: block;
+
+    padding: 0;
+    margin: 0.4rem;
+}
+
+.siteMenu-importExportButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+
+    height: 1rem;
+    width: 8rem;
+    
+    color: var(--site-orange);
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid #546A87;
+
+    font-family: var(--site-font-family);
+    font-size: 0.85rem;
+    
+    margin: 0.4rem 0 0 0;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.siteMenu-importExportButtons:hover {
+    color: white;
+}
+
+#siteMenu-config-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#chosenOddsInput {
+    text-align: center;
+}
+
+/* These two styles add a bit of spacing between the upper group of elements and the bottom group of elements in the site menu. */
+#siteMenu-resetChosenButton {
+    margin-top: 0.9rem !important;
+}
+
+#siteMenu-importChosenButton {
+    margin-top: 0.9rem;
+}
+
+.lightMenuButtonBackground {
+    background-color: #122D4A !important;
+    border: 1px solid #546A87;
+}
+
+#versionTag {
+    font-size: 0.8rem;
+
+    position: absolute;
+    bottom: 0;
+    right: 2.2rem;
+    height: 0rem;
+}
+
+.versionTag-visible {
+    transition: height 0s 0.2s;
+}
+
+.versionTag-hidden {
+    transition: height 0s 0s;
+}
+
+/* Menu Button */
+
+.menuButton {
+    background: url("./assets/icons-orange/bars-solid.png") no-repeat;
+    background-size: 50%;
+    background-position: center center;
+}
+
+.menuButton-white {
+    background: url("./assets/icons-white/bars-solid.png") no-repeat;
+    background-size: 50%;
+    background-position: center center;
+}
+
+/* Info Button */
+
+.infoButton {
+    background: url("./assets/icons-orange/info-circle-solid.png") no-repeat;
+    background-size: 0.9rem;
+    background-position: center center;
+}
+
+.infoButton-white {
+    background: url("./assets/icons-white/info-circle-solid.png") no-repeat;
+    background-size: 0.9rem;
+    background-position: center center;
+}
+
+/* Config Button */
+
+.configButton {
+    background: url("./assets/icons-orange/cog-solid.png") no-repeat;
+    background-size: 0.9rem;
+    background-position: center center;
+}
+
+.configButton-white {
+    background: url("./assets/icons-white/cog-solid.png") no-repeat;
+    background-size: 0.9rem;
+    background-position: center center;
+}
+
+/***** Control Box *****/
+
+.control-box {
+    all: unset;
+    
+    position: absolute;
+    bottom: 5rem;
+    left: calc(50%); /* 50% of the width of the screen/window?*/
+
+    height: var(--control-box-height);
+    width: var(--control-box-width);
+    background-image: linear-gradient(var(--fade-light), var(--fade-dark));
+    border: 0.5px solid var(--top-level-border);
+    font-family: var(--site-font-family);
+
+    transform: translate(-50%, -10%); /* (x, y) */
+
+    z-index: 1;
+}
+
+.control-box-first-row {
+    flex-grow: 1;
+    font-size: 14px;
+    min-height: 1.25rem;
+    max-height: 1.25rem;
+}
+
+.control-box-second-row {
+    text-align: center;
+    flex-grow: 2;
+    min-height: 2.1rem;
+    max-height: 2.4rem;
+}
+
+.control-box-third-row {
+    text-align: center;
+    flex-grow: 1;
+    min-height: 1.25rem;
+    max-height: 1.25rem;
+}
+
+.control-box-element {
+    color: var(--site-orange);
+    width: 100%;
+    background-image: linear-gradient(var(--fade-light), var(--fade-dark));
+    
+    border-image: linear-gradient(#BCC8D4, #0D1015) 10%;
+    border-width: 1px;
+    border-style: solid;
+
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+}
+
+.control-box-element:hover {
+    color: var(--site-light-blue);
+}
+
+#controlsBox-topBar {
+    display: flex;
+    font-size: .75rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Repeat button */
+
+.repeatButton-noRepeat {
+    background: url("./assets/icons-orange/redo-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.repeatButton-noRepeat-blue {
+    background: url("./assets/icons-blue/redo-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.repeatButton-repeat {
+    background: url("./assets/icons-orange/times-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.repeatButton-repeat-blue {
+    background: url("./assets/icons-blue/times-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+/* Header collapse button */
+
+.headerCollapseButton {
+    background: url("./assets/icons-orange/arrows-alt-v-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.headerCollapseButton-blue {
+    background: url("./assets/icons-blue/arrows-alt-v-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+/* Play-pause button */
+
+.playPauseButton-playing {
+    background: url("./assets/icons-orange/pause-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.playPauseButton-playing-blue {
+    background: url("./assets/icons-blue/pause-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.playPauseButton-paused {
+    background: url("./assets/icons-orange/play-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.playPauseButton-paused-blue {
+    background: url("./assets/icons-blue/play-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+/* Play next button */
+
+.playNextButton {
+    background: url("./assets/icons-orange/step-forward-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.playNextButton-blue {
+    background: url("./assets/icons-blue/step-forward-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+/* Play previous button */
+
+.playPreviousButton {
+    background: url("./assets/icons-orange/step-backward-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+.playPreviousButton-blue {
+    background: url("./assets/icons-blue/step-backward-solid.png") no-repeat, linear-gradient(var(--fade-light), var(--fade-dark));
+    background-size: 0.8rem;
+    background-position: center center;
+}
+
+/**** Flexbox Containers *****/
+
+.nav-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#control-box-flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#control-box-row-two-flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#control-box-row-three-flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+/**** Flexbox Items *****/
+
+#nav-playlist-selector {
+    align-self: flex-end;
+}
+
+#nav-playlist-selector option {
+    background-color: var(--site-blue);
+}

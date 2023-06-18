@@ -42,7 +42,6 @@ app.use('/', portfolioRoutes);
 app.use('/ka', kaRoutes);
 
 app.use((req, res) => { 
-
     res.status(404).render('404', { title: '404'} );
 });
 
