@@ -2,8 +2,8 @@ const fs = require('fs');
 const fsPromises = require('fs/promises');
 
 // Directories being accessed
-const TRACKS_DIR = '../tracks';
-const TRACKS_MASTER_LIST_DIR = './tracks-master-list.json';
+const TRACKS_DIR = '../vidya-clone/tracks';
+const TRACKS_MASTER_LIST_DIR = './vidya-clone/tracks-master-list.json';
 
 /**
  * Generates a JSON representation of all of the tracks located at tracksDir and stores
@@ -39,7 +39,7 @@ async function generateTracksJSON(tracksDir, targetDir) {
             trackID: tokens[0],
             trackGame: tokens[1],
             trackName: tokens[2].substring(0, tokens[2].indexOf('.mp3')),
-            trackURL: `https://krisairdancer.com/tracks/${file}`
+            trackURL: `https://krisairdancer.com/vidya-clone/tracks/${file}`
         };
 
         metadata.push(track);
