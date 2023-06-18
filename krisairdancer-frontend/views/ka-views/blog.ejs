@@ -29,8 +29,6 @@
     fetch("http://localhost:11001/blog-content/posts.json") // Load post data.
         .then(response => response.json()) // Convert post data into JSON.
         .then(data => { // Inject post data into collapsible content boxes.
-            // TODO: Need to generate post content for each item in the JSON, properly format it, and apply it to the HTML.
-            console.log(data)
 
             data.forEach(year => {
                 const yearHeader = document.createElement("strong")

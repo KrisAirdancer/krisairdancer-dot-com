@@ -42,7 +42,6 @@ router.post('/create-post', (req, res) => {
     }
     catch (error)
     {
-        console.log("ERROR");
         res.redirect('/404');
     }
 
@@ -60,7 +59,6 @@ router.post('/create-post', (req, res) => {
             break
         }
     }
-    console.log(currentYearsContent)
 
     let newPost = {
         date: `${req.body.date}`,
