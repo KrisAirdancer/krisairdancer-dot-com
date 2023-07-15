@@ -14,10 +14,10 @@
             <h1>Blog</h1>
 
             <nav id="navbar">&lt;&lt;&lt;
-                <a href="http://localhost:11001/">Home</a>
-                <a href="http://localhost:11001/ka">SCHub</a>
-                <a href="http://localhost:11001/ka/guestbook">Guestbook</a>
-                <a href="http://localhost:11001/ka/vidya-clone">Vidya Clone</a>
+                <a href="https://krisairdancer.com/">Home</a>
+                <a href="https://krisairdancer.com/ka">SCHub</a>
+                <a href="https://krisairdancer.com/ka/guestbook">Guestbook</a>
+                <a href="https://krisairdancer.com/ka/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
 
             <h2>Posts</h2>
@@ -28,7 +28,7 @@
     </div>
 </body>
 <script>
-    fetch("http://localhost:11001/blog-content/posts.json") // Load post data.
+    fetch("https://krisairdancer.com/blog-content/posts.json") // Load post data.
         .then(response => response.json()) // Convert post data into JSON.
         .then(data => { // Inject post data into collapsible content boxes.
 
@@ -56,28 +56,25 @@
                     const newPostContent = document.createElement("div")
                     newPostContent.classList.add('collapsible-content')
                     newPostContent.id = 'newPostContent'
-                    newPostContent.innerText = post.body
 
-                    // const postBody = document.createElement("p")
-                    // postBody.classList.add('post-body')
-                    // newPostContent.appendChild(postBody)
-                    // postBody.innerText = post.body;
+                    const postBody = document.createElement("div")
+                    postBody.classList.add('post-body')
+                    newPostContent.appendChild(postBody)
+                    postBody.innerText = post.body;
 
                     newPostButton.addEventListener('click', () => {
                         let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
                         
                         if (content.classList.contains('collapsible-content-active')) // Collapse it
                         {
-                            content.style.maxHeight = '0px';
-                            // postBody.style.maxHeight = '0px';
+                            content.style.minHeight = '0px';
                             setTimeout(() => {
                                 content.classList.toggle('collapsible-content-active');
                             }, 900);
                         }
                         else // Expand it
                         {
-                            content.style.maxHeight = '400px';
-                            // postBody.style.maxHeight = '400px';
+                            content.style.minHeight = '400px';
                             content.classList.toggle('collapsible-content-active');
                         }
                     });
@@ -117,44 +114,42 @@
 
     .collapsible-content {
         display: flex;
+        flex-direction: column;
         overflow: hidden;
         max-height: 0px;
         max-width: 700px;
         border-radius: 5px;
-        justify-content: center;
         box-sizing: border-box;
-        transition: max-height 1s;
+
+        min-height: 0px;
+        transition: min-height 1s;
     }
     
     .collapsible-content-active {
         border: 1px solid var(--orange);
-        /* padding: 10px 10px 10px 10px; */
         overflow-y: scroll;
     }
-
+    
     /***** Other *****/
-
+    
     .post-card-font {
         font-family: 'Courier New', monospace;
         font-size: 16px;
     }
-
+    
     .post-card-font p {
         font-family: 'Courier New', monospace;
         font-size: 14px;
     }
-
+    
     .collapsible-content::-webkit-scrollbar {
         display: none;
     }
-
+    
     .post-body {
-        max-height: 0px;
+        max-height: 100%;
+        padding: 10px 10px 10px 10px;
         transition: max-height 1s;
-    }
-
-    .post-body-active {
-        
     }
 </style>
 </html>
