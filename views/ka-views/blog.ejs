@@ -55,8 +55,13 @@
                     // Create the post content card.
                     const newPostContent = document.createElement("div")
                     newPostContent.classList.add('collapsible-content')
-                    newPostContent.id = 'newPostContent';
+                    newPostContent.id = 'newPostContent'
                     newPostContent.innerText = post.body
+
+                    // const postBody = document.createElement("p")
+                    // postBody.classList.add('post-body')
+                    // newPostContent.appendChild(postBody)
+                    // postBody.innerText = post.body;
 
                     newPostButton.addEventListener('click', () => {
                         let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
@@ -64,6 +69,7 @@
                         if (content.classList.contains('collapsible-content-active')) // Collapse it
                         {
                             content.style.maxHeight = '0px';
+                            // postBody.style.maxHeight = '0px';
                             setTimeout(() => {
                                 content.classList.toggle('collapsible-content-active');
                             }, 900);
@@ -71,6 +77,7 @@
                         else // Expand it
                         {
                             content.style.maxHeight = '400px';
+                            // postBody.style.maxHeight = '400px';
                             content.classList.toggle('collapsible-content-active');
                         }
                     });
@@ -121,7 +128,7 @@
     
     .collapsible-content-active {
         border: 1px solid var(--orange);
-        padding: 10px 10px 10px 10px;
+        /* padding: 10px 10px 10px 10px; */
         overflow-y: scroll;
     }
 
@@ -139,6 +146,15 @@
 
     .collapsible-content::-webkit-scrollbar {
         display: none;
+    }
+
+    .post-body {
+        max-height: 0px;
+        transition: max-height 1s;
+    }
+
+    .post-body-active {
+        
     }
 </style>
 </html>
