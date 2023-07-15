@@ -55,6 +55,7 @@
                     // Create the post content card.
                     const newPostContent = document.createElement("div")
                     newPostContent.classList.add('collapsible-content')
+                    newPostContent.id = 'newPostContent';
                     newPostContent.innerText = post.body
 
                     newPostButton.addEventListener('click', () => {
@@ -73,23 +74,6 @@
                             content.classList.toggle('collapsible-content-active');
                         }
                     });
-                    
-                    // newPostButton.addEventListener('click', () => {
-                    //     let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
-                        
-                    //     if (content.classList.contains('collapsible-content-active')) // Collapse it
-                    //     {
-                    //         content.style.maxHeight = '0px';
-                    //         setTimeout(() => {
-                    //             content.classList.toggle('collapsible-content-active');
-                    //         }, 1800);
-                    //     }
-                    //     else // Expand it
-                    //     {
-                    //         content.style.maxHeight = '1000px';
-                    //         content.classList.toggle('collapsible-content-active');
-                    //     }
-                    // })
 
                     document.querySelector('#posts-list').appendChild(newPostButton)
                     document.querySelector('#posts-list').appendChild(newPostContent)
@@ -102,6 +86,7 @@
         })
 </script>
 <style>
+    
     /***** Collapsible Content Styles *****/
 
     .collapsible-button {
@@ -143,16 +128,16 @@
     /***** Other *****/
 
     .post-card-font {
-        font-family:'Courier New', monospace;
+        font-family: 'Courier New', monospace;
         font-size: 16px;
     }
 
     .post-card-font p {
-        font-family:'Courier New', monospace;
+        font-family: 'Courier New', monospace;
         font-size: 14px;
     }
 
-    .collapsible-content-active::-webkit-scrollbar {
+    .collapsible-content::-webkit-scrollbar {
         display: none;
     }
 </style>
