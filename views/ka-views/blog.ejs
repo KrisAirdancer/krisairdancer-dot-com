@@ -14,10 +14,10 @@
             <h1>Blog</h1>
 
             <nav id="navbar">&lt;&lt;&lt;
-                <a href="https://krisairdancer.com/">Home</a>
-                <a href="https://krisairdancer.com/ka">SCHub</a>
-                <a href="https://krisairdancer.com/ka/guestbook">Guestbook</a>
-                <a href="https://krisairdancer.com/ka/vidya-clone">Vidya Clone</a>
+                <a href="http://localhost:11001/">Home</a>
+                <a href="http://localhost:11001/ka">SCHub</a>
+                <a href="http://localhost:11001/ka/guestbook">Guestbook</a>
+                <a href="http://localhost:11001/ka/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
 
             <h2>Posts</h2>
@@ -28,7 +28,7 @@
     </div>
 </body>
 <script>
-    fetch("https://krisairdancer.com/blog-content/posts.json") // Load post data.
+    fetch("http://localhost:11001/blog-content/posts.json") // Load post data.
         .then(response => response.json()) // Convert post data into JSON.
         .then(data => { // Inject post data into collapsible content boxes.
 
@@ -56,7 +56,7 @@
                     const newPostContent = document.createElement("div")
                     newPostContent.classList.add('collapsible-content')
                     newPostContent.innerText = post.body
-                    
+
                     newPostButton.addEventListener('click', () => {
                         let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
                         
@@ -65,14 +65,31 @@
                             content.style.maxHeight = '0px';
                             setTimeout(() => {
                                 content.classList.toggle('collapsible-content-active');
-                            }, 1800);
+                            }, 900);
                         }
                         else // Expand it
                         {
-                            content.style.maxHeight = '1000px';
+                            content.style.maxHeight = '400px';
                             content.classList.toggle('collapsible-content-active');
                         }
-                    })
+                    });
+                    
+                    // newPostButton.addEventListener('click', () => {
+                    //     let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
+                        
+                    //     if (content.classList.contains('collapsible-content-active')) // Collapse it
+                    //     {
+                    //         content.style.maxHeight = '0px';
+                    //         setTimeout(() => {
+                    //             content.classList.toggle('collapsible-content-active');
+                    //         }, 1800);
+                    //     }
+                    //     else // Expand it
+                    //     {
+                    //         content.style.maxHeight = '1000px';
+                    //         content.classList.toggle('collapsible-content-active');
+                    //     }
+                    // })
 
                     document.querySelector('#posts-list').appendChild(newPostButton)
                     document.querySelector('#posts-list').appendChild(newPostContent)
@@ -96,7 +113,7 @@
         width: 100%;
         max-width: 700px;
         margin: 10px 5px 5px 0px; /* Top Right Bottom Left */
-        
+
         text-align: left;
     }
     .collapsible-button:hover {
@@ -107,19 +124,20 @@
     /* Hide collapsible content when collapsed */
 
     .collapsible-content {
-        display: block;
+        display: flex;
         overflow: hidden;
         max-height: 0px;
         max-width: 700px;
         border-radius: 5px;
+        justify-content: center;
         box-sizing: border-box;
-
-        transition: max-height 2s;
+        transition: max-height 1s;
     }
     
     .collapsible-content-active {
         border: 1px solid var(--orange);
         padding: 10px 10px 10px 10px;
+        overflow-y: scroll;
     }
 
     /***** Other *****/
@@ -132,6 +150,10 @@
     .post-card-font p {
         font-family:'Courier New', monospace;
         font-size: 14px;
+    }
+
+    .collapsible-content-active::-webkit-scrollbar {
+        display: none;
     }
 </style>
 </html>
