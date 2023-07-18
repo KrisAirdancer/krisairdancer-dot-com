@@ -21,10 +21,6 @@ router.get('/blog', (req, res) => {
     res.render('ka-views/blog');
 });
 
-router.get('/blog-admin', (req, res) => {
-    res.render('ka-views/blog-admin');
-});
-
 router.post('/create-post', (req, res) => {
     console.log("HERE");
 

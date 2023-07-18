@@ -16,6 +16,7 @@ const bodyParser = require('body-parser');
 
 const portfolioRoutes = require('./routes/portfolio-routes');
 const kaRoutes = require('./routes/ka-routes');
+const adminRoutes = require('./routes/admin-routes');
 
 /***** CONFIGURATIONS *****/
 
@@ -40,6 +41,7 @@ app.use(bodyParser.json());
 
 app.use('/', portfolioRoutes);
 app.use('/ka', kaRoutes);
+app.use('/admin', adminRoutes);
 
 app.use((req, res) => { 
     res.status(404).render('404', { title: '404'} );
