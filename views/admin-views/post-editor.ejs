@@ -55,13 +55,13 @@
     </div>
 </body>
 <script>
-    // TODO: Remove this script. Credentials should be placed in environment variables.
-    // let username = prompt('Username: ')
-    // let password = prompt('Password: ')
-
-    // if (username != "KrisAirdancer" || password != "NotSecure") {
-    //     window.location.replace("http://localhost:11001")
-    // }
+    // TODO: Figure out a way to send the session cookie directly to the sessionCookies instead of through here first.
+    window.onload = () => {
+        let sessionCookie = document.cookie.split('=')[1]
+        console.log(sessionCookie)
+        document.cookie = 'sessionCookie=; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/;'
+        sessionStorage.setItem('sessionCookie', sessionCookie)
+    }
 </script>
 <style>
     label {
