@@ -14,7 +14,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session')
 const passport = require('passport')
 const initializePassport = require('./passport-config')
-const bcrypt = require('bcrypt') // TODO: Hash the password in the environment variables after I get the basics working.
+const bcrypt = require('bcrypt') // TODO: Hash the password in the environment variables after I get the basics working. Or just remove bcrypt.
 
 require('dotenv').config()
 
@@ -31,13 +31,13 @@ const adminUser = {
     password: process.env.ADMIN_PASSWORD,
     id: process.env.ADMIN_ID
 }
-console.log(adminUser)
 
 initializePassport(passport, 
-    username => { return adminUser.username },
+    username => {
+        return adminUser
+    },
     id => {
-        console.log('005: ' + id)
-        return adminUser.id
+        return adminUser
     }
 )
 

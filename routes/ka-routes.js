@@ -151,5 +151,4 @@ router.get('/sign-guestbook', (req, res) => {
     res.redirect('/ka/guestbook');
 });
 
-// TODO: Read up on why we need to export the router object from the "routes" files.
 module.exports = router;

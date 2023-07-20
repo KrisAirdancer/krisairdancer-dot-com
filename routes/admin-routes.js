@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
     res.render('admin-views/admin-login.ejs');
 });
 
-// TODO: Handle the login request. This route should authenticate the user.
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/admin/post-editor',
     failureRedirect: '/admin/admin-login'
