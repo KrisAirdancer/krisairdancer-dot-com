@@ -76,28 +76,28 @@ app.use(methodOverride('_method')) // This allows us to change the request type 
 
 /***** FUNCTIONS *****/
 
-// This function prevents non-logged in users from accessing protected pages.
-function checkAuthenticated(req, res, next) // Next is a function that is called after the user has been authenticated.
-{
-    if (req.isAuthenticated)
-    {
-        return next()
-    }
-    else
-    {
-        return res.redirect('/login')
-    }
-}
+// // This function prevents non-logged in users from accessing protected pages.
+// function checkAuthenticated(req, res, next) // Next is a function that is called after the user has been authenticated.
+// {
+//     if (req.isAuthenticated)
+//     {
+//         return next()
+//     }
+//     else
+//     {
+//         return res.redirect('/login')
+//     }
+// }
 
-// This function prevents logged in users from accessing certain pages. Such as the login page.
-function checkNotAuthenticated()
-{
-    if (req.isAuthenticated)
-    {
-        res.redirect('/post-editor')
-    }
-    next() // Continue with the call if the user is not authenticated. Allow them to access the page they accessed.
-}
+// // This function prevents logged in users from accessing certain pages. Such as the login page.
+// function checkNotAuthenticated()
+// {
+//     if (req.isAuthenticated)
+//     {
+//         res.redirect('/post-editor')
+//     }
+//     next() // Continue with the call if the user is not authenticated. Allow them to access the page they accessed.
+// }
 
 /***** ROUTING *****/
 
