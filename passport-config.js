@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy
 function initialize(passport, getUserByUsername, getUserById)
 {
     // done is a function that we call once we've authenticated the user.
-    const authenticateUser = (username, password, done) => {
+    function authenticateUser(username, password, done) {
         const user = getUserByUsername(username)
         if (user == null)
         {

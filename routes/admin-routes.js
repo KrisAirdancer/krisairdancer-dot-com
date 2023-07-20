@@ -7,13 +7,21 @@ router.get('/', (req, res) => {
     res.render('admin-views/admin-login.ejs');
 });
 
+router.get('/admin-login', (req, res) => {
+    res.render('admin-views/admin-login.ejs');
+});
+
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/admin/post-editor',
     failureRedirect: '/admin/admin-login'
 }));
 
-router.get('/admin-login', (req, res) => {
-    res.render('admin-views/admin-login.ejs');
+// https://stackoverflow.com/questions/72336177/error-reqlogout-requires-a-callback-function
+router.delete('/logout', (req, res) => {
+    req.logOut((err) => {
+        if (err) { return next(err) }
+        res.redirect('/admin/admin-login')
+    })
 });
 
 router.get('/post-editor', (req, res) => {
@@ -21,3 +29,5 @@ router.get('/post-editor', (req, res) => {
 });
 
 module.exports = router;
+
+// 32:45

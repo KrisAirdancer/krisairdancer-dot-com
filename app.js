@@ -14,6 +14,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session')
 const passport = require('passport')
 const initializePassport = require('./passport-config')
+const methodOverride = require('method-override')
 const bcrypt = require('bcrypt') // TODO: Hash the password in the environment variables after I get the basics working. Or just remove bcrypt.
 
 require('dotenv').config()
@@ -32,11 +33,12 @@ const adminUser = {
     id: process.env.ADMIN_ID
 }
 
+// This is a function call. Not a function declaration.
 initializePassport(passport, 
-    username => {
+    username => { // This is a function declaration.
         return adminUser
     },
-    id => {
+    id => { // This is a function declaration.
         return adminUser
     }
 )
@@ -68,6 +70,34 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+
+// Setup Method Override to allow us to send DELETE requests from forms.
+app.use(methodOverride('_method')) // This allows us to change the request type from forms.
+
+/***** FUNCTIONS *****/
+
+// This function prevents non-logged in users from accessing protected pages.
+function checkAuthenticated(req, res, next) // Next is a function that is called after the user has been authenticated.
+{
+    if (req.isAuthenticated)
+    {
+        return next()
+    }
+    else
+    {
+        return res.redirect('/login')
+    }
+}
+
+// This function prevents logged in users from accessing certain pages. Such as the login page.
+function checkNotAuthenticated()
+{
+    if (req.isAuthenticated)
+    {
+        res.redirect('/post-editor')
+    }
+    next() // Continue with the call if the user is not authenticated. Allow them to access the page they accessed.
+}
 
 /***** ROUTING *****/
 
