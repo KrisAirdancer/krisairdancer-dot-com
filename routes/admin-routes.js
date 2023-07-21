@@ -4,16 +4,20 @@ const utils = require('../utils'); // Import my custom utilities library.
 
 const router = express.Router();
 
-router.get('/', utils.checkNotAuthenticated, (req, res) => {
-    res.render('admin-views/admin-login.ejs');
+router.get('/', utils.checkAuthenticated, (req, res) => {
+    res.render('admin-views/admin-home.ejs');
 });
 
 router.get('/admin-login', utils.checkNotAuthenticated, (req, res) => {
     res.render('admin-views/admin-login.ejs');
 });
 
+router.get('/home', utils.checkAuthenticated, (req, res) => {
+    res.render('admin-views/admin-home.ejs');
+});
+
 router.post('/login', utils.checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/admin/post-editor',
+    successRedirect: '/admin/home',
     failureRedirect: '/admin/admin-login'
 }));
 
