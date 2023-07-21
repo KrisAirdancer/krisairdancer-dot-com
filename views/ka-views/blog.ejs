@@ -60,7 +60,8 @@
                     const postBody = document.createElement("div")
                     postBody.classList.add('post-body')
                     newPostContent.appendChild(postBody)
-                    postBody.innerText = post.body;
+                    // TODO: Using innerHTML here is a convenient way to format my posts. But it might also pose a security risk. Look into this.
+                    postBody.innerHTML = post.body;
 
                     newPostButton.addEventListener('click', () => {
                         let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
