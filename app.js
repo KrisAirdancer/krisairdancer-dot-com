@@ -21,8 +21,7 @@ require('dotenv').config()
 
 /***** ROUTING IMPORTS *****/
 
-const portfolioRoutes = require('./routes/portfolio-routes');
-const kaRoutes = require('./routes/ka-routes');
+const portfolioRoutes = require('./routes/main-routes');
 const adminRoutes = require('./routes/admin-routes');
 
 /***** SETUP PASSPORT.JS AND AUTHENTICATION *****/
@@ -77,7 +76,7 @@ app.use(methodOverride('_method')) // This allows us to change the request type 
 /***** ROUTING *****/
 
 app.use('/', portfolioRoutes);
-app.use('/ka', kaRoutes);
+// app.use('/ka', kaRoutes);
 app.use('/admin', adminRoutes);
 
 app.use((req, res) => { 

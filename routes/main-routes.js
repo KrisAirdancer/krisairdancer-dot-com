@@ -1,40 +1,50 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const path = require('path');
 
 const blogPosts = require('../public/blog-content/posts.json');
 
 router.get('/', (req, res) => {
-    res.render('ka-views/ka-home');
+    res.render('portfolio-views/portfolio');
+});
+
+router.get('/3390-group-nums', (req, res) => {
+    res.render('portfolio-views/3390-group-nums');
+});
+
+router.get('/5630-project', (req, res) => {
+    res.render('portfolio-views/5630-project');
+});
+
+router.get('/schub', (req, res) => {
+    res.render('other-views/serial-collection-hub');
 });
 
 router.get('/webrings', (req, res) => {
-    res.render('ka-views/webrings');
+    res.render('other-views/webrings');
 });
 
 router.get('/vidya-clone', (req, res) => {
-    res.render('ka-views/vidya-clone');
+    res.render('portfolio-views/vidya-clone');
 });
 
 router.get('/blog', (req, res) => {
-    res.render('ka-views/blog');
+    res.render('other-views/blog');
 });
 
 router.get('/programming-reference', (req, res) => {
-    res.render('ka-views/programming-reference');
+    res.render('other-views/programming-reference');
 });
 
 router.get('/interesting-sites', (req, res) => {
-    res.render('ka-views/interesting-sites');
+    res.render('other-views/interesting-sites');
 });
 
 router.get('/guestbook', (req, res) => {
-    res.render('ka-views/guestbook');
+    res.render('other-views/guestbook');
 });
 
 router.get('/sign-guestbook', (req, res) => {
-
+    // TODO: Move the logic in this route into utils.js so the routing file stays clean and easy to read.
     let guestbook = undefined;
 
     try
@@ -96,5 +106,14 @@ router.get('/sign-guestbook', (req, res) => {
 
     res.redirect('/ka/guestbook');
 });
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
