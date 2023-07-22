@@ -1,7 +1,7 @@
 [
     {
         "handle": "KrisAirdancer",
-        "yourWebsite": "localhost:11001/ka",
+        "yourWebsite": "localhost:11001",
         "favWebsite": "omfgdogs.com",
         "message": "Welcome to my guestbook page!",
         "timestamp": "01/02/2023 20:53:13"

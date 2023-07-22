@@ -11,17 +11,25 @@
 <body>
     <div id="outer-div">
         <div id="content-div">
-            <h1>Blog Admin</h1>
+            <pre id="site-banner">
+╔═╗╔╦╗╔╦╗╦╔╗╔
+╠═╣ ║║║║║║║║║
+╩ ╩═╩╝╩ ╩╩╝╚╝
+Post Editor</pre>
 
             <nav id="navbar">&lt;&lt;&lt;
-                <a href="https://krisairdancer.com/">Home</a>
-                <a href="https://krisairdancer.com/ka">SCHub</a>
-                <a href="https://krisairdancer.com/ka/blog">Blog</a>
-                <a href="https://krisairdancer.com/ka/guestbook">Guestbook</a>
-                <a href="https://krisairdancer.com/ka/vidya-clone">Vidya Clone</a>
+                <a href="http://localhost:11001/">Home</a>
+                <a href="http://localhost:11001/schub">SCHub</a>
+                <a href="http://localhost:11001/blog">Blog</a>
+                <a href="http://localhost:11001/guestbook">Guestbook</a>
+                <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/admin/home">Admin Home</a>
+            &gt;&gt;&gt;</nav>
+            <br>
 
-            <form action="https://krisairdancer.com/ka/create-post" method="POST">
+            <form action="http://localhost:11001/admin/create-post" method="POST">
                 <div>
                     <label>Title*</label>
                     <br>
@@ -33,19 +41,9 @@
                     <textarea name="content" cols="30" rows="10" class="entryField" id="postContentBox" required></textarea>
                 </div>
                 <div>
-                    <label>Password*</label>
-                    <br>
-                    <input type="password" name="password" class="entryField" required>
-                </div>
-                <div>
                     <label>Author*</label>
                     <br>
                     <input type="text" name="author" class="entryField" required>
-                </div>
-                <div>
-                    <label id="dateLabel">Date*</label>
-                    <br>
-                    <input type="text" name="date" class="entryField" required>
                 </div>
                 <br>
                 <button id="postButton">Post It!</button>
@@ -54,14 +52,6 @@
         </div>
     </div>
 </body>
-<script>
-    let username = prompt('Username: ')
-    let password = prompt('Password: ')
-
-    if (username != "KrisAirdancer" || password != "NotSecure") {
-        window.location.replace("https://krisairdancer.com")
-    }
-</script>
 <style>
     label {
         font-weight: bold;

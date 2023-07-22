@@ -1,98 +1,50 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const path = require('path');
 
 const blogPosts = require('../public/blog-content/posts.json');
 
 router.get('/', (req, res) => {
-    res.render('ka-views/ka-home');
+    res.render('portfolio-views/portfolio');
+});
+
+router.get('/3390-group-nums', (req, res) => {
+    res.render('portfolio-views/3390-group-nums');
+});
+
+router.get('/5630-project', (req, res) => {
+    res.render('portfolio-views/5630-project');
+});
+
+router.get('/schub', (req, res) => {
+    res.render('other-views/serial-collection-hub');
 });
 
 router.get('/webrings', (req, res) => {
-    res.render('ka-views/webrings');
+    res.render('other-views/webrings');
 });
 
 router.get('/vidya-clone', (req, res) => {
-    res.render('ka-views/vidya-clone');
+    res.render('portfolio-views/vidya-clone');
 });
 
 router.get('/blog', (req, res) => {
-    res.render('ka-views/blog');
-});
-
-router.get('/blog-admin', (req, res) => {
-    res.render('ka-views/blog-admin');
-});
-
-router.post('/create-post', (req, res) => {
-    console.log("HERE");
-
-    if (req.body.password != "PostIt") {
-        res.redirect('/404');
-        return
-    }
-    
-    if (!req.body.title || !req.body.content || !req.body.author || !req.body.date) {
-        res.redirect('/404');
-        return
-    }
-
-    let blogContent = undefined;
-
-    try
-    {
-        let blogContentRAW = fs.readFileSync(path.join(__dirname, '..', 'public', 'blog-content', 'posts.json'), 'utf-8');
-        blogContent = JSON.parse(blogContentRAW);
-    }
-    catch (error)
-    {
-        res.redirect('/404');
-    }
-
-    let currentYear = new Date().getFullYear();
-    Date.prototype.today = function () { 
-        return (((this.getUTCMonth()+1) < 10)?"0":"") + (this.getUTCMonth()+1) + "/" +((this.getUTCDate() < 10)?"0":"") + this.getUTCDate() + "/" + this.getUTCFullYear();
-    }
-
-    // Get the content list for the current year from the JSON file.
-    let currentYearsContent = undefined
-    for (let i = 0; i < blogContent.length; i++) {
-        if (blogContent[i].year == currentYear) {
-            currentYearsContent = blogContent[i].posts;
-            break
-        }
-    }
-
-    let newPost = {
-        date: `${req.body.date}`,
-        title: `${req.body.title}`,
-        author: `${req.body.author}`,
-        body: `${req.body.content}`
-    };
-
-    currentYearsContent.unshift(newPost);
-
-    fs.writeFileSync(path.join(__dirname, '..', 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
-
-    res.redirect('blog');
-    // res.status(200)
+    res.render('other-views/blog');
 });
 
 router.get('/programming-reference', (req, res) => {
-    res.render('ka-views/programming-reference');
+    res.render('other-views/programming-reference');
 });
 
 router.get('/interesting-sites', (req, res) => {
-    res.render('ka-views/interesting-sites');
+    res.render('other-views/interesting-sites');
 });
 
 router.get('/guestbook', (req, res) => {
-    res.render('ka-views/guestbook');
+    res.render('other-views/guestbook');
 });
 
 router.get('/sign-guestbook', (req, res) => {
-
+    // TODO: Move the logic in this route into utils.js so the routing file stays clean and easy to read.
     let guestbook = undefined;
 
     try
@@ -155,5 +107,13 @@ router.get('/sign-guestbook', (req, res) => {
     res.redirect('/ka/guestbook');
 });
 
-// TODO: Read up on why we need to export the router object from the "routes" files.
+
+
+
+
+
+
+
+
+
 module.exports = router;

@@ -11,11 +11,36 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const session = require('express-session')
+const passport = require('passport')
+const initializePassport = require('./passport-config')
+const methodOverride = require('method-override')
+const bcrypt = require('bcrypt') // TODO: Hash the password in the environment variables after I get the basics working. Or just remove bcrypt.
+
+require('dotenv').config()
 
 /***** ROUTING IMPORTS *****/
 
-const portfolioRoutes = require('./routes/portfolio-routes');
-const kaRoutes = require('./routes/ka-routes');
+const portfolioRoutes = require('./routes/main-routes');
+const adminRoutes = require('./routes/admin-routes');
+
+/***** SETUP PASSPORT.JS AND AUTHENTICATION *****/
+
+const adminUser = {
+    username: process.env.ADMIN_USERNAME,
+    password: process.env.ADMIN_PASSWORD,
+    id: process.env.ADMIN_ID
+}
+
+// This is a function call. Not a function declaration.
+initializePassport(passport, 
+    username => { // This is a function declaration.
+        return adminUser
+    },
+    id => { // This is a function declaration.
+        return adminUser
+    }
+)
 
 /***** CONFIGURATIONS *****/
 
@@ -36,10 +61,23 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Setup the server to use Passport.js
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Setup Method Override to allow us to send DELETE requests from forms.
+app.use(methodOverride('_method')) // This allows us to change the request type from forms.
+
 /***** ROUTING *****/
 
 app.use('/', portfolioRoutes);
-app.use('/ka', kaRoutes);
+// app.use('/ka', kaRoutes);
+app.use('/admin', adminRoutes);
 
 app.use((req, res) => { 
     res.status(404).render('404', { title: '404'} );

@@ -11,13 +11,17 @@
 <body>
     <div id="outer-div">
         <div id="content-div">
-            <h1>Blog</h1>
+            <pre id="site-banner">
+╦╔═╦═╗╦╔═╗╔═╗╦╦═╗╔╦╗╔═╗╔╗╔╔═╗╔═╗╦═╗
+╠╩╗╠╦╝║╚═╗╠═╣║╠╦╝ ║║╠═╣║║║║  ║╣ ╠╦╝
+╩ ╩╩╚═╩╚═╝╩ ╩╩╩╚══╩╝╩ ╩╝╚╝╚═╝╚═╝╩╚═
+Blog</pre>
 
             <nav id="navbar">&lt;&lt;&lt;
-                <a href="https://krisairdancer.com/">Home</a>
-                <a href="https://krisairdancer.com/ka">SCHub</a>
-                <a href="https://krisairdancer.com/ka/guestbook">Guestbook</a>
-                <a href="https://krisairdancer.com/ka/vidya-clone">Vidya Clone</a>
+                <a href="http://localhost:11001/">Home</a>
+                <a href="http://localhost:11001">SCHub</a>
+                <a href="http://localhost:11001/guestbook">Guestbook</a>
+                <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
 
             <h2>Posts</h2>
@@ -28,7 +32,7 @@
     </div>
 </body>
 <script>
-    fetch("https://krisairdancer.com/blog-content/posts.json") // Load post data.
+    fetch("http://localhost:11001/blog-content/posts.json") // Load post data.
         .then(response => response.json()) // Convert post data into JSON.
         .then(data => { // Inject post data into collapsible content boxes.
 
