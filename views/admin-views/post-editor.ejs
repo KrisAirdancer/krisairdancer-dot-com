@@ -20,8 +20,12 @@
                 <a href="http://localhost:11001/ka/guestbook">Guestbook</a>
                 <a href="http://localhost:11001/ka/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/admin/home">Admin Home</a>
+            &gt;&gt;&gt;</nav>
+            <br>
 
-            <form action="http://localhost:11001/ka/create-post" method="POST">
+            <form action="http://localhost:11001/admin/create-post" method="POST">
                 <div>
                     <label>Title*</label>
                     <br>
@@ -33,19 +37,9 @@
                     <textarea name="content" cols="30" rows="10" class="entryField" id="postContentBox" required></textarea>
                 </div>
                 <div>
-                    <label>Password*</label>
-                    <br>
-                    <input type="password" name="password" class="entryField" required>
-                </div>
-                <div>
                     <label>Author*</label>
                     <br>
                     <input type="text" name="author" class="entryField" required>
-                </div>
-                <div>
-                    <label id="dateLabel">Date*</label>
-                    <br>
-                    <input type="text" name="date" class="entryField" required>
                 </div>
                 <br>
                 <button id="postButton">Post It!</button>

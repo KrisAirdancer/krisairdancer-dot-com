@@ -21,60 +21,6 @@ router.get('/blog', (req, res) => {
     res.render('ka-views/blog');
 });
 
-router.post('/create-post', (req, res) => {
-    console.log("HERE");
-
-    if (req.body.password != "PostIt") {
-        res.redirect('/404');
-        return
-    }
-    
-    if (!req.body.title || !req.body.content || !req.body.author || !req.body.date) {
-        res.redirect('/404');
-        return
-    }
-
-    let blogContent = undefined;
-
-    try
-    {
-        let blogContentRAW = fs.readFileSync(path.join(__dirname, '..', 'public', 'blog-content', 'posts.json'), 'utf-8');
-        blogContent = JSON.parse(blogContentRAW);
-    }
-    catch (error)
-    {
-        res.redirect('/404');
-    }
-
-    let currentYear = new Date().getFullYear();
-    Date.prototype.today = function () { 
-        return (((this.getUTCMonth()+1) < 10)?"0":"") + (this.getUTCMonth()+1) + "/" +((this.getUTCDate() < 10)?"0":"") + this.getUTCDate() + "/" + this.getUTCFullYear();
-    }
-
-    // Get the content list for the current year from the JSON file.
-    let currentYearsContent = undefined
-    for (let i = 0; i < blogContent.length; i++) {
-        if (blogContent[i].year == currentYear) {
-            currentYearsContent = blogContent[i].posts;
-            break
-        }
-    }
-
-    let newPost = {
-        date: `${req.body.date}`,
-        title: `${req.body.title}`,
-        author: `${req.body.author}`,
-        body: `${req.body.content}`
-    };
-
-    currentYearsContent.unshift(newPost);
-
-    fs.writeFileSync(path.join(__dirname, '..', 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
-
-    res.redirect('blog');
-    // res.status(200)
-});
-
 router.get('/programming-reference', (req, res) => {
     res.render('ka-views/programming-reference');
 });
