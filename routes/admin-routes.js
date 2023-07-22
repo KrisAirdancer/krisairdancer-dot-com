@@ -67,15 +67,38 @@ router.post('/create-post', utils.checkAuthenticated, (req, res) => {
             blogContent.unshift(newYear)
             currentYearsContent = newYear.posts
         }
+
+        // Generate random ID for new post.
         
+        // Get all current IDs
+        let currentIDs = new Set()
+        for (let i = 0; i < blogContent.length; i++) // For each year in the posts JSON.
+        {
+            let year = blogContent[i].posts
+            for (let j = 0; j < year.length; j++) // For each post in the current year.
+            {
+                currentIDs.add(year[j].id)
+            }
+        }
+
+        // Generate a new ID and ensure that it is unique.
+        let postID = utils.generateID()
+        while (currentIDs.has(postID))
+        {
+            postID = utils.generateID()
+        }
+
+        // Generate the post object.
         let postDate = months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear()
         let newPost = {
+            id: `${postID}`,
             date: `${postDate}`,
             title: `${req.body.title}`,
             author: `${req.body.author}`,
             body: `${req.body.content}`
         };
         
+        // Insert the post object to the beginning of the current year's JSON (this goes directly into the whole JSON object b/c we have a reference to a subset of the whole JSON object).
         currentYearsContent.unshift(newPost);
     
         fs.writeFileSync(path.join(__dirname, '..', 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
@@ -84,6 +107,7 @@ router.post('/create-post', utils.checkAuthenticated, (req, res) => {
     }
     catch (error)
     {
+        // console.log(error)
         res.redirect('/404');
     }
 });
