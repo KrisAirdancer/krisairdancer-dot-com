@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krisaridancer - Blog</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="shortcut icon" href="../../wind-icon.png" type="image/png">
+</head>
+<body>
+    <div id="outer-div">
+        <div id="content-div">
+            <pre id="site-banner">
+╔═╗╔╦╗╔╦╗╦╔╗╔
+╠═╣ ║║║║║║║║║
+╩ ╩═╩╝╩ ╩╩╝╚╝
+Post Manager</pre>
+
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/">Home</a>
+                <a href="http://localhost:11001">SCHub</a>
+                <a href="http://localhost:11001/guestbook">Guestbook</a>
+                <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
+            &gt;&gt;&gt;</nav>
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/admin/home">Admin Home</a>
+            &gt;&gt;&gt;</nav>
+            <br>
+
+            <h2>Posts</h2>
+
+            <p id="posts-list"></p>
+            
+        </div>
+    </div>
+</body>
+<script>
+    fetch("http://localhost:11001/blog-content/posts.json") // Load post data.
+        .then(response => response.json()) // Convert post data into JSON.
+        .then(data => { // Inject post data into collapsible content boxes.
+
+            data.forEach(year => {
+                const yearHeader = document.createElement("strong")
+                yearHeader.innerText = year.year
+                document.querySelector('#posts-list').appendChild(yearHeader)
+
+                year.posts.forEach(post => {
+                    // Create a post card.
+                    const newPostButton = document.createElement("button")
+                    newPostButton.classList.add('collapsible-button')
+                    newPostButton.classList.add('post-card-font')
+                    newPostButton.id = 'post-card'
+
+                    // Add the post title to the card.
+                    const postTitle = document.createElement("strong")
+                    postTitle.innerText = post.title
+                    newPostButton.appendChild(postTitle)
+
+                    const postMetaData = document.createElement("p")
+                    postMetaData.innerText = post.author + ' - ' + post.date
+                    newPostButton.appendChild(postMetaData)
+
+                    // Create container for management buttons
+                    const managementButtons = document.createElement("div")
+                    managementButtons.id = 'managementButtons'
+
+                    // Create edit button
+                    const editButton = document.createElement("button")
+                    editButton.innerText = 'edit'
+                    editButton.classList.add('btn')
+                    managementButtons.appendChild(editButton)
+                    
+                    editButton.addEventListener('click', () => {
+                        // TODO: Complete this function.
+                        console.log("EDITING")
+                    })
+
+                    // Create delete button
+                    const deleteButton = document.createElement("button")
+                    deleteButton.innerText = 'delete'
+                    deleteButton.classList.add('btn')
+                    managementButtons.appendChild(deleteButton)
+
+                    deleteButton.addEventListener('click', () => {
+                        // TODO: Complete this function.
+                        console.log("DELETING")
+                    })
+
+                    // Create the post content card.
+                    const newPostContent = document.createElement("div")
+                    newPostContent.classList.add('collapsible-content')
+                    newPostContent.id = 'newPostContent'
+
+                    const postBody = document.createElement("div")
+                    postBody.classList.add('post-body')
+                    newPostContent.appendChild(postBody)
+                    // TODO: Using innerHTML here is a convenient way to format my posts. But it might also pose a security risk. Look into this.
+                    postBody.innerHTML = post.body;
+
+                    newPostButton.addEventListener('click', () => {
+                        let content = newPostButton.nextElementSibling.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
+                        
+                        if (content.classList.contains('collapsible-content-active')) // Collapse it
+                        {
+                            content.style.minHeight = '0px';
+                            setTimeout(() => {
+                                content.classList.toggle('collapsible-content-active');
+                            }, 900);
+                        }
+                        else // Expand it
+                        {
+                            content.style.minHeight = '400px';
+                            content.classList.toggle('collapsible-content-active');
+                        }
+                    });
+
+                    document.querySelector('#posts-list').appendChild(newPostButton)
+                    document.querySelector('#posts-list').appendChild(managementButtons)
+                    document.querySelector('#posts-list').appendChild(newPostContent)
+                })
+
+                const lineBreak = document.createElement("br")
+                document.querySelector('#posts-list').appendChild(lineBreak)
+            })
+
+        })
+</script>
+<style>
+    
+    /***** Collapsible Content Styles *****/
+
+    .collapsible-button {
+        color: var(--orange);
+        background-color: var(--blue);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 700px;
+        margin: 10px 5px 5px 0px; /* Top Right Bottom Left */
+
+        text-align: left;
+    }
+    .collapsible-button:hover {
+        color: white;
+        border-color: white;
+    }
+
+    /* Hide collapsible content when collapsed */
+
+    .collapsible-content {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 0px;
+        max-width: 700px;
+        border-radius: 5px;
+        box-sizing: border-box;
+
+        min-height: 0px;
+        transition: min-height 1s;
+    }
+    
+    .collapsible-content-active {
+        border: 1px solid var(--orange);
+        overflow-y: scroll;
+    }
+    
+    /***** Other *****/
+    
+    .post-card-font {
+        font-family: 'Courier New', monospace;
+        font-size: 16px;
+    }
+    
+    .post-card-font p {
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+    }
+    
+    .collapsible-content::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .post-body {
+        max-height: 100%;
+        padding: 10px 10px 10px 10px;
+        transition: max-height 1s;
+    }
+
+    /***** BUTTONS *****/
+
+    .btn {
+        background-color: var(--blue);
+        color: var(--orange);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        margin: 0px 4px 4px 0px;
+    }
+
+    .btn:active {
+        color: #ffffff;
+        border-color: white;
+    }
+    
+    .btn:hover {
+        cursor:pointer;
+        color: #ffffff;
+        border-color: white;
+    }
+</style>
+</html>
