@@ -39,12 +39,12 @@ router.get('/post-manager', utils.checkAuthenticated, (req, res) => {
     res.render('admin-views/post-manager.ejs')
 });
 
-router.delete('/delete-post', utils.checkAuthenticated, (req, res) => {
-    // TODO: Get post ID from req
-    utils.deletePost()
+router.delete('/delete-post/:postID', utils.checkAuthenticated, (req, res) => {
+    utils.deletePost(req, res, req.params.postID)
 });
 
 router.post('/create-post', utils.checkAuthenticated, (req, res) => {
+    console.log('AT: /create-post')
     utils.createPost(req, res)
 });
 

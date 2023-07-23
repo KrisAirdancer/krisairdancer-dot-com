@@ -28,11 +28,42 @@ const checkNotAuthenticated = function(req, res, next)
 
 /***** POST MANAGEMENT *****/
 
-const deletePost = function()
+const deletePost = function(req, res, postID)
 {
-    console.log('AT: deletePost()')
+    let blogContent = undefined;
 
+    try
+    {
+        let blogContentRAW = fs.readFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), 'utf-8');
+        blogContent = JSON.parse(blogContentRAW);
 
+        for (let i = 0; i < blogContent.length; i++) // For each year in the blog content.
+        {
+            let posts = blogContent[i].posts
+            for (let j = 0; j < posts.length; j++)
+            {
+                if (posts[j].id == postID)
+                {
+                    posts.splice(j, 1) // Remove the post.
+                    
+                    if (posts.length == 0) // If the year of the deleted post now has no posts, delete that year.
+                    {
+                        blogContent.splice(i, 1) // Remove the year.
+                    }
+                    fs.writeFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
+                    
+                    return res.redirect('/admin/post-manager');
+                }
+            }
+        }
+        // If we make it this far, the post wasn't found. 404 - Not Found
+        res.redirect('/404');
+    }
+    catch(error)
+    {
+        console.log(error)
+        res.redirect('/404');
+    }
 }
 
 const createPost = function(req, res)

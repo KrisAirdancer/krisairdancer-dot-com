@@ -20,6 +20,7 @@ Post Manager</pre>
             <nav id="navbar">&lt;&lt;&lt;
                 <a href="http://localhost:11001/">Home</a>
                 <a href="http://localhost:11001">SCHub</a>
+                <a href="http://localhost:11001/blog">Blog</a>
                 <a href="http://localhost:11001/guestbook">Guestbook</a>
                 <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
@@ -40,6 +41,13 @@ Post Manager</pre>
         .then(response => response.json()) // Convert post data into JSON.
         .then(data => { // Inject post data into collapsible content boxes.
 
+            if (data.length == 0)
+            {
+                const noContent = document.createElement("p")
+                noContent.innerText = 'No posts were received from the server.'
+                document.querySelector('#posts-list').appendChild(noContent)
+            }
+
             data.forEach(year => {
                 const yearHeader = document.createElement("strong")
                 yearHeader.innerText = year.year
@@ -51,6 +59,7 @@ Post Manager</pre>
                     newPostButton.classList.add('collapsible-button')
                     newPostButton.classList.add('post-card-font')
                     newPostButton.id = 'post-card'
+                    newPostButton.setAttribute('data-postID', `${post.id}`)
 
                     // Add the post title to the card.
                     const postTitle = document.createElement("strong")
@@ -65,29 +74,30 @@ Post Manager</pre>
                     const managementButtons = document.createElement("div")
                     managementButtons.id = 'managementButtons'
 
+                    // Create edit button form
+                    // TODO: Set the correct route (action) for the edit button.
+                    const editButtonForm = document.createElement("form")
+                    // editButtonForm.action = `http://localhost:11001/admin/delete-post/${post.id}?_method=DELETE`
+                    editButtonForm.method = 'POST'
+
                     // Create edit button
                     const editButton = document.createElement("button")
                     editButton.innerText = 'edit'
                     editButton.classList.add('btn')
                     managementButtons.appendChild(editButton)
-                    
-                    editButton.addEventListener('click', () => {
-                        // TODO: Complete this function.
-                        console.log("EDITING")
-                    })
 
+                    // Create delete button form
+                    const deleteButtonForm = document.createElement("form")
+                    deleteButtonForm.action = `http://localhost:11001/admin/delete-post/${post.id}?_method=DELETE`
+                    deleteButtonForm.method = 'POST'
+                    
                     // Create delete button
                     const deleteButton = document.createElement("button")
                     deleteButton.innerText = 'delete'
                     deleteButton.classList.add('btn')
-                    managementButtons.appendChild(deleteButton)
+                    deleteButtonForm.appendChild(deleteButton)
 
-                    deleteButton.addEventListener('click', () => {
-                        // TODO: Complete this function.
-                        console.log("DELETING")
-
-                        
-                    })
+                    managementButtons.appendChild(deleteButtonForm)
 
                     // Create the post content card.
                     const newPostContent = document.createElement("div")
