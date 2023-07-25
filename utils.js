@@ -134,7 +134,7 @@ const createPost = function(req, res)
     
         fs.writeFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
     
-        res.redirect('/admin/post-editor');
+        res.redirect('/admin/post-creator');
     }
     catch (error)
     {

@@ -31,8 +31,8 @@ router.delete('/logout', utils.checkAuthenticated, (req, res) => {
 
 /***** BLOG ADMIN ROUTES *****/
 
-router.get('/post-editor', utils.checkAuthenticated, (req, res) => {
-    res.render('admin-views/post-editor.ejs')
+router.get('/post-creator', utils.checkAuthenticated, (req, res) => {
+    res.render('admin-views/post-creator.ejs')
 });
 
 router.get('/post-manager', utils.checkAuthenticated, (req, res) => {
