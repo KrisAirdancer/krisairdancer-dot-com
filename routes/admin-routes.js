@@ -39,12 +39,18 @@ router.get('/post-manager', utils.checkAuthenticated, (req, res) => {
     res.render('admin-views/post-manager.ejs')
 });
 
+router.get('/post-editor/:postID', utils.checkAuthenticated, (req, res) => {
+    console.log('AT: /edit-post/:postID')
+    console.log("postID: ", req.params.postID)
+
+    res.render('admin-views/post-editor.ejs')
+});
+
 router.delete('/delete-post/:postID', utils.checkAuthenticated, (req, res) => {
     utils.deletePost(req, res, req.params.postID)
 });
 
 router.post('/create-post', utils.checkAuthenticated, (req, res) => {
-    console.log('AT: /create-post')
     utils.createPost(req, res)
 });
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krisaridancer - Blog</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="shortcut icon" href="../../wind-icon.png" type="image/png">
+</head>
+<body>
+    <div id="outer-div">
+        <div id="content-div">
+            <pre id="site-banner">
+╔═╗╔╦╗╔╦╗╦╔╗╔
+╠═╣ ║║║║║║║║║
+╩ ╩═╩╝╩ ╩╩╝╚╝
+Post Editor</pre>
+
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/">Home</a>
+                <a href="http://localhost:11001/schub">SCHub</a>
+                <a href="http://localhost:11001/blog">Blog</a>
+                <a href="http://localhost:11001/guestbook">Guestbook</a>
+                <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
+            &gt;&gt;&gt;</nav>
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/admin/home">Admin Home</a>
+            &gt;&gt;&gt;</nav>
+            <br>
+
+            <form action="http://localhost:11001/admin/create-post" method="POST">
+                <div>
+                    <label>Title*</label>
+                    <br>
+                    <input type="text" name="title" class="entryField" required>
+                </div>
+                <div>
+                    <label>Post Content*</label>
+                    <br>
+                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentBox" required></textarea>
+                </div>
+                <div>
+                    <label>Author*</label>
+                    <br>
+                    <input type="text" name="author" class="entryField" required>
+                </div>
+                <br>
+                <button id="postButton">Post It!</button>
+            </form>
+            
+        </div>
+    </div>
+</body>
+<style>
+    label {
+        font-weight: bold;
+    }
+
+    .pageElement {
+        max-width: 700px !important;
+    }
+
+    .entryField {
+        width: 99%;
+        max-width: 700px;
+        background-color: var(--blue);
+        color: var(--orange);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        resize: vertical;
+    }
+
+    #postButton {
+        background-color: var(--blue);
+        color: var(--orange);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+    }
+
+    #postButton:active {
+        color: #ffffff;
+        border-color: white;
+    }
+
+    #postButton:hover {
+        cursor:pointer;
+    }
+
+    #postContentBox {
+        height: 300px;
+    }
+</style>
+</html>
