@@ -47,17 +47,28 @@ const editPost = function(req, res, postID)
             {
                 if (posts[j].id == postID)
                 {
-                    // TODO: Instead of deleting the post here, override the old post information with the new post information.
-                    console.log(posts[j])
-                    // posts.splice(j, 1) // Remove the post.
-                    
-                    // if (posts.length == 0) // If the year of the deleted post now has no posts, delete that year.
-                    // {
-                    //     blogContent.splice(i, 1) // Remove the year.
-                    // }
-                    // fs.writeFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
-                    
                     console.log("INTERNAL")
+                    // console.log(posts[j])
+                    // TODO: Replace the information in the post with the data from the request.
+                    // TODO: Write the modified post to the JSON file.
+
+                    console.log(req.body)
+
+                    let post = posts[j]
+                    console.log(post)
+                    
+                    post.title = req.body.title
+                    post.body = req.body.content
+                    post.author = req.body.author
+                    
+                    console.log(post)
+
+                    fs.writeFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
+
+                    // title: `${req.body.title}`,
+                    // author: `${req.body.author}`,
+                    // body: `${req.body.content}`
+                    
                     return res.redirect(`/admin/post-editor/${postID}`);
                 }
             }
