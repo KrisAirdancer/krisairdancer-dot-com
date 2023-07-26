@@ -33,17 +33,17 @@ Post Editor</pre>
                 <div>
                     <label>Title*</label>
                     <br>
-                    <input type="text" name="title" class="entryField" required>
+                    <input type="text" name="title" class="entryField" value="<%= title %>" required>
                 </div>
                 <div>
                     <label>Post Content*</label>
                     <br>
-                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentBox" required></textarea>
+                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentBox" required><%= content %></textarea>
                 </div>
                 <div>
                     <label>Author*</label>
                     <br>
-                    <input type="text" name="author" class="entryField" required>
+                    <input type="text" name="author" class="entryField" value="<%= author %>" required>
                 </div>
                 <br>
                 <button id="postButton">Post It!</button>

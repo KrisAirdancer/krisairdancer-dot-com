@@ -77,15 +77,15 @@ Post Manager</pre>
                     // Create edit button form
                     // TODO: Set the correct route (action) for the edit button.
                     const editButtonForm = document.createElement("form")
-                    // editButtonForm.action = `http://localhost:11001/admin/delete-post/${post.id}?_method=DELETE`
-                    editButtonForm.method = 'POST'
+                    editButtonForm.action = `http://localhost:11001/admin/post-editor/${post.id}`
+                    editButtonForm.method = 'GET'
 
                     // Create edit button
                     const editButton = document.createElement("button")
                     editButton.innerText = 'edit'
                     editButton.classList.add('btn')
-                    managementButtons.appendChild(editButton)
-
+                    editButtonForm.appendChild(editButton)
+                    
                     // Create delete button form
                     const deleteButtonForm = document.createElement("form")
                     deleteButtonForm.action = `http://localhost:11001/admin/delete-post/${post.id}?_method=DELETE`
@@ -96,7 +96,8 @@ Post Manager</pre>
                     deleteButton.innerText = 'delete'
                     deleteButton.classList.add('btn')
                     deleteButtonForm.appendChild(deleteButton)
-
+                    
+                    managementButtons.appendChild(editButtonForm)
                     managementButtons.appendChild(deleteButtonForm)
 
                     // Create the post content card.

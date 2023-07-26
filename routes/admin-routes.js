@@ -43,7 +43,14 @@ router.get('/post-editor/:postID', utils.checkAuthenticated, (req, res) => {
     console.log('AT: /edit-post/:postID')
     console.log("postID: ", req.params.postID)
 
-    res.render('admin-views/post-editor.ejs')
+    let post = {
+        title: "Lorem Ipsum: Sit dolor amet",
+        content: "Lorem ipsum sit dolor amet.",
+        author: "Cicero"
+    }
+
+    // TODO: I need to get the post data from the JSON file and pass that into the .render() function as options.
+    res.render('admin-views/post-editor.ejs', { title: post.title, content: post.content, author: post.author })
 });
 
 router.delete('/delete-post/:postID', utils.checkAuthenticated, (req, res) => {
