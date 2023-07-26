@@ -40,17 +40,28 @@ router.get('/post-manager', utils.checkAuthenticated, (req, res) => {
 });
 
 router.get('/post-editor/:postID', utils.checkAuthenticated, (req, res) => {
-    console.log('AT: /edit-post/:postID')
-    console.log("postID: ", req.params.postID)
+    // console.log('AT: /post-editor/:postID')
+    // console.log("postID: ", req.params.postID)
+
+    // TODO: Pull the correct post from the JSON data and then put that into the post object below.
 
     let post = {
+        postID: req.params.postID,
         title: "Lorem Ipsum: Sit dolor amet",
         content: "Lorem ipsum sit dolor amet.",
         author: "Cicero"
     }
 
     // TODO: I need to get the post data from the JSON file and pass that into the .render() function as options.
-    res.render('admin-views/post-editor.ejs', { title: post.title, content: post.content, author: post.author })
+    res.render('admin-views/post-editor.ejs', { postID: post.postID, title: post.title, content: post.content, author: post.author })
+});
+
+router.put('/edit-post', utils.checkAuthenticated, (req, res) => {
+    console.log('AT: /edit-post')
+    // TODO: Make sure to pass the right data to the utils.editPost() function (if necessary).
+    // TODO: Finish the utils.editPost() function.
+    // utils.editPost(req, res, req.params.postID)
+    utils.editPost(req, res, req.query.postID)
 });
 
 router.delete('/delete-post/:postID', utils.checkAuthenticated, (req, res) => {

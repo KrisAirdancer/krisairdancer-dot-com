@@ -28,6 +28,53 @@ const checkNotAuthenticated = function(req, res, next)
 
 /***** POST MANAGEMENT *****/
 
+const editPost = function(req, res, postID)
+{
+    console.log("AT: utils.editPost()")
+    console.log("postID: ", postID)
+
+    let blogContent = undefined;
+
+    try
+    {
+        let blogContentRAW = fs.readFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), 'utf-8');
+        blogContent = JSON.parse(blogContentRAW);
+
+        for (let i = 0; i < blogContent.length; i++) // For each year in the blog content.
+        {
+            let posts = blogContent[i].posts
+            for (let j = 0; j < posts.length; j++)
+            {
+                if (posts[j].id == postID)
+                {
+                    // TODO: Instead of deleting the post here, override the old post information with the new post information.
+                    console.log(posts[j])
+                    // posts.splice(j, 1) // Remove the post.
+                    
+                    // if (posts.length == 0) // If the year of the deleted post now has no posts, delete that year.
+                    // {
+                    //     blogContent.splice(i, 1) // Remove the year.
+                    // }
+                    // fs.writeFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
+                    
+                    console.log("INTERNAL")
+                    return res.redirect(`/admin/post-editor/${postID}`);
+                }
+            }
+        }
+        // If we make it this far, the post wasn't found. 404 - Not Found
+        console.log("HERE")
+        // res.redirect('/404');
+        res.redirect(`/admin/post-editor/${postID}`);
+    }
+    catch(error)
+    {
+        console.log("THERE")
+        console.log(error)
+        res.redirect('/404');
+    }
+}
+
 const deletePost = function(req, res, postID)
 {
     let blogContent = undefined;
@@ -230,5 +277,6 @@ module.exports = {
     generateID,
     createPost,
     deletePost,
-    createGuestbookEntry
+    createGuestbookEntry,
+    editPost
 }
