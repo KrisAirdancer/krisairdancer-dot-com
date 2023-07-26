@@ -26,6 +26,7 @@ Post Manager</pre>
             &gt;&gt;&gt;</nav>
             <nav id="navbar">&lt;&lt;&lt;
                 <a href="http://localhost:11001/admin/home">Admin Home</a>
+                <a href="http://localhost:11001/admin/post-creator">Post Creator</a>
             &gt;&gt;&gt;</nav>
             <br>
 
@@ -75,7 +76,6 @@ Post Manager</pre>
                     managementButtons.id = 'managementButtons'
 
                     // Create edit button form
-                    // TODO: Set the correct route (action) for the edit button.
                     const editButtonForm = document.createElement("form")
                     editButtonForm.action = `http://localhost:11001/admin/post-editor/${post.id}`
                     editButtonForm.method = 'GET'
@@ -105,11 +105,12 @@ Post Manager</pre>
                     newPostContent.classList.add('collapsible-content')
                     newPostContent.id = 'newPostContent'
 
-                    const postBody = document.createElement("div")
-                    postBody.classList.add('post-body')
-                    newPostContent.appendChild(postBody)
+                    const postContent = document.createElement("div")
+                    postContent.classList.add('post-content')
+                    newPostContent.appendChild(postContent)
                     // TODO: Using innerHTML here is a convenient way to format my posts. But it might also pose a security risk. Look into this.
-                    postBody.innerHTML = post.body;
+                        // Note: This whole page should be rendered on the server side. Doing that and using a special syntax for images in the posts that gets replaced on the server side will reduce the risk of HTML injection attacks.
+                    postContent.innerHTML = post.content;
 
                     newPostButton.addEventListener('click', () => {
                         let content = newPostButton.nextElementSibling.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
@@ -196,7 +197,7 @@ Post Manager</pre>
         display: none;
     }
     
-    .post-body {
+    .post-content {
         max-height: 100%;
         padding: 10px 10px 10px 10px;
         transition: max-height 1s;

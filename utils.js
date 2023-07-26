@@ -30,9 +30,6 @@ const checkNotAuthenticated = function(req, res, next)
 
 const editPost = function(req, res, postID)
 {
-    console.log("AT: utils.editPost()")
-    console.log("postID: ", postID)
-
     let blogContent = undefined;
 
     try
@@ -43,45 +40,27 @@ const editPost = function(req, res, postID)
         for (let i = 0; i < blogContent.length; i++) // For each year in the blog content.
         {
             let posts = blogContent[i].posts
-            for (let j = 0; j < posts.length; j++)
+            for (let j = 0; j < posts.length; j++) // For each post in the current year.
             {
                 if (posts[j].id == postID)
                 {
-                    console.log("INTERNAL")
-                    // console.log(posts[j])
-                    // TODO: Replace the information in the post with the data from the request.
-                    // TODO: Write the modified post to the JSON file.
-
-                    console.log(req.body)
-
                     let post = posts[j]
-                    console.log(post)
                     
                     post.title = req.body.title
-                    post.body = req.body.content
+                    post.content = req.body.content
                     post.author = req.body.author
                     
-                    console.log(post)
-
                     fs.writeFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), JSON.stringify(blogContent));
 
-                    // title: `${req.body.title}`,
-                    // author: `${req.body.author}`,
-                    // body: `${req.body.content}`
-                    
                     return res.redirect(`/admin/post-editor/${postID}`);
                 }
             }
         }
-        // If we make it this far, the post wasn't found. 404 - Not Found
-        console.log("HERE")
-        // res.redirect('/404');
-        res.redirect(`/admin/post-editor/${postID}`);
+        // If we make it to this point, the postID was not found.
+        res.redirect('/404');
     }
     catch(error)
     {
-        console.log("THERE")
-        console.log(error)
         res.redirect('/404');
     }
 }
@@ -184,7 +163,7 @@ const createPost = function(req, res)
             date: `${postDate}`,
             title: `${req.body.title}`,
             author: `${req.body.author}`,
-            body: `${req.body.content}`
+            content: `${req.body.content}`
         };
         
         // Insert the post object to the beginning of the current year's JSON (this goes directly into the whole JSON object b/c we have a reference to a subset of the whole JSON object).
@@ -198,6 +177,35 @@ const createPost = function(req, res)
     {
         console.log(error)
         res.redirect('/404');
+    }
+}
+
+const getPostData = function(req, res, postID)
+{
+    let blogContent = undefined;
+
+    try
+    {
+        let blogContentRAW = fs.readFileSync(path.join(__dirname, 'public', 'blog-content', 'posts.json'), 'utf-8');
+        blogContent = JSON.parse(blogContentRAW);
+
+        for (let i = 0; i < blogContent.length; i++) // For each year in the blog content.
+        {
+            let posts = blogContent[i].posts
+            for (let j = 0; j < posts.length; j++) // For each post in the current year.
+            {
+                if (posts[j].id == postID)
+                {
+                    return posts[j]
+                }
+            }
+        }
+
+        return null
+    }
+    catch(error)
+    {
+        return null
     }
 }
 
@@ -289,5 +297,6 @@ module.exports = {
     createPost,
     deletePost,
     createGuestbookEntry,
-    editPost
+    editPost,
+    getPostData
 }

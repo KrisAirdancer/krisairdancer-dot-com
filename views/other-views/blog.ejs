@@ -61,11 +61,11 @@ Blog</pre>
                     newPostContent.classList.add('collapsible-content')
                     newPostContent.id = 'newPostContent'
 
-                    const postBody = document.createElement("div")
-                    postBody.classList.add('post-body')
-                    newPostContent.appendChild(postBody)
+                    const postContent = document.createElement("div")
+                    postContent.classList.add('post-content')
+                    newPostContent.appendChild(postContent)
                     // TODO: Using innerHTML here is a convenient way to format my posts. But it might also pose a security risk. Look into this.
-                    postBody.innerHTML = post.body;
+                    postContent.innerHTML = post.content;
 
                     newPostButton.addEventListener('click', () => {
                         let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
@@ -151,7 +151,7 @@ Blog</pre>
         display: none;
     }
     
-    .post-body {
+    .post-content {
         max-height: 100%;
         padding: 10px 10px 10px 10px;
         transition: max-height 1s;
