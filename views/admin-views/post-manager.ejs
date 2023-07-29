@@ -30,7 +30,6 @@ Post Manager</pre>
                 <a href="http://localhost:11001/admin/post-creator">Post Creator</a>
                 <a href="http://localhost:11001/admin/file-uploader">File Uploader</a>
             &gt;&gt;&gt;</nav>
-            <br>
 
             <h2>Posts</h2>
 
@@ -71,7 +70,7 @@ Post Manager</pre>
         cursor: pointer;
         width: 100%;
         max-width: 700px;
-        margin: 10px 5px 5px 0px; /* Top Right Bottom Left */
+        margin: 10px 5px 0px 0px; /* Top Right Bottom Left */
 
         text-align: left;
     }
@@ -102,6 +101,10 @@ Post Manager</pre>
     
     /***** Other *****/
     
+    .yearHeader {
+        margin-top: 10px;
+    }
+    
     .post-card-font {
         font-family: 'Courier New', monospace;
         font-size: 16px;
@@ -124,12 +127,18 @@ Post Manager</pre>
 
     /***** BUTTONS *****/
 
+    .postManagementButtons {
+        display: flex;
+    }
+
     .btn {
         background-color: var(--blue);
         color: var(--orange);
         border: 1px solid var(--orange);
         border-radius: 5px;
-        margin: 0px 4px 4px 0px;
+        margin: 5px 5px 5px 0px;
+
+        font-family: 'Courier New', Courier, monospace;
     }
 
     .btn:active {

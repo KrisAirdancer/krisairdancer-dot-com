@@ -352,7 +352,7 @@ const generatePostManagementListHTML = function()
                     <p>${post.author} - ${post.date}</p>
                 </button>
 
-                <div id="postManagementButtons">
+                <div class="postManagementButtons">
                     <form action="http://localhost:11001/admin/post-editor/${post.id}" method="GET">
                         <button class="btn">edit</button>
                     </form>

@@ -29,7 +29,6 @@ File Uploader</pre>
                 <a href="http://localhost:11001/admin/post-manager">Post Manager</a>
                 <a href="http://localhost:11001/admin/post-creator">Post Creator</a>
             &gt;&gt;&gt;</nav>
-            <br>
 
             <form id="fileUploadForm" action="http://localhost:11001/admin/upload-file" method="POST" enctype="multipart/form-data">
                 <input type="file" name="imageInput" id="fileUploadInput"/>
@@ -45,6 +44,10 @@ File Uploader</pre>
     </div>
 </body>
 <style>
+    #fileUploadForm {
+        margin-top: 20px;
+    }
+
     #fileUploadInput {
         cursor: pointer;
     }
