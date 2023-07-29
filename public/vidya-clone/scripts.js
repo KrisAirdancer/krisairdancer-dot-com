@@ -1,4 +1,4 @@
-let tracksMasterListURI = 'https://krisairdancer.com/vidya-clone/playlists/tracks-master-list.json';
+let tracksMasterListURI = 'http://localhost:11001/vidya-clone/playlists/tracks-master-list.json';
 // TODO: Why do I have the masterTracksList object and the tracksMap? They seem to be serving the same purpose. Look through the code to figure out if I need both and consolidate if possible.
 let masterTracksList = {}; // All tracks from the 'tracks-master-list.json' file into an object for easy reference/use (does not contain audio data)
 let tracksMap = new Map(); // Generates a Map of all tracks currently in the system so that they are easily accessible (does not contain audio data)
