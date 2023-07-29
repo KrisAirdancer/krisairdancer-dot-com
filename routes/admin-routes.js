@@ -56,4 +56,18 @@ router.post('/create-post', utils.checkAuthenticated, (req, res) => {
     utils.createPost(req, res)
 });
 
+router.get('/file-uploader', utils.checkAuthenticated, (req, res) => {
+    res.render('admin-views/file-uploader.ejs')
+});
+
+router.post('/upload-file', utils.checkAuthenticated, (req, res) => {
+    console.log('AT: /upload-file')
+
+
+    // TODO: Save file to public/blog-content/images/
+
+
+    res.render('admin-views/file-uploader')
+});
+
 module.exports = router;

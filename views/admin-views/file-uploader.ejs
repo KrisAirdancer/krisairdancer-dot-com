@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krisaridancer - Admin Home</title>
+    <title>Krisaridancer - Blog</title>
     <link rel="stylesheet" href="../../styles.css">
     <link rel="shortcut icon" href="../../wind-icon.png" type="image/png">
 </head>
@@ -15,7 +15,7 @@
 ╔═╗╔╦╗╔╦╗╦╔╗╔
 ╠═╣ ║║║║║║║║║
 ╩ ╩═╩╝╩ ╩╩╝╚╝
-Home</pre>
+File Upload</pre>
 
             <nav id="navbar">&lt;&lt;&lt;
                 <a href="http://localhost:11001/">Home</a>
@@ -26,60 +26,39 @@ Home</pre>
             &gt;&gt;&gt;</nav>
 
             <br>
-            <p><a href="http://localhost:11001/admin/post-creator">Post Creator</a></p>
-            <p><a href="http://localhost:11001/admin/post-manager">Post Manager</a></p>
-            <p><a href="http://localhost:11001/admin/file-uploader">File Uploader</a></p>
-            <br>
-            <form action="/admin/logout?_method=DELETE" method="POST">
-                <button type="submit" id="postButton">Logout</button>
+            <form id="fileUploadForm" action="http://localhost:11001/admin/upload-file" method="POST" enctype="multipart/form-data">
+                <input type="file" name="avatar" id="fileUploadInput"/>
+                <br>
+                <button class="btn">Upload File</button>
             </form>
-            
         </div>
     </div>
 </body>
 <style>
-    label {
-        font-weight: bold;
-    }
-
-    .pageElement {
-        max-width: 700px !important;
-    }
-
-    .entryField {
-        width: 99%;
-        max-width: 250px;
+    #fileUploadInput::file-selector-button {
         background-color: var(--blue);
         color: var(--orange);
         border: 1px solid var(--orange);
         border-radius: 5px;
-        resize: vertical;
+        margin-bottom: 5px;
     }
 
-    /**** BUTTONS *****/
-
-    #postButton {
+        /***** Post Button *****/
+    
+        .btn {
         background-color: var(--blue);
         color: var(--orange);
         border: 1px solid var(--orange);
         border-radius: 5px;
     }
-
-    #postButton:active {
+    
+    .btn:active {
         color: #ffffff;
         border-color: white;
     }
-
-    #postButton:hover {
+    
+    .btn:hover {
         cursor:pointer;
-        color: #ffffff;
-        border-color: white;
-    }
-
-    /***** OTHER *****/
-
-    #postContentBox {
-        height: 300px;
     }
 </style>
 </html>
