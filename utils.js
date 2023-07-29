@@ -343,7 +343,7 @@ const generatePostManagementListHTML = function()
     let postManagementListHTML = []
 
     postsJSON.forEach(year => {
-        postManagementListHTML.push(`<strong>${year.year}</strong>`)
+        postManagementListHTML.push(`<p class="yearHeader"><strong>${year.year}</strong></p>`)
 
         year.posts.forEach(post => {
             let postHTML = `
@@ -362,7 +362,7 @@ const generatePostManagementListHTML = function()
                 </div>
 
                 <div class="collapsible-content" id="newPostContent">
-                    <div class="post-content">${post.content}</div>
+                    <p class="post-content">${post.content}</p>
                 </div>
             `
             postManagementListHTML.push(postHTML)
@@ -395,7 +395,15 @@ const generatePostListHTML = function()
         postListHTML.push(`<p class="yearHeader"><strong>${year.year}</strong></p>`)
 
         year.posts.forEach(post => {
-            let postHTML = `<button class="post-card collapsible-button post-card-font"><strong>${post.title}</strong><p>${post.author} - ${post.date}</p></button><div class="collapsible-content" id="newPostContent"><div class="post-content">${post.content}</div></div>`
+            let postHTML = `
+            <button class="post-card collapsible-button post-card-font">
+                <strong>${post.title}</strong>
+                <p>${post.author} - ${post.date}</p>
+            </button>
+            
+            <div class="collapsible-content" id="newPostContent">
+                <p class="post-content">${post.content}</p>
+            </div>`
             postListHTML.push(postHTML)
         })
     })
