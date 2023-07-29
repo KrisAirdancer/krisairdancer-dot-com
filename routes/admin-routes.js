@@ -65,11 +65,13 @@ router.post('/create-post', utils.checkAuthenticated, (req, res) => {
 });
 
 router.get('/file-uploader', utils.checkAuthenticated, (req, res) => {
-    res.render('admin-views/file-uploader.ejs')
+    let fileListHTML = utils.getFileListHTML()
+    res.render('admin-views/file-uploader.ejs', { fileList: fileListHTML })
 });
 
 router.post('/upload-file', utils.checkAuthenticated, utils.fileUpload.single('imageInput'), (req, res) => {
-    res.render('admin-views/file-uploader')
+    let fileListHTML = utils.getFileListHTML()
+    res.render('admin-views/file-uploader', { fileList: fileListHTML })
 });
 
 module.exports = router;
