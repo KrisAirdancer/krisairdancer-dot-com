@@ -29,7 +29,6 @@ router.get('/vidya-clone', (req, res) => {
 router.get('/blog', (req, res) => {
     let postListHTML = utils.generatePostListHTML()
     res.render('other-views/blog.ejs', { postsList: postListHTML })
-    // res.render('other-views/blog');
 });
 
 router.get('/programming-reference', (req, res) => {

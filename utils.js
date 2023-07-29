@@ -317,7 +317,7 @@ const generateFileListHTML = function()
 
     let fileListHTML = ""
     fileList.forEach(file => {
-        fileListHTML += `<div class="fileEntry"><img src=\"https://krisairdancer.com/blog-content/images/${file[0]}\"><p>${file[0]}</p></div>`
+        fileListHTML += `<div class="fileEntry"><img src=\"http://localhost:11001/blog-content/images/${file[0]}\"><p>${file[0]}</p></div>`
     })
 
     return fileListHTML
@@ -332,6 +332,7 @@ const generatePostManagementListHTML = function()
     }
     catch (error)
     {
+        console.log(error)
         return "No posts were received from the server."
     }
     
@@ -353,10 +354,10 @@ const generatePostManagementListHTML = function()
                 </button>
 
                 <div class="postManagementButtons">
-                    <form action="https://krisairdancer.com/admin/post-editor/${post.id}" method="GET">
+                    <form action="http://localhost:11001/admin/post-editor/${post.id}" method="GET">
                         <button class="btn">edit</button>
                     </form>
-                    <form action="https://krisairdancer.com/admin/delete-post/${post.id}?_method=DELETE" method="POST">
+                    <form action="http://localhost:11001/admin/delete-post/${post.id}?_method=DELETE" method="POST">
                         <button class="btn">delete</button>
                     </form>
                 </div>
@@ -377,10 +378,13 @@ const generatePostListHTML = function()
     let postsJSON = undefined
     try
     {
+        console.log('001')
         postsJSON = JSON.parse(fs.readFileSync('./public/blog-content/posts.json', 'utf8'))
+        console.log(postsJSON)
     }
     catch (error)
     {
+        console.log(error)
         return "No posts were received from the server."
     }
     
@@ -395,6 +399,7 @@ const generatePostListHTML = function()
         postListHTML.push(`<p class="yearHeader"><strong>${year.year}</strong></p>`)
 
         year.posts.forEach(post => {
+            console.log(post)
             let postHTML = `
             <button class="post-card collapsible-button post-card-font">
                 <strong>${post.title}</strong>
@@ -407,6 +412,7 @@ const generatePostListHTML = function()
             postListHTML.push(postHTML)
         })
     })
+    console.log(postListHTML.join(""))
 
     return postListHTML.join("")
 }
