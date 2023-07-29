@@ -1,13 +1,13 @@
 const express = require('express');
 const passport = require('passport');
 const utils = require('../utils'); // Import my custom utilities library.
-const app = require('../app');
 
 const router = express.Router();
 
 
-const multer = require('multer');
-const fileUpload = multer({ dest: 'public/blog-content/images' })
+const app = require('../app');
+// const multer = require('multer');
+// const fileUpload = multer({ dest: 'public/blog-content/images' })
 
 
 
@@ -68,13 +68,7 @@ router.get('/file-uploader', utils.checkAuthenticated, (req, res) => {
     res.render('admin-views/file-uploader.ejs')
 });
 
-router.post('/upload-file', utils.checkAuthenticated, fileUpload.single('imageInput'), (req, res) => {
-    console.log('AT: /upload-file')
-
-
-    // TODO: Save file to public/blog-content/images/
-
-
+router.post('/upload-file', utils.checkAuthenticated, utils.fileUpload.single('imageInput'), (req, res) => {
     res.render('admin-views/file-uploader')
 });
 

@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const multer = require('multer')
 
 /***** AUTHENTICATION *****/
 
@@ -290,6 +291,10 @@ const generateID = function() {
     return `${alphanumeric()}-${alphanumeric()}-${alphanumeric()}`
 }
 
+/***** CONFIGURING MULTER (file uploads) *****/
+
+const fileUpload = multer({ dest: 'public/blog-content/images' })
+
 module.exports = {
     checkAuthenticated,
     checkNotAuthenticated,
@@ -298,5 +303,6 @@ module.exports = {
     deletePost,
     createGuestbookEntry,
     editPost,
-    getPostData
+    getPostData,
+    fileUpload
 }
