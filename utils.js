@@ -301,6 +301,12 @@ const getFileList = function() {
 
 const getFileListHTML = function() {
     let fileList = getFileList()
+
+    if (fileList.length == 0)
+    {
+        return "No files were found on the system."
+    }
+
     fileList.sort((file1, file2) => {
         return file2[1] - file1[1]
     }) // Sort by date created (which is the upload date - date created on the server).
@@ -308,7 +314,7 @@ const getFileListHTML = function() {
     let fileListHTML = "<div id=\"filesList\">"
 
     fileList.forEach(file => {
-        fileListHTML += `<div class="fileEntry"><img width=\"50px\" src=\"http://localhost:11001/blog-content/images/${file[0]}\"><p>${file[0]}</p></div>`
+        fileListHTML += `<div class="fileEntry"><img src=\"http://localhost:11001/blog-content/images/${file[0]}\"><p>${file[0]}</p></div>`
     })
 
     fileListHTML += "</div>"

@@ -56,6 +56,7 @@ File Uploader</pre>
         border-radius: 5px;
         margin-bottom: 5px;
         cursor: pointer;
+        width: 100px;
     }
 
     #fileUploadInput::file-selector-button:hover {
@@ -70,6 +71,7 @@ File Uploader</pre>
         color: var(--orange);
         border: 1px solid var(--orange);
         border-radius: 5px;
+        width: 100px;
     }
     
     .btn:active {
@@ -81,6 +83,34 @@ File Uploader</pre>
         cursor:pointer;
         color: #ffffff;
         border-color: white;
+    }
+
+    /***** FILES LIST *****/
+
+    #filesList {
+        margin-top: 20px;
+        max-width: 700px;
+    }
+
+    .fileEntry {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        padding: 5px;
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        overflow-x: scroll;
+    }
+
+    .fileEntry::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .fileEntry img {
+        margin-right: 5px;
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        width: 75px;
     }
 </style>
 </html>

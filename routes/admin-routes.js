@@ -70,8 +70,7 @@ router.get('/file-uploader', utils.checkAuthenticated, (req, res) => {
 });
 
 router.post('/upload-file', utils.checkAuthenticated, utils.fileUpload.single('imageInput'), (req, res) => {
-    let fileListHTML = utils.getFileListHTML()
-    res.render('admin-views/file-uploader', { fileList: fileListHTML })
+    res.redirect('/admin/file-uploader')
 });
 
 module.exports = router;
