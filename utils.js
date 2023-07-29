@@ -317,7 +317,7 @@ const generateFileListHTML = function()
 
     let fileListHTML = ""
     fileList.forEach(file => {
-        fileListHTML += `<div class="fileEntry"><img src=\"http://localhost:11001/blog-content/images/${file[0]}\"><p>${file[0]}</p></div>`
+        fileListHTML += `<div class="fileEntry"><img src=\"https://krisairdancer.com/blog-content/images/${file[0]}\"><p>${file[0]}</p></div>`
     })
 
     return fileListHTML
@@ -354,10 +354,10 @@ const generatePostManagementListHTML = function()
                 </button>
 
                 <div class="postManagementButtons">
-                    <form action="http://localhost:11001/admin/post-editor/${post.id}" method="GET">
+                    <form action="https://krisairdancer.com/admin/post-editor/${post.id}" method="GET">
                         <button class="btn">edit</button>
                     </form>
-                    <form action="http://localhost:11001/admin/delete-post/${post.id}?_method=DELETE" method="POST">
+                    <form action="https://krisairdancer.com/admin/delete-post/${post.id}?_method=DELETE" method="POST">
                         <button class="btn">delete</button>
                     </form>
                 </div>
