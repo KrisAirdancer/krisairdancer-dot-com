@@ -19,80 +19,37 @@ Blog</pre>
 
             <nav id="navbar">&lt;&lt;&lt;
                 <a href="http://localhost:11001/">Home</a>
-                <a href="http://localhost:11001">SCHub</a>
+                <a href="http://localhost:11001/schub">SCHub</a>
                 <a href="http://localhost:11001/guestbook">Guestbook</a>
                 <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
 
             <h2>Posts</h2>
 
-            <p id="posts-list"></p>
+            <p id="posts-list"><%- postsList %></p>
             
         </div>
     </div>
 </body>
 <script>
-    fetch("http://localhost:11001/blog-content/posts.json") // Load post data.
-        .then(response => response.json()) // Convert post data into JSON.
-        .then(data => { // Inject post data into collapsible content boxes.
-
-            data.forEach(year => {
-                const yearHeader = document.createElement("strong")
-                yearHeader.innerText = year.year
-                document.querySelector('#posts-list').appendChild(yearHeader)
-
-                year.posts.forEach(post => {
-                    // Create a post card.
-                    const newPostButton = document.createElement("button")
-                    newPostButton.classList.add('collapsible-button')
-                    newPostButton.classList.add('post-card-font')
-
-                    // Add the post title to the card.
-                    const postTitle = document.createElement("strong")
-                    postTitle.innerText = post.title
-                    newPostButton.appendChild(postTitle)
-
-                    const postMetaData = document.createElement("p")
-                    postMetaData.innerText = post.author + ' - ' + post.date
-                    newPostButton.appendChild(postMetaData)
-
-                    // Create the post content card.
-                    const newPostContent = document.createElement("div")
-                    newPostContent.classList.add('collapsible-content')
-                    newPostContent.id = 'newPostContent'
-
-                    const postContent = document.createElement("div")
-                    postContent.classList.add('post-content')
-                    newPostContent.appendChild(postContent)
-                    // TODO: Using innerHTML here is a convenient way to format my posts. But it might also pose a security risk. Look into this.
-                    postContent.innerHTML = post.content;
-
-                    newPostButton.addEventListener('click', () => {
-                        let content = newPostButton.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
-                        
-                        if (content.classList.contains('collapsible-content-active')) // Collapse it
-                        {
-                            content.style.minHeight = '0px';
-                            setTimeout(() => {
-                                content.classList.toggle('collapsible-content-active');
-                            }, 900);
-                        }
-                        else // Expand it
-                        {
-                            content.style.minHeight = '400px';
-                            content.classList.toggle('collapsible-content-active');
-                        }
-                    });
-
-                    document.querySelector('#posts-list').appendChild(newPostButton)
-                    document.querySelector('#posts-list').appendChild(newPostContent)
-                })
-
-                const lineBreak = document.createElement("br")
-                document.querySelector('#posts-list').appendChild(lineBreak)
-            })
-
-        })
+    document.querySelectorAll('.post-card').forEach(card => {
+        card.addEventListener('click', () => {
+            let content = card.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
+            
+            if (content.classList.contains('collapsible-content-active')) // Collapse it
+            {
+                content.style.minHeight = '0px';
+                setTimeout(() => {
+                    content.classList.toggle('collapsible-content-active');
+                }, 900);
+            }
+            else // Expand it
+            {
+                content.style.minHeight = '400px';
+                content.classList.toggle('collapsible-content-active');
+            }
+        });
+    })
 </script>
 <style>
     
@@ -136,6 +93,10 @@ Blog</pre>
     }
     
     /***** Other *****/
+
+    .yearHeader {
+        margin-top: 10px;
+    }
     
     .post-card-font {
         font-family: 'Courier New', monospace;
@@ -162,9 +123,11 @@ Blog</pre>
     .post-content img {
         border: 1px solid var(--orange);
         border-radius: 5px;
+        padding: 5px;
     }
 
-    .post-content span {
+    /* Post Captions */
+    .caption span {
         font-style: italic;
         font-size: smaller;
     }

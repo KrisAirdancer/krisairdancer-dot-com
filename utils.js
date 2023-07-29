@@ -334,7 +334,6 @@ const generatePostManagementListHTML = function()
     {
         return "No posts were received from the server."
     }
-    console.log(postsJSON)
     
     if (postsJSON === undefined || postsJSON.length === 0)
     {
@@ -373,6 +372,37 @@ const generatePostManagementListHTML = function()
     return postManagementListHTML.join("")
 }
 
+const generatePostListHTML = function()
+{
+    let postsJSON = undefined
+    try
+    {
+        postsJSON = JSON.parse(fs.readFileSync('./public/blog-content/posts.json', 'utf8'))
+    }
+    catch (error)
+    {
+        return "No posts were received from the server."
+    }
+    
+    if (postsJSON === undefined || postsJSON.length === 0)
+    {
+        return "No posts were received from the server."
+    }
+    
+    let postListHTML = []
+
+    postsJSON.forEach(year => {
+        postListHTML.push(`<p class="yearHeader"><strong>${year.year}</strong></p>`)
+
+        year.posts.forEach(post => {
+            let postHTML = `<button class="post-card collapsible-button post-card-font"><strong>${post.title}</strong><p>${post.author} - ${post.date}</p></button><div class="collapsible-content" id="newPostContent"><div class="post-content">${post.content}</div></div>`
+            postListHTML.push(postHTML)
+        })
+    })
+
+    return postListHTML.join("")
+}
+
 /***** CONFIGURING MULTER (file uploads) *****/
 
 const storage = multer.diskStorage({
@@ -399,5 +429,6 @@ module.exports = {
     getPostData,
     generateFileListHTML,
     generatePostManagementListHTML,
+    generatePostListHTML,
     fileUpload
 }
