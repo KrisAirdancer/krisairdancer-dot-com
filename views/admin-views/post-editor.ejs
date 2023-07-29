@@ -42,7 +42,7 @@ Post Editor</pre>
                 <div>
                     <label>Post Content*</label>
                     <br>
-                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentBox" required><%= content %></textarea>
+                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentField" required><%= content %></textarea>
                 </div>
                 <div>
                     <label>Author*</label>
@@ -75,6 +75,12 @@ Post Editor</pre>
         resize: vertical;
     }
 
+    #postContentField::-webkit-scrollbar {
+        display: none;
+    }
+
+    /***** Other *****/
+
     #postButton {
         background-color: var(--blue);
         color: var(--orange);
@@ -91,7 +97,7 @@ Post Editor</pre>
         cursor:pointer;
     }
 
-    #postContentBox {
+    #postContentField {
         height: 300px;
     }
 </style>

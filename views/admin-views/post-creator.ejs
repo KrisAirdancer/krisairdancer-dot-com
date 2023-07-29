@@ -40,7 +40,7 @@ Post Creator</pre>
                 <div>
                     <label>Post Content*</label>
                     <br>
-                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentBox" required></textarea>
+                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentField" required></textarea>
                 </div>
                 <div>
                     <label>Author*</label>
@@ -72,8 +72,12 @@ Post Creator</pre>
         resize: vertical;
     }
 
-    #postContentBox {
+    #postContentField {
         height: 300px;
+    }
+
+    #postContentField::-webkit-scrollbar {
+        display: none;
     }
     
     /***** Post Button *****/
