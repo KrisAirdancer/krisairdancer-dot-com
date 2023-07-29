@@ -293,7 +293,16 @@ const generateID = function() {
 
 /***** CONFIGURING MULTER (file uploads) *****/
 
-const fileUpload = multer({ dest: 'public/blog-content/images' })
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'public/blog-content/images')
+    },
+    filename: function(req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+
+const fileUpload = multer({ storage: storage })
 
 module.exports = {
     checkAuthenticated,
