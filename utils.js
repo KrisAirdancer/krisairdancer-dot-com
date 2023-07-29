@@ -283,15 +283,18 @@ const createGuestbookEntry = function(req, res)
 
 /***** OTHER *****/
 
-const alphanumeric = function() {
+const alphanumeric = function()
+{
     return Array.from(Array(10), () => Math.floor(Math.random() * 36).toString(36)).join('')
 }
 
-const generateID = function() {
+const generateID = function()
+{
     return `${alphanumeric()}-${alphanumeric()}-${alphanumeric()}`
 }
 
-const getFileList = function() {
+const getFileList = function()
+{
     let fileList = []
     fs.readdirSync('./public/blog-content/images').forEach(fileName => {
         fileList.push([fileName, fs.statSync(`./public/blog-content/images/${fileName}`).birthtime])
@@ -299,12 +302,13 @@ const getFileList = function() {
     return fileList
 }
 
-const getFileListHTML = function() {
+const generateFileListHTML = function()
+{
     let fileList = getFileList()
 
     if (fileList.length == 0)
     {
-        return "No files were found on the system."
+        return "No files were received from the server."
     }
 
     fileList.sort((file1, file2) => {
@@ -317,6 +321,56 @@ const getFileListHTML = function() {
     })
 
     return fileListHTML
+}
+
+const generatePostManagementListHTML = function()
+{
+    let postsJSON = undefined
+    try
+    {
+        postsJSON = JSON.parse(fs.readFileSync('./public/blog-content/posts.json', 'utf8'))
+    }
+    catch (error)
+    {
+        return "No posts were received from the server."
+    }
+    console.log(postsJSON)
+    
+    if (postsJSON === undefined || postsJSON.length === 0)
+    {
+        return "No posts were received from the server."
+    }
+    
+    let postManagementListHTML = []
+
+    postsJSON.forEach(year => {
+        postManagementListHTML.push(`<strong>${year.year}</strong>`)
+
+        year.posts.forEach(post => {
+            let postHTML = `
+                <button class="post-card collapsible-button post-card-font" data-postid="${post.id}">
+                    <strong>${post.title}</strong>
+                    <p>${post.author} - ${post.date}</p>
+                </button>
+
+                <div id="postManagementButtons">
+                    <form action="http://localhost:11001/admin/post-editor/${post.id}" method="GET">
+                        <button class="btn">edit</button>
+                    </form>
+                    <form action="http://localhost:11001/admin/delete-post/${post.id}?_method=DELETE" method="POST">
+                        <button class="btn">delete</button>
+                    </form>
+                </div>
+
+                <div class="collapsible-content" id="newPostContent">
+                    <div class="post-content">${post.content}</div>
+                </div>
+            `
+            postManagementListHTML.push(postHTML)
+        })
+    })
+
+    return postManagementListHTML.join("")
 }
 
 /***** CONFIGURING MULTER (file uploads) *****/
@@ -332,6 +386,8 @@ const storage = multer.diskStorage({
 
 const fileUpload = multer({ storage: storage })
 
+/***** EXPORTS *****/
+
 module.exports = {
     checkAuthenticated,
     checkNotAuthenticated,
@@ -341,6 +397,7 @@ module.exports = {
     createGuestbookEntry,
     editPost,
     getPostData,
-    getFileListHTML,
+    generateFileListHTML,
+    generatePostManagementListHTML,
     fileUpload
 }

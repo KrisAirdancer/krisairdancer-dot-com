@@ -4,14 +4,6 @@ const utils = require('../utils'); // Import my custom utilities library.
 
 const router = express.Router();
 
-
-const app = require('../app');
-// const multer = require('multer');
-// const fileUpload = multer({ dest: 'public/blog-content/images' })
-
-
-
-
 router.get('/', utils.checkAuthenticated, (req, res) => {
     res.render('admin-views/admin-home.ejs');
 });
@@ -44,7 +36,8 @@ router.get('/post-creator', utils.checkAuthenticated, (req, res) => {
 });
 
 router.get('/post-manager', utils.checkAuthenticated, (req, res) => {
-    res.render('admin-views/post-manager.ejs')
+    let postManagementListHTML = utils.generatePostManagementListHTML()
+    res.render('admin-views/post-manager.ejs', { postsList: postManagementListHTML })
 });
 
 router.get('/post-editor/:postID', utils.checkAuthenticated, (req, res) => {
@@ -65,7 +58,7 @@ router.post('/create-post', utils.checkAuthenticated, (req, res) => {
 });
 
 router.get('/file-uploader', utils.checkAuthenticated, (req, res) => {
-    let fileListHTML = utils.getFileListHTML()
+    let fileListHTML = utils.generateFileListHTML()
     res.render('admin-views/file-uploader.ejs', { fileList: fileListHTML })
 });
 
