@@ -15,6 +15,7 @@ const session = require('express-session')
 const passport = require('passport')
 const initializePassport = require('./passport-config')
 const methodOverride = require('method-override')
+const multer = require('multer')
 const bcrypt = require('bcrypt') // TODO: Hash the password in the environment variables after I get the basics working. Or just remove bcrypt.
 
 require('dotenv').config()
@@ -41,6 +42,10 @@ initializePassport(passport,
         return adminUser
     }
 )
+
+/***** CONFIGURING MULTER (file uploads) *****/
+
+const fileUpload = multer({ dest: 'public/blog-content/images' })
 
 /***** CONFIGURATIONS *****/
 
@@ -92,3 +97,6 @@ app.listen(PORT, error => {
     }
     console.log(`Listening on port ${PORT}.`)
 })
+
+
+// module.exports = app.fileUpload;
