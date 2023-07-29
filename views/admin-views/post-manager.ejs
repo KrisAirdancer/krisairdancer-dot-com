@@ -11,22 +11,29 @@
 <body>
     <div id="outer-div">
         <div id="content-div">
+            
             <pre id="site-banner">
-╦╔═╦═╗╦╔═╗╔═╗╦╦═╗╔╦╗╔═╗╔╗╔╔═╗╔═╗╦═╗
-╠╩╗╠╦╝║╚═╗╠═╣║╠╦╝ ║║╠═╣║║║║  ║╣ ╠╦╝
-╩ ╩╩╚═╩╚═╝╩ ╩╩╩╚══╩╝╩ ╩╝╚╝╚═╝╚═╝╩╚═
-Blog</pre>
+╔═╗╔╦╗╔╦╗╦╔╗╔
+╠═╣ ║║║║║║║║║
+╩ ╩═╩╝╩ ╩╩╝╚╝
+Post Manager</pre>
 
             <nav id="navbar">&lt;&lt;&lt;
                 <a href="http://localhost:11001/">Home</a>
-                <a href="http://localhost:11001/schub">SCHub</a>
+                <a href="http://localhost:11001">SCHub</a>
+                <a href="http://localhost:11001/blog">Blog</a>
                 <a href="http://localhost:11001/guestbook">Guestbook</a>
                 <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
+            &gt;&gt;&gt;</nav>
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/admin/home">Admin Home</a>
+                <a href="http://localhost:11001/admin/post-creator">Post Creator</a>
+                <a href="http://localhost:11001/admin/file-uploader">File Uploader</a>
             &gt;&gt;&gt;</nav>
 
             <h2>Posts</h2>
 
-            <p id="posts-list"><%- postsList %></p>
+            <div id="posts-list"><%- postsList %></div>
             
         </div>
     </div>
@@ -34,7 +41,7 @@ Blog</pre>
 <script>
     document.querySelectorAll('.post-card').forEach(card => {
         card.addEventListener('click', () => {
-            let content = card.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
+            let content = card.nextElementSibling.nextElementSibling; // This retrieves the element immediately after the one this property is called on.
             
             if (content.classList.contains('collapsible-content-active')) // Collapse it
             {
@@ -63,7 +70,7 @@ Blog</pre>
         cursor: pointer;
         width: 100%;
         max-width: 700px;
-        margin: 10px 5px 5px 0px; /* Top Right Bottom Left */
+        margin: 10px 5px 0px 0px; /* Top Right Bottom Left */
 
         text-align: left;
     }
@@ -93,7 +100,7 @@ Blog</pre>
     }
     
     /***** Other *****/
-
+    
     .yearHeader {
         margin-top: 10px;
     }
@@ -116,6 +123,33 @@ Blog</pre>
         max-height: 100%;
         padding: 10px 10px 10px 10px;
         transition: max-height 1s;
+    }
+
+    /***** BUTTONS *****/
+
+    .postManagementButtons {
+        display: flex;
+    }
+
+    .btn {
+        background-color: var(--blue);
+        color: var(--orange);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        margin: 5px 5px 5px 0px;
+
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .btn:active {
+        color: #ffffff;
+        border-color: white;
+    }
+    
+    .btn:hover {
+        cursor:pointer;
+        color: #ffffff;
+        border-color: white;
     }
 
     /***** Image Styles *****/

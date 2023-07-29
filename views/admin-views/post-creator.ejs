@@ -15,7 +15,7 @@
 ╔═╗╔╦╗╔╦╗╦╔╗╔
 ╠═╣ ║║║║║║║║║
 ╩ ╩═╩╝╩ ╩╩╝╚╝
-Post Editor</pre>
+Post Creator</pre>
 
             <nav id="navbar">&lt;&lt;&lt;
                 <a href="http://localhost:11001/">Home</a>
@@ -27,31 +27,29 @@ Post Editor</pre>
             <nav id="navbar">&lt;&lt;&lt;
                 <a href="http://localhost:11001/admin/home">Admin Home</a>
                 <a href="http://localhost:11001/admin/post-manager">Post Manager</a>
-                <a href="http://localhost:11001/admin/post-creator">Post Creator</a>
                 <a href="http://localhost:11001/admin/file-uploader">File Uploader</a>
             &gt;&gt;&gt;</nav>
             <br>
 
-            <form action="http://localhost:11001/admin/edit-post/?_method=PUT&postID=<%= postID %>" method="POST">
+            <form action="http://localhost:11001/admin/create-post" method="POST">
                 <div>
                     <label>Title*</label>
                     <br>
-                    <input type="text" name="title" class="entryField" value="<%= title %>" required>
+                    <input type="text" name="title" class="entryField" required>
                 </div>
                 <div>
                     <label>Post Content*</label>
                     <br>
-                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentField" required><%= content %></textarea>
+                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentField" required></textarea>
                 </div>
                 <div>
                     <label>Author*</label>
                     <br>
-                    <input type="text" name="author" class="entryField" value="<%= author %>" required>
+                    <input type="text" name="author" class="entryField" required>
                 </div>
                 <br>
-                <button id="postButton">Edit It!</button>
-            </form>
-            
+                <button class="btn">Post It!</button>
+            </form>            
         </div>
     </div>
 </body>
@@ -74,32 +72,32 @@ Post Editor</pre>
         resize: vertical;
     }
 
+    #postContentField {
+        height: 300px;
+    }
+
     #postContentField::-webkit-scrollbar {
         display: none;
     }
-
-    /***** Other *****/
-
-    #postButton {
+    
+    /***** Post Button *****/
+    
+    .btn {
         background-color: var(--blue);
         color: var(--orange);
         border: 1px solid var(--orange);
         border-radius: 5px;
     }
-
-    #postButton:active {
+    
+    .btn:active {
         color: #ffffff;
         border-color: white;
     }
-
-    #postButton:hover {
+    
+    .btn:hover {
         color: #ffffff;
         border-color: white;
         cursor:pointer;
-    }
-
-    #postContentField {
-        height: 300px;
     }
 </style>
 </html>

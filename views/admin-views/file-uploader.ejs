@@ -15,7 +15,7 @@
 ╔═╗╔╦╗╔╦╗╦╔╗╔
 ╠═╣ ║║║║║║║║║
 ╩ ╩═╩╝╩ ╩╩╝╚╝
-Post Editor</pre>
+File Uploader</pre>
 
             <nav id="navbar">&lt;&lt;&lt;
                 <a href="http://localhost:11001/">Home</a>
@@ -28,78 +28,92 @@ Post Editor</pre>
                 <a href="http://localhost:11001/admin/home">Admin Home</a>
                 <a href="http://localhost:11001/admin/post-manager">Post Manager</a>
                 <a href="http://localhost:11001/admin/post-creator">Post Creator</a>
-                <a href="http://localhost:11001/admin/file-uploader">File Uploader</a>
             &gt;&gt;&gt;</nav>
-            <br>
 
-            <form action="http://localhost:11001/admin/edit-post/?_method=PUT&postID=<%= postID %>" method="POST">
-                <div>
-                    <label>Title*</label>
-                    <br>
-                    <input type="text" name="title" class="entryField" value="<%= title %>" required>
-                </div>
-                <div>
-                    <label>Post Content*</label>
-                    <br>
-                    <textarea name="content" cols="30" rows="10" class="entryField" id="postContentField" required><%= content %></textarea>
-                </div>
-                <div>
-                    <label>Author*</label>
-                    <br>
-                    <input type="text" name="author" class="entryField" value="<%= author %>" required>
-                </div>
+            <form id="fileUploadForm" action="http://localhost:11001/admin/upload-file" method="POST" enctype="multipart/form-data">
+                <input type="file" name="imageInput" id="fileUploadInput"/>
                 <br>
-                <button id="postButton">Edit It!</button>
+                <button class="btn">Upload File</button>
             </form>
+            
+            <div id="filesList">
+                <%- fileList %>
+            </div>
             
         </div>
     </div>
 </body>
 <style>
-    label {
-        font-weight: bold;
+    #fileUploadForm {
+        margin-top: 20px;
     }
 
-    .pageElement {
-        max-width: 700px !important;
+    #fileUploadInput {
+        cursor: pointer;
     }
 
-    .entryField {
-        width: 99%;
-        max-width: 700px;
+    #fileUploadInput::file-selector-button {
         background-color: var(--blue);
         color: var(--orange);
         border: 1px solid var(--orange);
         border-radius: 5px;
-        resize: vertical;
+        margin-bottom: 5px;
+        cursor: pointer;
+        width: 100px;
     }
 
-    #postContentField::-webkit-scrollbar {
+    #fileUploadInput::file-selector-button:hover {
+        color: #ffffff;
+        border-color: white;
+    }
+
+    /***** Post Button *****/
+    
+    .btn {
+        background-color: var(--blue);
+        color: var(--orange);
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        width: 100px;
+    }
+    
+    .btn:active {
+        color: #ffffff;
+        border-color: white;
+    }
+    
+    .btn:hover {
+        cursor:pointer;
+        color: #ffffff;
+        border-color: white;
+    }
+
+    /***** FILES LIST *****/
+
+    #filesList {
+        margin-top: 20px;
+        max-width: 700px;
+    }
+
+    .fileEntry {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        padding: 5px;
+        border: 1px solid var(--orange);
+        border-radius: 5px;
+        overflow-x: scroll;
+    }
+
+    .fileEntry::-webkit-scrollbar {
         display: none;
     }
-
-    /***** Other *****/
-
-    #postButton {
-        background-color: var(--blue);
-        color: var(--orange);
+    
+    .fileEntry img {
+        margin-right: 5px;
         border: 1px solid var(--orange);
         border-radius: 5px;
-    }
-
-    #postButton:active {
-        color: #ffffff;
-        border-color: white;
-    }
-
-    #postButton:hover {
-        color: #ffffff;
-        border-color: white;
-        cursor:pointer;
-    }
-
-    #postContentField {
-        height: 300px;
+        width: 75px;
     }
 </style>
 </html>

@@ -25,8 +25,9 @@ Home</pre>
                 <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
 
-            <br>
-            <p><a href="http://localhost:11001/admin/post-editor">Post Editor</a></p>
+            <p><a href="http://localhost:11001/admin/post-creator">Post Creator</a></p>
+            <p><a href="http://localhost:11001/admin/post-manager">Post Manager</a></p>
+            <p><a href="http://localhost:11001/admin/file-uploader">File Uploader</a></p>
             <br>
             <form action="/admin/logout?_method=DELETE" method="POST">
                 <button type="submit" id="postButton">Logout</button>
@@ -54,6 +55,8 @@ Home</pre>
         resize: vertical;
     }
 
+    /**** BUTTONS *****/
+
     #postButton {
         background-color: var(--blue);
         color: var(--orange);
@@ -68,7 +71,11 @@ Home</pre>
 
     #postButton:hover {
         cursor:pointer;
+        color: #ffffff;
+        border-color: white;
     }
+
+    /***** OTHER *****/
 
     #postContentBox {
         height: 300px;
