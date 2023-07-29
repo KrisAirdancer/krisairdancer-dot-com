@@ -24,8 +24,13 @@ File Upload</pre>
                 <a href="http://localhost:11001/guestbook">Guestbook</a>
                 <a href="http://localhost:11001/vidya-clone">Vidya Clone</a>
             &gt;&gt;&gt;</nav>
-
+            <nav id="navbar">&lt;&lt;&lt;
+                <a href="http://localhost:11001/admin/home">Admin Home</a>
+                <a href="http://localhost:11001/admin/post-manager">Post Manager</a>
+                <a href="http://localhost:11001/admin/post-creator">Post Creator</a>
+            &gt;&gt;&gt;</nav>
             <br>
+
             <form id="fileUploadForm" action="http://localhost:11001/admin/upload-file" method="POST" enctype="multipart/form-data">
                 <input type="file" name="imageInput" id="fileUploadInput"/>
                 <br>
@@ -35,15 +40,20 @@ File Upload</pre>
     </div>
 </body>
 <style>
+    #fileUploadInput {
+        cursor: pointer;
+    }
+
     #fileUploadInput::file-selector-button {
         background-color: var(--blue);
         color: var(--orange);
         border: 1px solid var(--orange);
         border-radius: 5px;
         margin-bottom: 5px;
+        cursor: pointer;
     }
 
-        /***** Post Button *****/
+    /***** Post Button *****/
     
     .btn {
         background-color: var(--blue);
