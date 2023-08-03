@@ -1,9 +1,1 @@
-[
-    {
-        "handle": "KrisAirdancer",
-        "yourWebsite": "localhost:11001",
-        "favWebsite": "omfgdogs.com",
-        "message": "Welcome to my guestbook page!",
-        "timestamp": "01/02/2023 20:53:13"
-    }
-]
+[{"handle":"KrisAirdancer","yourWebsite":"localhost:11001","favWebsite":"omfgdogs.com","message":"Welcome to my guestbook page!","timestamp":"01/02/2023 20:53:13"},{"handle":"Bryan","yourWebsite":"https://bryanredd.com","favWebsite":"https://bryanredd.com/r/qhFdnK3U","message":"I like the aesthetic of your website. Keep me posted on any updates you make!","timestamp":"08/03/2023 05:11:44"}]
