@@ -378,9 +378,7 @@ const generatePostListHTML = function()
     let postsJSON = undefined
     try
     {
-        console.log('001')
         postsJSON = JSON.parse(fs.readFileSync('./public/blog-content/posts.json', 'utf8'))
-        console.log(postsJSON)
     }
     catch (error)
     {
@@ -399,7 +397,6 @@ const generatePostListHTML = function()
         postListHTML.push(`<p class="yearHeader"><strong>${year.year}</strong></p>`)
 
         year.posts.forEach(post => {
-            console.log(post)
             let postHTML = `
             <button class="post-card collapsible-button post-card-font">
                 <strong>${post.title}</strong>
@@ -412,7 +409,6 @@ const generatePostListHTML = function()
             postListHTML.push(postHTML)
         })
     })
-    console.log(postListHTML.join(""))
 
     return postListHTML.join("")
 }
