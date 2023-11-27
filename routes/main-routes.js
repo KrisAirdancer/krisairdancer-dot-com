@@ -47,4 +47,9 @@ router.get('/sign-guestbook', (req, res) => {
     utils.createGuestbookEntry(req, res)
 });
 
+router.get('/ping', (req, res) => {
+    // res.send("pong")
+    res.render("other-views/pong")
+});
+
 module.exports = router;
