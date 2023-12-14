@@ -3,6 +3,10 @@ const router = express.Router();
 const utils = require('../utils')
 
 router.get('/', (req, res) => {
+    res.redirect('https://csmarston.com');
+});
+
+router.get('/underground', (req, res) => {
     res.render('portfolio-views/portfolio');
 });
 
