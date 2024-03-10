@@ -1,4 +1,8 @@
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   margin: 0;
   padding: 5% 5% 0 5%;
 

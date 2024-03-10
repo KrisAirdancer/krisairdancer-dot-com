@@ -1,5 +1,5 @@
 import './Homepage.css'
-import Terminal from './Terminal'
+import Terminal from './terminal/Terminal'
 
 export default function Homepage()
 {

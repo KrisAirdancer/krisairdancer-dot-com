@@ -2,10 +2,12 @@
   --blue: #122D4A;
   --orange: #FFA366;
   --dark-blue: #0b1b2c;
+  --tan: #EBDBB2
 }
 
 body {
   margin: 0;
 
+  color: var(--orange);
   background-color: var(--dark-blue);
 }

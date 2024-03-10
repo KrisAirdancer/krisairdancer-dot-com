@@ -1,0 +1,11 @@
+#input-leader {
+    font-weight: bold;
+}
+
+#username {
+    color: var(--orange);
+}
+
+#site-name {
+    color: var(--tan);
+}

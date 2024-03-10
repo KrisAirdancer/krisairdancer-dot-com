@@ -2,19 +2,15 @@
     box-sizing: border-box;
     padding: 10px;
     height: 25rem;
-  
+    width: 100%;
+
     overflow-y: scroll;
+
+    /* TODO: Add styling to hide the scrollbar. */
   
     background-color: var(--blue);
     border: 2px solid var(--orange);
     border-radius: 5px;
-}
 
-#terminal-content {
-    display: flex;
-    flex-direction: column;
-  
-    /* TODO: Add styling to hide the scrollbar. */
-  
-    color: var(--orange);
-  }
+    font-family: 'Courier New', monospace;
+}

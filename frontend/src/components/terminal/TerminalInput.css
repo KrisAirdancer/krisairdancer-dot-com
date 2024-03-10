@@ -1,0 +1,12 @@
+#input-symbol {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* TODO: Style the cursor of the input field. */
+input {
+    all: unset;
+
+    font-weight: bold;
+    color: var(--tan);
+}
