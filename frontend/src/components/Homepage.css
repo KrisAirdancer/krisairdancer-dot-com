@@ -1,0 +1,13 @@
+main {
+}
+
+#terminal-content {
+}
+
+#terminal-banner {
+  white-space: pre;
+  color: var(--orange);
+
+  font-family: monospace;
+}
+
