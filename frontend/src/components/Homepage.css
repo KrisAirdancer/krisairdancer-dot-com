@@ -1,13 +1,6 @@
 main {
+  margin: 0;
+  padding: 5% 5% 0 5%;
+
+  background-color: var(--dark-blue);
 }
-
-#terminal-content {
-}
-
-#terminal-banner {
-  white-space: pre;
-  color: var(--orange);
-
-  font-family: monospace;
-}
-

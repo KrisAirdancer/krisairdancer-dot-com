@@ -1,8 +1,11 @@
 :root {
   --blue: #122D4A;
   --orange: #FFA366;
+  --dark-blue: #0b1b2c;
 }
 
 body {
-  background-color: var(--blue);
+  margin: 0;
+
+  background-color: var(--dark-blue);
 }
