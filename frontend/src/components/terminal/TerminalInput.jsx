@@ -2,20 +2,17 @@ import { useState } from 'react'
 import './TerminalInput.css'
 import TerminalLeader from "./TerminalLeader"
 
-export default function TerminalInput()
+export default function TerminalInput({ onEnter })
 {
-    let [ userInput, setUserInput ] = useState("help")
+    let [ userInput, setUserInput ] = useState("")
 
     function handleKeyPress(event)
     {
         if (event.key == "Enter")
         {
-            console.log("ENTER")
-            console.log("INPUT: ", userInput)
+            onEnter(userInput)
+            setUserInput("")
         }
-
-        // TODO: I'm going to have to figure out how I want to manage the state of the terminal.
-        // > I'll need to append the appropriate component to the UI with the appropriate state (text) depending on what text is passed in.
     }
 
     return (

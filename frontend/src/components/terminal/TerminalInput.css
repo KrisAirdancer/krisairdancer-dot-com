@@ -4,6 +4,8 @@
 }
 
 /* TODO: Style the cursor of the input field. */
+/* > Cursor should be a block cursor. */
+/* Input field should focus when any part of the terminal is clicked on. */
 input {
     all: unset;
 
