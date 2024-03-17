@@ -10,12 +10,19 @@ export default function Terminal()
 
     function handleOutputChange(userInput)
     {
-        setTerminalOutput(prevTerminalOutput => {
-            return [
-                ...prevTerminalOutput,
-                userInput
-            ]
-        })
+        if (userInput === 'clear')
+        {
+            setTerminalOutput([])
+        }
+        else
+        {
+            setTerminalOutput(prevTerminalOutput => {
+                return [
+                    ...prevTerminalOutput,
+                    userInput
+                ]
+            })
+        }
     }
 
     return (

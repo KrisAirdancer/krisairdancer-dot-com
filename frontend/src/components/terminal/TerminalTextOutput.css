@@ -1,3 +1,14 @@
 #terminal-text-output {
     white-space: pre;
+    font-weight: bold;
+}
+
+#input-symbol {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#input-content {
+    font-weight: bold;
+    color: var(--tan);
 }
