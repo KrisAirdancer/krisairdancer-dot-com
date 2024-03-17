@@ -14,9 +14,9 @@ export default function TerminalOutput({ command })
             case "help":
                 return <TerminalTextOutput content={COMMANDS.help} userInput={'help'} />
             case "whois":
-                return <TerminalTextOutput content={COMMANDS.about} userInput={'whois'} />
+                return <TerminalTextOutput content={COMMANDS.whois} userInput={'whois'} />
             default:
-                return <TerminalTextOutput content={`command not found: '${command}'`} />
+                return <TerminalTextOutput content={`command not found: '${command}'`} userInput={command} />
         }
     }
 
@@ -37,7 +37,7 @@ let COMMANDS = {
             "The Portfolio of Chris Marston\n" +
             `v${siteVersion}\n\n` +
             "Type 'help' for a list of available commands",
-    about: "I'm Chris and welcome to my website!\n" +
+    whois: "I'm Chris and welcome to my website!\n" +
            "I'm a computer science student in the United States.\n" +
            "When I'm not studying for exams, you'll likely find me\n" +
            "at my keyboard working on a project, climbing, running,\n" +
